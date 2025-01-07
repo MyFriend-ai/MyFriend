@@ -1,0 +1,19 @@
+// data/tracking.json
+{
+    "dailyData": [
+        {
+            "date": "2025-01-07",
+            "totalVisits": 0,
+            "variantA": {
+                "visits": 0,
+                "clicks": 0,
+                "testDescription": "Versão original"
+            },
+            "variantB": {
+                "visits": 0,
+                "clicks": 0,
+                "testDescription": "Nova versão"
+            }
+        }
+    ]
+}

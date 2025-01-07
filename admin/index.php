@@ -1,4 +1,8 @@
-<!-- admin/index.php -->
+// admin/index.php
+<?php
+$config = json_decode(file_get_contents('../data/ab-config.json'), true);
+$tracking = json_decode(file_get_contents('../data/tracking.json'), true);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,8 +51,7 @@
             <th>Teste B</th>
         </tr>
         <?php
-        $data = json_decode(file_get_contents('../data/tracking.json'), true);
-        foreach ($data['dailyData'] as $day) {
+        foreach ($tracking['dailyData'] as $day) {
             $convA = $day['variantA']['visits'] > 0 ? 
                 round(($day['variantA']['clicks'] / $day['variantA']['visits']) * 100, 1) : 0;
             $convB = $day['variantB']['visits'] > 0 ? 
