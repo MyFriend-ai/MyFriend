@@ -124,10 +124,11 @@
         }
 
         .whatsapp-preview {
-            width: 340px;
+            width: 480px;
             height: auto;
             align-self: center;
             margin-left: -2rem;
+            margin-top: -15rem;
         }
 
         .cta-button {
@@ -2315,8 +2316,11 @@
         }
 
         .whatsapp-preview {
-            width: 300px;
-            margin: 0 auto -4rem;
+            width: 500px; /* Tamanho ideal no desktop */
+            max-width: 100%; /* No mobile, usa toda a largura possível */
+            margin: 0 auto -4rem; /* Mantém a centralização */
+            display: block;
+            object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
         }
 
         .cta-button {
@@ -2837,7 +2841,7 @@
             </div>
     
             <div class="whatsapp-preview">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/018/742/979/small_2x/hand-holding-mobile-phone-with-blank-transparent-screen-and-background-file-png.png" 
+                <img src="https://github.com/MyFriend-ai/MyFriend/blob/main/assets/images/landing-pages/Phone%20Mockup%20PSD%20LOW.png?raw=true" 
                      alt="MyFriend no WhatsApp"
                      loading="lazy">
             </div>
