@@ -1,0 +1,152 @@
+<!-- V1.0 - ThankYou page MyFriend -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFriend - Obrigado!</title>
+    <style>
+        /* Reset básico e configs globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            background: linear-gradient(135deg, #000 0%, #111 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+         /* Container responsivo */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(2rem, 5vw, 6rem); 
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1rem;
+        }
+
+        .thank-you-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            border: 1px solid rgba(250, 204, 21, 0.2);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .celebration-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+         .celebration-title .highlight {
+            display: block;
+            background: linear-gradient(135deg, #facc15, #eab308);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .thank-you-text {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #a1a1aa;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+            max-width: fit-content;
+            margin: 0 auto;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .thank-you-card {
+                padding: 2rem 1rem;
+                border-radius: 1.5rem;
+                margin: 0 1rem;
+            }
+
+            .celebration-title {
+                font-size: clamp(1.75rem, 5vw, 2.5rem);
+            }
+
+            .thank-you-text {
+                font-size: clamp(1rem, 3vw, 1.25rem);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="thank-you-card">
+                <h1 class="celebration-title">
+                    <span class="highlight">SHEEEESH!</span> You're him! 🔥
+                </h1>
+                <h2 class="celebration-title">
+                    Welcome to the brotherhood, global boss!
+                </h2>
+                <p class="thank-you-text">
+                    Sua compra tá mais que aprovada! Em até 5 minutinhos eu vou te chamar no WhatsApp pra começar nossa epic journey rumo ao LEVEL UP⬆️.
+                    <br><br>
+                    (Se eu não chamar, deve ser porque tô tomando café... Brincadeira! Click no botão abaixo que a gente resolve rapidinho)
+                </p>
+                <button class="cta-button" onclick="window.location.href='https://wa.me/5511993259443?text=Opa%2C+meu+par%C3%A7a%2C+eu+acabei+de+comprar+o+MyFriend+e+quero+come%C3%A7ar+logo!+%C2%A0%F0%9F%91%8D'">
+                    Me chama lá, friend
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        MyFriend® - 2024. All rights reserved.
+    </footer>
+</body>
+</html>
