@@ -10,7 +10,7 @@ function getCurrentDate() {
   // Função para buscar os dados já existentes do JSON
   async function fetchData() {
     try {
-      const response = await fetch('data.json');
+        const response = await fetch('https://myfriend.app.br/data/data.json');
       if (!response.ok) {
         console.log("fetchData: erro no fetch data.json - ", response.status, response.statusText)
         return [];
