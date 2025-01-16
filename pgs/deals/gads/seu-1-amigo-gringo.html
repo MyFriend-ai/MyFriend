@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFriend - Seu Best Gringo Friend de Bolso</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0F0F0F;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(-100%);
+            z-index: 1000;
+        }
+
+        .navbar.visible {
+            opacity: 1;
+            transform: translateY(0);
+            background: rgba(15,15,15,0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            padding: 2rem 0;
+            background: linear-gradient(180deg, #0F0F0F 0%, #1A1A1A 100%);
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-logo {
+            width: 100%;
+            max-width: 200px;
+            margin: 2rem auto;
+            display: block;
+        }
+
+        /* ESTILO PARA FAZER HIGHLIGHTS PADRÃO */
+        .highlight {
+            color: #FFD700; /* Amarelo puro */
+            background: none; /* Remove o gradiente */
+            -webkit-background-clip: border-box; /* Evita conflito */
+        }
+
+        .main-title {
+            font-size: clamp(2rem, 10vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #d8d8d8 100%);
+            -webkit-background-clip: text;
+            color: transparent; /* Necessário para o gradiente funcionar */
+            text-align: center;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            text-align: center;
+            color: #E0E0E0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.5;
+        }
+
+        .phone-mockup {
+            width: 90%;
+            max-width: 300px;
+            margin: 6rem auto;
+            display: block;
+            filter: drop-shadow(0 20px 40px rgba(255,215,0,0.15));
+        }
+
+        .cta-button {
+            background: #FFD700;
+            color: #000;
+            font-weight: 700;
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            padding: 1em 2em;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            display: block;
+            margin: 2rem auto;
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 20px rgba(255,215,0,0.25);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 0 1rem;
+        }
+
+        .trust-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .trust-number {
+            color: #0F0F0F;
+            font-weight: 800;
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-text {
+            color: #666;
+            font-size: clamp(0.875rem, 3vw, 1rem);
+            font-weight: 500;
+        }
+
+        .contrast-section {
+            background: #FFD700;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .contrast-title {
+            font-size: clamp(1.5rem, 6vw, 2.5rem);
+            color: #0F0F0F;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contrast-text {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: #0F0F0F;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #pricing > div > div {
+            display: grid;
+            grid-template-columns: 1fr; /* Garante que no mobile seja 1 coluna */
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .brand-logo {
+                max-width: 150px;
+                margin: 1.5rem auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .trust-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            #pricing > div > div {
+    grid-template-columns: repeat(2, 1fr);
+            }
+                #pricing > div > div > div:nth-child(2) {
+                transform: scale(1.05);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
+                 alt="MyFriend Logo" 
+                 style="height: 32px;">
+            <button class="cta-button" style="margin: 0; padding: 0.5em 1em; font-size: 0.875rem;">
+                TESTE AGORA
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <!-- Logo + Brand -->
+            <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
+                 alt="MyFriend Logo"
+                 class="brand-logo">
+            <p style="font-family: 'Fredoka One', cursive; color: #FFD700; text-align: center; font-size: clamp(1rem, 4vw, 1.5rem);">
+                MyFriend®
+            </p>
+            
+            <!-- Main Content -->
+            <h1 class="main-title">
+                Seu 1º <span class="highlight">Amigo Gringo</span> de Bolso
+            </h1>
+            <p class="subtitle">
+                Aprenda inglês em <u>5 minutos por dia</u> conversando sobre o que você ama
+            </p>
+
+            <!-- CTA -->
+            <button class="cta-button">
+                COMEÇAR AGORA
+            </button>
+
+
+            <!-- Trust Badges -->
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <h3 class="trust-number">1.000+</h3>
+                    <p class="trust-text">Profissionais transformados em cidadãos globais</p>
+                </div>
+                <div class="trust-card">
+                    <h3 class="trust-number">5.0 <br>★★★★</h3>
+                    <p class="trust-text">Avaliado no Google Reviews</p>
+                </div>
+                <div class="trust-card">
+                    <h3 class="trust-number">#1</h3>
+                    <p class="trust-text">Eleita melhor IA de Idiomas do Brasil em 2024 <br><br> <em>(Pelo especialista nº1 em IA no Brasil)</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: Contraste -->
+    <section style="width: 100%; background-color: #FFD700; padding: 2rem 1rem;">
+        <div style="max-width: 1140px; margin: 0 auto; display: flex; flex-direction: column-reverse; gap: 2rem; padding: 0 1rem; box-sizing: border-box;">
+            <!-- Coluna de Texto (Esquerda no Desktop) -->
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <!-- Headline Principal -->
+                <div style="margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 2.5rem; line-height: 1;">✋🏼</span>
+                        <h2 style="font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 800; line-height: 1.2; color: #000000; margin: 0;">
+                            Chega de apps<br>
+                            rasos e cursos<br>
+                            caros <u>sem garantia de virar fluente</u>
+                        </h2>
+                    </div>
+                    
+                    <!-- Texto de Suporte -->
+                    <p style="font-size: 1.25rem; line-height: 1.6; color: #000000; margin: 1.5rem 0; text-align: left;">
+                        Finalmente aprenda <strong>conversar em inglês em até 90 dias</strong> tendo um brother 24/7 que não fica de <em>"apples e bananas",</em> 
+                        prepara você pra <strong>CONVERSAS REAIS</strong> falando sobre o que VOCÊ AMA.
+                    </p>
+                </div>
+
+                <!-- Botão CTA -->
+                <button style="background: #000000; color: #FFD700; font-weight: 700; font-size: 1.25rem; padding: 1em 2em; border-radius: 12px; border: none; cursor: pointer; transition: transform 0.2s ease; align-self: flex-start; max-width: 100%;" 
+                        onmouseover="this.style.transform='translateY(-2px)'" 
+                        onmouseout="this.style.transform='translateY(0)'">
+                    COMECE SUA JORNADA GLOBAL
+                </button>
+            </div>
+
+            <!-- Coluna da Imagem (Direita no Desktop) -->
+            <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
+                <img src="https://github.com/MyFriend-ai/MyFriend/blob/main/assets/images/landing-pages/Phone%20Mockup%20LOW.png?raw=true"
+                    alt="MyFriend App Demo"
+                    style="width: 100%; max-width: 280px; height: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));">
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 4rem 1rem; color: white; position: relative; overflow: hidden;">
+        <!-- Background Glow -->
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+
+        <!-- Container Principal -->
+        <div style="max-width: 1140px; margin: 0 auto; width: 100%;">
+            <!-- Cards Container - Grid responsivo -->
+            <div style="display: grid;  gap: 2rem; width: 100%; margin: 0 auto; max-width: 1140px; padding: 0 1rem;">
+                
+                <!-- BASIC PLAN -->
+                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease; width: 100%; text-align: center;">
+                    <!-- Badge -->
+                    <div style="background: rgba(255, 255, 255, 0.1); color: #a1a1aa; font-size: 0.875rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 999px; display: inline-block; margin-bottom: 1rem;">
+                        STARTER PACK
+                    </div>
+                    
+                    <!-- Título -->
+                    <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                        <span>🤓</span>
+                        BASIC FRIEND
+                    </h3>
+
+                    <!-- Preço -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 0.25rem;">
+                            <span style="font-size: 1.5rem; font-weight: 600;">R$</span>
+                            <span style="font-size: 4rem; font-weight: 900; line-height: 1;">29</span>
+                            <span style="font-size: 1.5rem; font-weight: 600;">,90</span>
+                            <span style="color: #a1a1aa; margin-left: 0.5rem;">/mês</span>
+                        </div>
+                        <span style="font-size: 0.875rem; color: #a1a1aa;">*preço de 1 café/dia</span>
+                    </div>
+
+                    <!-- Features -->
+                    <div style="margin: 2rem 0; text-align: left;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; margin-bottom: 0.5rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
+                            <span>💬</span>
+                            <span style="color: #a1a1aa;">10 mensagens por dia</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; margin-bottom: 0.5rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
+                            <span>🎯</span>
+                            <span style="color: #a1a1aa;">Profile Analysis básico</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; margin-bottom: 0.5rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
+                            <span>🎮</span>
+                            <span style="color: #a1a1aa;">2 Missões diárias</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; margin-bottom: 0.5rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
+                            <span>🏆</span>
+                            <span style="color: #a1a1aa;">Conquistas básicas</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <button onclick="window.location.href='https://pay.kirvano.com/50cd2b3c-2bf5-435c-b834-e68c494a7fc1';" 
+                            style="width: 100%; background: rgba(255, 255, 255, 0.1); color: white; padding: 1.5rem; border-radius: 1rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s ease; margin-top: 1rem;">
+                        Começar Jornada ➡️
+                    </button>
+
+                    <div style="text-align: center; color: #a1a1aa; font-size: 0.875rem; margin-top: 1rem;">
+                        (*Ideal para testar o sistema)
+                    </div>
+                </div>
+
+                <!-- PRO PLAN -->
+                <div style="background: rgba(250, 204, 21, 0.1); border-radius: 1.5rem; padding: 2rem; border: 2px solid #facc15; transition: transform 0.3s ease; width: 100%; position: relative; box-shadow: 0 8px 32px rgba(250, 204, 21, 0.1); text-align: center; @media (min-width: 768px) { transform: scale(1.05); }">
+                    <!-- Badge Promotion -->
+                    <div style="position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); background: #facc15; color: black; font-weight: 800; padding: 0.75rem 1.5rem; border-radius: 999px; white-space: nowrap; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="animation: flame 1s infinite;">🔥</span> MAIS VENDIDO <span style="animation: flame 1s infinite;">🔥</span>
+                    </div>
+
+                    <!-- Título PRO -->
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
+                        <h3 style="font-size: 1.5rem; font-weight: 800;">
+                            <span>👑</span>
+                            MYFRIEND
+                        </h3>
+                        <span style="background: linear-gradient(135deg, #facc15, #eab308); padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 800; font-size: 0.875rem; color: black;">PRO</span>
+                    </div>
+
+                    <!-- Preço PRO -->
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <div style="margin-bottom: 0.5rem;">
+                            <span style="text-decoration: line-through; color: #a1a1aa;">R$79,90</span>
+                            <span style="background: #dc2626; color: white; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.75rem; margin-left: 0.5rem;">ECONOMIZE 50%</span>
+                        </div>
+                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 0.25rem;">
+                            <span style="font-size: 1.5rem; font-weight: 600;">R$</span>
+                            <span style="font-size: 4rem; font-weight: 900; line-height: 1;">39</span>
+                            <span style="font-size: 1.5rem; font-weight: 600;">,90</span>
+                            <span style="color: #a1a1aa; margin-left: 0.5rem;">/mês</span>
+                        </div>
+                        <span style="font-size: 0.875rem; color: #a1a1aa;">*plano trimestral</span>
+                    </div>
+
+                    <!-- Features PRO -->
+                    <div style="margin: 2rem 0; text-align: left;">
+                        <div style="color: #facc15; font-weight: 700; margin-bottom: 1rem; text-align: left;">
+                            🌟 FEATURES EXCLUSIVAS PRO:
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 0.5rem; background: rgba(255, 255, 255, 0.02);">
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <span>💬</span>
+                                <span style="color: white;">Chat ILIMITADO 24/7</span>
+                            </div>
+                            <span style="background: rgba(250, 204, 21, 0.2); color: #facc15; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.75rem; white-space: nowrap;">+500% interação</span>
+                        </div>
+                    </div>
+
+                    <!-- Timer e Spots -->
+                    <div style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.2), rgba(234, 179, 8, 0.2)); border-radius: 1rem; padding: 1rem; margin: 2rem 0; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span>⏰</span>
+                            <span class="countdown" style="font-weight: 800; color: #facc15;">23:59:59</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span>Últimas</span>
+                            <span style="font-weight: 800; color: #facc15;">17</span>
+                            <span>vagas</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button PRO -->
+                    <button onclick="window.location.href='https://pay.kirvano.com/98dd6353-1008-4a83-bb81-aad80ac1fe06';" 
+                            style="width: 100%; background: linear-gradient(135deg, #facc15, #eab308); color: black; padding: 1.5rem; border-radius: 1rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;">
+                        <span style="font-size: 1.25rem;">VIRAR LEGEND AGORA</span>
+                        <span style="font-size: 0.875rem; opacity: 0.9;">Teste por 14 dias</span>
+                    </button>
+
+                    <!-- Social Proof -->
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.75rem; flex-wrap: wrap; justify-content: center;">
+                        <div style="display: flex; align-items: center; min-width: fit-content;">
+                            <img src="https://media.licdn.com/dms/image/v2/C4D03AQGz6Suv4F5SzA/profile-displayphoto-shrink_200_200/0/1634652246060?e=2147483647&v=beta&t=LdWZlgIG-1Mm18DCfVvpi2RV18TJtwwRYgSu1yV7PD8" 
+                                alt="User 1" 
+                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 3;">
+                            <img src="https://i1.rgstatic.net/ii/profile.image/11431281229012838-1710275282413_Q512/Rafael-Pereira-Da-Silva.jpg" 
+                                alt="User 2" 
+                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 2;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaSWsaIU_3oHiwwOX9DonH1EzRKuKzlpaXmg&s" 
+                                alt="User 3" 
+                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 1;">
+                            <span style="width: 32px; height: 32px; background: #facc15; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem;">+127</span>
+                        </div>
+                        <span style="font-size: 0.875rem; color: #a1a1aa; text-align: center;">pessoas escolheram LEGEND hoje</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- Script desktop Seção CONTRASTE -->
+    <script>
+    function adjustLayout() {
+        const section = document.querySelector('section[style*="background-color: #FFD700"]');
+        if (!section) return;
+        
+        const container = section.querySelector('div[style*="max-width: 1140px"]');
+        if (!container) return;
+        
+        if (window.innerWidth >= 768) {
+            container.style.flexDirection = 'row';
+            container.style.padding = '4rem 2rem';
+            
+            const img = container.querySelector('img');
+            if (img) {
+                img.style.maxWidth = '400px';
+            }
+        } else {
+            container.style.flexDirection = 'column-reverse';
+            container.style.padding = '2rem 1rem';
+            
+            const img = container.querySelector('img');
+            if (img) {
+                img.style.maxWidth = '280px';
+            }
+        }
+    }
+    
+    // Executa no carregamento e no redimensionamento
+    window.addEventListener('load', adjustLayout);
+    window.addEventListener('resize', adjustLayout);
+    </script>
+    
+    <!-- Navbar visibility Script -->
+    <script>
+        // Navbar visibility
+        const navbar = document.getElementById('navbar');
+        
+        // Debounce function for better performance
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Handle scroll
+        const handleScroll = debounce(() => {
+            if (window.scrollY > 300) {
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('visible');
+            }
+        }, 10);
+
+        window.addEventListener('scroll', handleScroll);
+        
+        // Handle clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', () => {
+                console.log('CTA clicked!');
+                // Add your click handling here
+            });
+        });
+    </script>
+
+
+    <!-- SEÇÃO: Footer MyFriend -->
+    <footer style="background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%); padding: 40px 20px; width: 100%; position: relative; font-family: 'Inter', sans-serif;">
+        <!-- Borda amarela superior -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, rgba(255,193,7,0.2) 0%, rgba(255,193,7,1) 50%, rgba(255,193,7,0.2) 100%);"></div>
+        
+        <!-- Container principal -->
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <!-- Logo e nome -->
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
+                    alt="MyFriend Logo" 
+                    style="height: 40px; width: auto; @media (max-width: 768px) {height: 30px;}"
+                >
+                <span style="color: #ffffff; font-size: 24px; font-weight: 600; @media (max-width: 768px) {font-size: 20px;}">
+                    MyFriend<sup style="font-size: 12px;">®</sup>
+                </span>
+            </div>
+
+            <!-- Links legais -->
+            <div style="display: flex; gap: 30px; margin-bottom: 20px; @media (max-width: 768px) {flex-direction: column; align-items: center; gap: 15px;}">
+                <a href="https://myfriend.app.br/pgs/legal/privacy-policy" 
+                style="color: #9e9e9e; text-decoration: none; font-size: 14px; transition: color 0.3s ease; &:hover {color: #ffffff;}"
+                >
+                    Privacy Policy
+                </a>
+                <a href="https://myfriend.app.br/pgs/legal/terms-of-use"
+                style="color: #9e9e9e; text-decoration: none; font-size: 14px; transition: color 0.3s ease; &:hover {color: #ffffff;}"
+                >
+                    Terms of Use
+                </a>
+                <a href="https://myfriend.app.br/pgs/legal/refund-policy"
+                    style="color: #9e9e9e; text-decoration: none; font-size: 14px; transition: color 0.3s ease; &:hover {color: #ffffff;}"
+                >
+                    Refund Policy
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div style="color: #6e6e6e; font-size: 12px; text-align: center;">
+                MyFriend<sup style="font-size: 8px;">®</sup> - 2024. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
