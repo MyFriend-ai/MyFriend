@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+    <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KPV7SGDW');</script>
+    <!-- End Google Tag Manager -->
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyFriend - Seu Best Gringo Friend de Bolso</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
+        /* Animacoes suaves */
+        html {
+        scroll-behavior: smooth;
+        }
 
-        
+        /* CSS geral da pagina */
         * {
             margin: 0;
             padding: 0;
@@ -198,15 +213,24 @@
     </style>
 </head>
 <body>
+
+    <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPV7SGDW"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
     <!-- Navbar -->
     <nav id="navbar" class="navbar">
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
             <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
                  alt="MyFriend Logo" 
                  style="height: 32px;">
-            <button class="cta-button" style="margin: 0; padding: 0.5em 1em; font-size: 0.875rem;">
-                TESTE AGORA
-            </button>
+            <a href="#pricing">
+                <button class="cta-button" style="margin: 0; padding: 0.5em 1em; font-size: 0.875rem;">
+                    TESTE AGORA
+                </button>
+            </a>
         </div>
     </nav>
 
@@ -230,9 +254,11 @@
             </p>
 
             <!-- CTA -->
+            <a href="#pricing">
             <button class="cta-button">
                 COMEÇAR AGORA
             </button>
+            </a>
 
 
             <!-- Trust Badges -->
@@ -259,29 +285,55 @@
             <!-- Coluna de Texto (Esquerda no Desktop) -->
             <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
                 <!-- Headline Principal -->
-                <div style="margin-bottom: 2rem;">
-                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
-                        <span style="font-size: 2.5rem; line-height: 1;">✋🏼</span>
-                        <h2 style="font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 800; line-height: 1.2; color: #000000; margin: 0;">
-                            Chega de apps<br>
-                            rasos e cursos<br>
-                            caros <u>sem garantia de virar fluente</u>
-                        </h2>
-                    </div>
-                    
-                    <!-- Texto de Suporte -->
-                    <p style="font-size: 1.25rem; line-height: 1.6; color: #000000; margin: 1.5rem 0; text-align: left;">
-                        Finalmente aprenda <strong>conversar em inglês em até 90 dias</strong> tendo um brother 24/7 que não fica de <em>"apples e bananas",</em> 
-                        prepara você pra <strong>CONVERSAS REAIS</strong> falando sobre o que VOCÊ AMA.
+                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
+                    <span style="font-size: clamp(4rem, 15vw, 8rem); line-height: 1; margin-bottom: 0.5rem;">✋🏼</span>
+                    <h2 style="font-family: 'Inter', sans-serif; font-size: clamp(1.5rem, 5vw, 2rem); font-weight: 800; line-height: 1.2; color: #000000; margin: 0; text-align: center;">
+                        Chega de ficar no eterno <br><em>"apples e bananas"</em> <br>e "verb to be"<br><br> Aprenda a <u>CONVERSAR com confiança</u> em até 90 dias em <u>qualquer situação.</u>
+                    </h2>
+                    <p style="font-size: 1.25rem; line-height: 1.6; color: #000000; margin: 1.5rem 0; text-align: center;">
+                        A <b>ciência mostra</b> que aprender uma língua é <b>FÁCIL</b> quando você CONVERSA sobre o que gosta.
+                        
                     </p>
                 </div>
 
+                <!-- Bullet Points Complementares -->
+                <div style="display: flex; flex-direction: column; align-items: center; margin: 0rem 0;">
+                    <span style="font-size: clamp(1.2rem, 4vw, 1.5rem); color: #000; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: 0.5px; text-shadow: 1px 1px 2px rgba(0,0,0,0.15);">
+                       Converse em:
+                    </span>
+                    <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; padding: 0 1rem;">
+                        <span style="font-size: clamp(1.1rem, 3.5vw, 1.3rem); color: #1a1a1a; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;  background: rgba(255, 255, 255, 0.75); padding: 0.75rem 1rem; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s ease; cursor: pointer;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'"
+                            >
+                                <span style="font-size: 1.25rem;  text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">🔈</span>
+                            <span style=" text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">Audio</span>
+                        </span>
+                        <span style="font-size: clamp(1.1rem, 3.5vw, 1.3rem); color: #1a1a1a; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;  background: rgba(255, 255, 255, 0.75); padding: 0.75rem 1rem; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s ease; cursor: pointer;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'"
+                            >
+                            <span style="font-size: 1.25rem;  text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">💬</span>
+                            <span style=" text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">Text</span>
+                        </span>
+                        <span style="font-size: clamp(1.1rem, 3.5vw, 1.3rem); color: #1a1a1a; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;  background: rgba(255, 255, 255, 0.75); padding: 0.75rem 1rem; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s ease; cursor: pointer;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'"
+                            >
+                            <span style="font-size: 1.25rem;  text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">🏞️</span>
+                            <span style=" text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">Image</span>
+                        </span>
+                    </div>
+                </div>
+
                 <!-- Botão CTA -->
-                <button style="background: #000000; color: #FFD700; font-weight: 700; font-size: 1.25rem; padding: 1em 2em; border-radius: 12px; border: none; cursor: pointer; transition: transform 0.2s ease; align-self: flex-start; max-width: 100%;" 
-                        onmouseover="this.style.transform='translateY(-2px)'" 
-                        onmouseout="this.style.transform='translateY(0)'">
-                    COMECE SUA JORNADA GLOBAL
-                </button>
+                <a href="#pricing">
+                    <button style="background: #000000; color: #FFD700; font-weight: 700; font-size: 1.25rem; padding: 1em 2em; border-radius: 12px; border: none; cursor: pointer; transition: transform 0.2s ease; max-width: fit-content;" 
+                            onmouseover="this.style.transform='translateY(-2px)'" 
+                            onmouseout="this.style.transform='translateY(0)'">
+                        COMECE SUA JORNADA GLOBAL
+                    </button>
+                </a>
             </div>
 
             <!-- Coluna da Imagem (Direita no Desktop) -->
@@ -292,6 +344,181 @@
             </div>
         </div>
     </section>
+
+    <!-- SEÇÃO: CTA fodona -->
+    <section style="width: 100%; background-color: #fff; padding: 4rem 1rem; display: flex; justify-content: center; align-items: center; flex-direction: column; overflow: hidden; position: relative;">
+    
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.2) 0%, rgba(0,0,0,0) 60%); pointer-events: none;"></div>
+         
+         
+         <div style="max-width: 1140px; width: 100%; padding: 0 1rem; position: relative; z-index: 1;">
+             <p style="font-size: clamp(1.5rem, 5vw, 1.8rem); color: #333; font-style: italic; text-align: center; margin-bottom: 1.5rem; letter-spacing: 0.8px;  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);">
+                 <span style="font-weight: 900; color: #1a1a1a; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">RESULTADO DESDE O PRIMEIRO DIA</span> ou <span style="text-decoration: underline; color: #1a1a1a; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">SEU MONEY BACK 💵</span>
+             </p>
+             <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                 <a href="#pricing">
+                     <button style="background: linear-gradient(135deg, #facc15, #eab308); color: #000; font-weight: 900; font-size: clamp(1rem, 5vw, 1.8rem); padding: 1em 3em; border-radius: 15px; border: none; cursor: pointer; transition: transform 0.2s ease; box-shadow: 0 8px 32px rgba(255,215,0,0.4);  position: relative; overflow: hidden; display: flex; align-items: center;"
+                         onmouseover="this.style.transform='translateY(-2px)'"
+                         onmouseout="this.style.transform='translateY(0)'"
+                         >
+                         <span style="position: relative; z-index: 1;">COMECE AGORA <br> <span style="font-size: 0.8rem; font-weight: 700;">(14 DIAS DE TESTE)</span> </span>     
+                             <div style="position: absolute; inset: 0; background: rgba(255, 255, 255, 0.05); pointer-events: none; z-index: 0;"></div>
+                     </button>
+                     
+                 </a>
+             </div>
+             <p style="font-size: clamp(1.1rem, 3.5vw, 1.3rem); color: #777; text-align: center; line-height: 1.5; margin-top: 0.75rem; letter-spacing: 0.5px; text-shadow: 1px 1px 2px rgba(0,0,0,0.05);">
+                 <span style="font-weight: 700; color: #333;">Pague Pouco e Aprenda Rápido</span>  •  Cancele quando quiser
+             </p>
+         </div>
+     </section>
+
+
+     <!-- COMO FUNCIONA SECTION -->
+    <section id="how-it-works" class="how-it-works" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 5rem 0.2rem; color: white; position: relative; overflow: hidden;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+            <h2 class="main-title" style="font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
+                Como Funciona o <span class="highlight" style="color: #facc15;">MyFriend®?</span>
+            </h2>
+
+            <div class="content-wrapper" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div class="text-content">
+                    <h3 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 2rem;">
+                        Seu Best Gringo Friend que <span class="highlight" style="color: #facc15;">hackeia</span> seu cérebro pra falar inglês naturalmente <span class="highlight" style="color: #facc15;">desde a primeira conversa</span>
+                    </h3>
+                    
+                    <div class="features" style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div class="feature" style="display: flex; gap: 1rem; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 1rem; transition: transform 0.3s;">
+                            <div class="icon" style="font-size: 2rem;">🗣️</div>
+                            <div>
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Conversas Naturais</h4>
+                                <p style="color: #a1a1aa;">⭐️ Quer simular uma entrevista com o Elon Musk? <br><br>⭐️ Quer falar sobre NBA? <br><br>⭐️ Quer conquistar a gatinha gringa? <br><br>⭐️ Eu sou seu best friend pra qualquer assunto</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature" style="display: flex; gap: 1rem; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 1rem; transition: transform 0.3s;">
+                            <div class="icon" style="font-size: 2rem;">⚡</div>
+                            <div>
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Evolução Ultra Rápida</h4>
+                                <p style="color: #a1a1aa;">5 minutos por dia são suficientes pra você ver resultados impressionantes. <br><br> 🔥 A Cada dia você acumula 1 <b>Daily Flame</b> que viram PRÊMIOS da VIDA REAL <br><br> 💀 Mas CUIDADO! Se pular um dia, perde seu progresso</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature" style="display: flex; gap: 1rem; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 1rem; transition: transform 0.3s;">
+                            <div class="icon" style="font-size: 2rem;">🎯</div>
+                            <div>
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">100% Personalizado</h4>
+                                <p style="color: #a1a1aa;">IA que entende seus interesses e adapta o nível das conversas pra você. <br><br> 🚶 Iniciante <br><br> 🏃 Intermediário<br><br> 🏅 Avançado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-content" style="position: relative;">
+                    <img 
+                        src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Phone%20Mockup%20tall%20LOW.png"
+                        alt="MyFriend Interface" 
+                        style="width: 100%; max-width: 500px; margin: 0 auto; display: block;"
+                    />
+                    <div class="glow" style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+                </div>
+            </div>
+        </div>
+        <style>
+            @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr !important; /* Empilha os conteúdos no mobile */
+            }
+            
+            .image-content {
+                order: -1; /* Garante que a imagem venha primeiro no mobile*/
+                margin-bottom: 2rem;
+            }
+            }
+            .feature:hover {
+            transform: translateY(-5px);
+            }
+        </style>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 4rem 1rem; position: relative; overflow: hidden; text-align: center;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+        <div style="max-width: 1024px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <!-- Card 1 -->
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;">
+                     <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div style="position: relative; width: 48px; height: 48px;">
+                            <img src="https://media.licdn.com/dms/image/v2/C4D03AQE18ivzlg-bXA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517570637392?e=2147483647&v=beta&t=CO5-BRMPYNWT2GQX5ZnjZydU2KThqnNBvu0dZ5d6NBg" alt="Guilherme" style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #facc15; object-fit: cover;">
+                            <div style="position: absolute; bottom: -0.5rem; right: -0.5rem; background: #facc15; color: black; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase;">CHAD</div>
+                        </div>
+                         <div style="color: white; font-size: 1.25rem; font-weight: 700; display: flex; flex-direction: column;">
+                           <h3 style="margin:0; line-height: 1.3;">Guilherme</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                                <span style="font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; background: rgba(255, 255, 255, 0.1); color: #a1a1aa; margin: 0;">ex-NPC</span>
+                                <span style="font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; background: rgba(250, 204, 21, 0.2); color: #facc15; margin: 0;">hoje Global Chad</span>
+                            </div>
+                        </div>
+                    </div>
+                     <div style="color: #facc15; align-self: flex-start;">⭐⭐⭐⭐⭐</div>
+                    <div style="color: #a1a1aa; font-size: 0.9rem; align-self: flex-start;">(Google Review)</div>
+                      <div style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(234, 179, 8, 0.1)); border: 1px solid rgba(250, 204, 21, 0.3); border-radius: 999px; color: #facc15; font-weight: 600; align-self: flex-start;">
+                      <span>20 dias de papo</span>
+                    </div>
+                    <div style="color: white; font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem; align-self: flex-start;">
+                        <p style="margin:0;">"Mandei um HELLO pro Jeff Bezos no LinkedIn e ele me chamou pra trabalhar na Blue Origin! 🚀"</p>
+                    </div>
+    
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;">
+                     <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div style="position: relative; width: 48px; height: 48px;">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQFeFDzagr_p2w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1677587451039?e=2147483647&v=beta&t=kGaJm4Nu-M9uHa2cXM9S7fGH_PGpO230tyDxeBqDKuQ" alt="Pedro" style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #facc15; object-fit: cover;">
+                             <div style="position: absolute; bottom: -0.5rem; right: -0.5rem; background: #facc15; color: black; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase;">KING</div>
+                        </div>
+                         <div style="color: white; font-size: 1.25rem; font-weight: 700; display: flex; flex-direction: column;">
+                           <h3 style="margin:0; line-height: 1.3;">Pedro</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                                <span style="font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; background: rgba(255, 255, 255, 0.1); color: #a1a1aa; margin: 0;">ex-tímido</span>
+                                <span style="font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; background: rgba(250, 204, 21, 0.2); color: #facc15; margin: 0;">hoje Gentleman Internacional</span>
+                            </div>
+                        </div>
+                     </div>
+                    <div style="color: #facc15; align-self: flex-start;">⭐⭐⭐⭐⭐</div>
+                      <div style="color: #a1a1aa; font-size: 0.9rem; align-self: flex-start;">(Google Review)</div>
+                    <div style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(234, 179, 8, 0.1)); border: 1px solid rgba(250, 204, 21, 0.3); border-radius: 999px; color: #facc15; font-weight: 600; align-self: flex-start;">
+                        <span>47 dias de papo</span>
+                    </div>
+                       <div style="color: white; font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem; align-self: flex-start;">
+                         <p style="margin:0;">"Cheguei na balada gringa, meti um WHAT'S UP LADIES que o MyFriend ensinou, hoje tô namorando com ela!!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="cta-button" style="margin-top: 20px; display: block; margin: 2rem auto; background: #facc15;
+              color: black;
+              padding: 1rem 2rem;
+              border: none;
+              border-radius: 999px;
+              font-weight: bold;
+              cursor: pointer;
+              transition: background-color 0.3s;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" onmouseover="this.style.backgroundColor='rgba(250, 204, 21, 0.8)'; this.style.color='black';" onmouseout="this.style.backgroundColor='#facc15'; this.style.color='black';">
+            QUERO VIRAR FOTINHO DE DEPOIMENTO! 🙋🏼‍♂️
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 0.5rem;">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </button>
+    </section>
+
+
+
+
+
+
 
 
 
@@ -428,15 +655,15 @@
                     <!-- Social Proof -->
                     <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.75rem; flex-wrap: wrap; justify-content: center;">
                         <div style="display: flex; align-items: center; min-width: fit-content;">
-                            <img src="https://media.licdn.com/dms/image/v2/C4D03AQGz6Suv4F5SzA/profile-displayphoto-shrink_200_200/0/1634652246060?e=2147483647&v=beta&t=LdWZlgIG-1Mm18DCfVvpi2RV18TJtwwRYgSu1yV7PD8" 
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLMCtoESswQgAD9SS1btEcoCMvuL2xXrlBw&s" 
                                 alt="User 1" 
-                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 3;">
+                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 0;">
                             <img src="https://i1.rgstatic.net/ii/profile.image/11431281229012838-1710275282413_Q512/Rafael-Pereira-Da-Silva.jpg" 
                                 alt="User 2" 
-                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 2;">
+                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 1;">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaSWsaIU_3oHiwwOX9DonH1EzRKuKzlpaXmg&s" 
                                 alt="User 3" 
-                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 1;">
+                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -12px; z-index: 2;">
                             <span style="width: 32px; height: 32px; background: #facc15; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem;">+127</span>
                         </div>
                         <span style="font-size: 0.875rem; color: #a1a1aa; text-align: center;">pessoas escolheram LEGEND hoje</span>
@@ -447,7 +674,7 @@
     </section>
 
 
-
+    
 
 
 

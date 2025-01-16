@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFriend Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #0F0F0F;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+             -moz-osx-font-smoothing: grayscale;
+        }
+        
+       /* NAV */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(-100%);
+            z-index: 1000;
+            background: white;
+             border-bottom: 1px solid #f0f0f0;
+        }
+
+        .navbar.visible {
+            opacity: 1;
+            transform: translateY(0);
+            background: white;
+            backdrop-filter: blur(10px);
+             border-bottom: 1px solid #f0f0f0;
+
+        }
+            .nav-container {
+                display: flex;
+                align-items: center;
+                width: 90%;
+                max-width: 1140px;
+                margin: 0 auto;
+                padding: 0 15px;
+            }
+
+        .brand-logo {
+            width: 100%;
+            max-width: 150px;
+            margin: 1rem auto;
+            display: block;
+        }
+
+           .cta-button {
+            background: #FFD700;
+            color: #000;
+            font-weight: 700;
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            padding: 0.8em 1.6em;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            margin: 0;
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 20px rgba(255,215,0,0.25);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+         /*HEADER*/
+        .blog-header{
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 3rem;
+        }
+
+        /* BANNER*/
+        .post-banner {
+             width: 90%;
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5em;
+        }
+
+        .post-banner--header {
+             text-align: center;
+             margin: 0;
+            padding: 1em 0;
+        }
+        .bannerCaption{
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 0.5em;
+        }
+        .post-title {
+            font-size: clamp(2rem, 7vw, 3rem);
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 0.5em;
+             line-height: 1.2;
+           text-align: center;
+        }
+       .post-banner--image {
+           margin-top: 1.5em;
+           text-align: center;
+
+        }
+        .post-banner--image img {
+            max-width: 100%;
+             max-height: 450px;
+             display: inline-block;
+             border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+           .divider {
+            display: inline-block;
+            margin: 0 0.5em;
+            vertical-align: middle;
+        }
+             .divider svg {
+            width: 3px;
+            height: 13px;
+             display: block;
+        }
+        .divider path{
+            stroke: #E5E5E5;
+             stroke-width: 2;
+            stroke-linecap: round;
+        }
+        /* MAIN SECTION */
+         main{
+             width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+             padding: 1rem;
+        }
+        .section-divider {
+          border-bottom: 1px solid #f0f0f0;
+           margin: 1.5rem 0;
+        }
+
+            .post-content p{
+            color: #333;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            }
+
+        /* AD SECTION*/
+
+        .ad-container{
+             background: #fafafa;
+            border: 1px solid #eee;
+            padding: 1em;
+            text-align: center;
+            margin: 1em 0;
+        }
+          .ad-container p {
+            color: #777;
+            font-size: 0.9em;
+            margin: 0;
+           font-style: italic;
+        }
+         .ad-container img {
+           max-width: 80%;
+           height: auto;
+            border: 1px solid #ccc;
+             display: inline-block;
+              margin: 1em auto;
+        }
+        
+        /* TAGS CONTAINER */
+        .tags-container{
+            display: flex;
+            flex-direction: column;
+             width: 90%;
+             max-width: 800px;
+            margin: 1rem auto;
+        }
+          .tags-title{
+            color: #999;
+            font-size: 0.875rem;
+            font-weight: 700;
+             margin-bottom: 0.5rem;
+        }
+
+        .tags-list{
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+         .tag-item a{
+              background: rgba(250, 204, 21, 0.1);
+            color: #facc15;
+           font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+             padding: 0.5rem 1rem;
+             display: inline-flex;
+        }
+        
+          /* SHARE CONTAINER */
+       .social-share{
+            display: flex;
+            flex-direction: column;
+             width: 90%;
+             max-width: 800px;
+            margin: 1rem auto;
+        }
+        .social-share .title{
+             color: #999;
+            font-size: 0.875rem;
+            font-weight: 700;
+             margin-bottom: 0.5rem;
+        }
+
+        .social-share .icon-container{
+            display: flex;
+            gap: 1rem;
+        }
+        .social-share .icon-container a .icon{
+             display: inline-flex;
+             padding: 0.8rem;
+             border-radius: 0.5rem;
+             background: rgba(250, 204, 21, 0.1);
+         }
+          .social-share .icon-container a .icon svg{
+              height: 24px;
+              width: 24px;
+          }
+
+        /* RELATED ARTICLES */
+         .featured-articles .p-sb-b{
+             width: 90%;
+             max-width: 800px;
+             margin: 0 auto;
+             padding: 0 1rem;
+              font-size: 1.2rem;
+            font-weight: 700;
+             color: #999;
+              margin-bottom: 1.5rem;
+        }
+
+         .featured-articles-content{
+             width: 90%;
+             max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+             justify-content: space-between;
+             gap: 2rem;
+               padding: 0 1rem;
+        }
+          .featured-articles-content > div{
+               flex: 1;
+          }
+
+        .featured-card{
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .feature-card--image img {
+            width: 100%;
+             border-radius: 0.5rem;
+        }
+        
+          .featured-card .caption-wrap{
+             color: #999;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+         .featured-card h3{
+           font-size: 1rem;
+           margin: 0;
+           color: #333;
+        }
+
+           /* FOOTER */
+          footer {
+            background: #fff;
+             padding: 40px 20px;
+            width: 100%;
+             position: relative;
+            font-family: 'Roboto', sans-serif;
+        }
+        footer > div {
+            max-width: 1200px;
+            margin: 0 auto;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             gap: 20px;
+            padding: 0 1rem;
+         }
+         footer > div >div:first-child{
+             display: flex;
+             align-items: center;
+              gap: 10px;
+             margin-bottom: 20px;
+         }
+          footer > div > div:first-child img {
+                 height: 40px;
+                  width: auto;
+                 @media (max-width: 768px) {
+                    height: 30px;
+                    }
+          }
+         footer > div > div:first-child span{
+              color: #000000;
+                font-size: 24px;
+                font-weight: 600;
+                 @media (max-width: 768px) {
+                        font-size: 20px;
+                   }
+          }
+
+          footer > div >div:nth-child(2){
+                display: flex;
+                 gap: 30px;
+                margin-bottom: 20px;
+                 @media (max-width: 768px) {
+                    flex-direction: column;
+                     align-items: center;
+                    gap: 15px;
+               }
+           }
+          footer > div >div:nth-child(2) a{
+                 color: #9e9e9e;
+                 text-decoration: none;
+                 font-size: 14px;
+                 transition: color 0.3s ease;
+             }
+             footer > div >div:nth-child(2) a:hover{
+                color: #333;
+            }
+
+         footer > div >div:last-child{
+           color: #6e6e6e;
+             font-size: 12px;
+             text-align: center;
+         }
+
+
+        @media (max-width: 768px) {
+               .featured-articles-content {
+                    flex-direction: column;
+               }
+             .social-share .icon-container{
+                flex-wrap: wrap;
+            }
+           }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar" style="position: fixed; top: 0; left: 0; width: 100%; padding: 1rem; transition: all 0.3s ease;  z-index: 1000; background: white; border-bottom: 1px solid #f0f0f0; opacity: 1; transform: translateY(0);">
+        <div class="nav-container" style="display: flex;
+               align-items: center;
+               width: 90%;
+               max-width: 1140px;
+               margin: 0 auto;
+                padding: 0 15px;
+                justify-content: flex-start;">
+           <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
+                alt="MyFriend Logo" 
+                style="height: 32px;">
+           <span style="font-family: 'Fredoka One', cursive;
+                  color: #FFD700;
+                  margin-left: 10px;
+                   font-size: clamp(1rem, 4vw, 1.5rem);">MyFriend® Blog</span>
+        </div>
+   </nav>
+
+    <!-- Header do Blog Post -->
+   <header class="blog-header" style="margin-top: 5rem;">
+    <div class="post-banner" style="width: 90%; max-width: 1140px; margin: 0 auto; display: flex; flex-direction: column; margin-bottom: 1.5em; padding-top: 5rem;">
+        <div class="post-banner--header" style="text-align: center; margin: 0; padding: 1em 0; margin-top: -2rem;">
+            <h1 class="post-title" style="font-family: 'Fredoka One', cursive; font-size: clamp(2.5rem, 9vw, 4rem); font-weight: 800; background: linear-gradient(135deg, #ffd500 0%, #d5a001 100%); -webkit-background-clip: text; color: transparent; text-align: center; margin-bottom: 0.5em; line-height: 1.2;">
+            Blog Post Title - Make it catchy!
+            </h1>
+        <div class="bannerCaption" style="text-align: center; font-size: 0.9rem; color: #777; margin-bottom: 0.5em; font-family: 'Inter', sans-serif;">
+            <time datetime="2025-01-16" style="font-family: 'Inter', sans-serif;">January 16, 2025</time>
+                <span class="divider" style="display: inline-block; margin: 0 0.5em; vertical-align: middle;"><svg  xmlns="http://www.w3.org/2000/svg" width="3" height="13" viewBox="0 0 3 13" fill="none" style="display: block;"><path d="M1.5 1L1.5 11.7217" stroke="#E5E5E5" stroke-width="2" stroke-linecap="round"></path></svg></span>
+            <span class="author" style="font-family: 'Inter', sans-serif;">By MyFriend</span>
+        </div>
+        <p class="subtitle" style="margin: 0 auto 1em; font-family: 'Inter', sans-serif;; font-size: clamp(1rem, 4vw, 1.5rem);
+    text-align: center;
+    color: #9c9c9c;
+    max-width: 600px;
+    line-height: 1.5;">
+            You've probably heard some languages have hundreds of words for snow— but is it true?
+            </p>
+        </div>
+
+        <div class="post-banner--image" style="margin-top: 1.5em; text-align: center; padding: 0 1rem;">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/048/560/602/small_2x/cheerful-cute-emoji-png.png" alt="Blog Banner Image" style="max-width: 100%;  max-height: 450px; display: inline-block; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        </div>
+        </div>
+    </header>
+
+
+    <!-- Corpo do Blog Post -->
+    <main>
+        <article style="background: #fff; padding: 1em; margin: 0 auto; ">
+            
+
+        <div class="section-divider"></div>
+            <section class="post-content" style="padding: 1em;">
+                <p>
+                    This is the intro paragraph for your blog post, make it catchy and descriptive of the content below.
+                </p>
+                <p>
+                   Then, go into the body of the text here. Talk about the main points you are hoping to convey with the user. This section could have more than one paragraph, as shown in this example!
+                </p>
+
+                <div style="width: 100%; text-align: center; margin-bottom: 1em;">
+                    <img src="placeholder_image.jpg" alt="Blog Image" style="max-width: 60%; height: auto; border: 1px solid #ccc; display: inline-block;">
+                </div>
+                 <p>
+                You can continue to add paragraphs and other content as you see fit.
+                 </p>
+            </section>
+
+            <div class="ad-container">
+                <p>Advertisement Here</p>
+                <img src="ads_image.jpg" alt="Advertisement Example" style="max-width: 60%; height: auto; border: 1px solid #ccc; display: inline-block;">
+                <p style="font-size: 0.8em;">This is a great space for ads!</p>
+            </div>
+            
+            <div class="tags-container">
+                <div class="tags-title">TAGS</div>
+                <div class="tags-list">
+                    <div class="tag-item"><a href="#">Tag 1</a></div>
+                    <div class="tag-item"><a href="#">Tag 2</a></div>
+                    <div class="tag-item"><a href="#">Tag 3</a></div>
+                </div>
+            </div>
+
+            <div class="social-share">
+                <div class="title">SHARE ARTICLE</div>
+                <div class="icon-container">
+                     <a href="#" style="text-decoration: none;">
+                      <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M20.3639 3.39807H8.30268C5.92405 3.39807 3.99512 5.327 3.99512 7.70564V19.7668C3.99512 22.1455 5.92405 24.0744 8.30268 24.0744H20.3639C22.7434 24.0744 24.6714 22.1455 24.6714 19.7668V7.70564C24.6714 5.327 22.7434 3.39807 20.3639 3.39807ZM10.8872 19.7668H8.30268V10.2902H10.8872V19.7668ZM9.59496 9.19778C8.76273 9.19778 8.08731 8.51718 8.08731 7.67807C8.08731 6.83896 8.76273 6.15836 9.59496 6.15836C10.4272 6.15836 11.1026 6.83896 11.1026 7.67807C11.1026 8.51718 10.428 9.19778 9.59496 9.19778ZM21.2254 19.7668H18.6408V14.9389C18.6408 12.0373 15.1948 12.257 15.1948 14.9389V19.7668H12.6103V10.2902H15.1948V11.8108C16.3975 9.58288 21.2254 9.41833 21.2254 13.9439V19.7668Z" fill="#1CB0F6"/>
+                                    </svg>
+                         </div>
+                     </a>
+                       <a href="#" style="text-decoration: none;">
+                          <div class="icon"><svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11.6681 -0.00646973C5.59946 -0.00646973 0.680176 4.91281 0.680176 10.9814C0.680176 16.4897 4.73801 21.0386 10.0254 21.8331V13.8932H7.30697V11.0045H10.0254V9.08272C10.0254 5.90062 11.5758 4.50406 14.2206 4.50406C15.4875 4.50406 16.1566 4.59746 16.4742 4.64031V7.16094H14.67C13.547 7.16094 13.1547 8.22566 13.1547 9.42554V11.0045H16.4456L15.9995 13.8932H13.1558V21.8561C18.519 21.1298 22.656 16.5435 22.656 10.9814C22.656 4.91281 17.7367 -0.00646973 11.6681 -0.00646973Z" fill="#1CB0F6"/>
+</svg>
+</div>
+                    </a>
+                      <a href="#" style="text-decoration: none;">
+                            <div class="icon"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1.10102 0.69751L7.48739 9.82583L0.977539 17.4325H3.43803L8.5878 11.3984L12.8097 17.4325H18.3045L11.613 7.85381L17.7216 0.69751H15.2992L10.5181 6.28491L6.61578 0.69751H1.10102Z" fill="#1CB0F6"/>
+</svg>
+</div>
+                    </a>
+                   <a href="#" style="text-decoration: none;">
+                       <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 25 23" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0183 0.417969C5.39085 0.417969 0.0183105 4.65408 0.0183105 9.8795C0.0183105 13.2578 2.26439 16.2222 5.64308 17.8961C5.45927 18.53 4.46188 21.9742 4.42219 22.2448C4.42219 22.2448 4.39831 22.4481 4.52996 22.5256C4.66162 22.6032 4.81646 22.543 4.81646 22.543C5.194 22.4902 9.1945 19.6803 9.88692 19.1922C10.5787 19.2902 11.2909 19.341 12.0183 19.341C18.6456 19.341 24.0183 15.105 24.0183 9.8795C24.0183 4.65397 18.6456 0.417969 12.0183 0.417969ZM5.3845 13.1824C5.0027 13.1824 4.6922 12.8858 4.6922 12.5212V8.40835H3.61197C3.23731 8.40835 2.93258 8.1042 2.93258 7.73047C2.93258 7.35674 3.23743 7.05258 3.61197 7.05258H7.15704C7.53169 7.05258 7.83642 7.35674 7.83642 7.73047C7.83642 8.1042 7.53158 8.40835 7.15704 8.40835H6.07681V12.5212C6.07681 12.8858 5.76631 13.1824 5.3845 13.1824ZM10.8788 12.8676C10.9453 13.0562 11.1662 13.1734 11.4549 13.1734C11.6073 13.1734 11.7594 13.1404 11.895 13.078C12.0858 12.9902 12.2693 12.748 12.0586 12.0935L10.4033 7.73681C10.2864 7.40462 9.93203 7.06297 9.47984 7.05281C9.02892 7.06308 8.67457 7.40462 8.55791 7.73612L6.90192 12.0949C6.69169 12.7477 6.87515 12.9898 7.06599 13.0778C7.20134 13.1404 7.35365 13.1734 7.50607 13.1734C7.79476 13.1734 8.01549 13.0564 8.08184 12.8681L8.42488 11.9703H10.536L10.8788 12.8676ZM9.48042 8.77943L10.1719 10.7438H8.78892L9.48042 8.77943ZM13.1732 13.0814C12.8074 13.0814 12.5098 12.7967 12.5098 12.4468V7.74489C12.5098 7.36308 12.8269 7.05258 13.2165 7.05258C13.6062 7.05258 13.9232 7.36308 13.9232 7.74489V11.8122H15.3944C15.7603 11.8122 16.0579 12.097 16.0579 12.4468C16.0579 12.7967 15.7603 13.0814 15.3944 13.0814H13.1732ZM16.3264 12.4811C16.3264 12.8629 16.6369 13.1734 17.0187 13.1734C17.4005 13.1734 17.711 12.8629 17.7113 12.4807V10.9702L17.9515 10.73L19.5749 12.8812C19.7072 13.0563 19.9086 13.1564 20.1281 13.1564C20.2794 13.1564 20.4233 13.1082 20.5444 13.0167C20.692 12.9053 20.7874 12.7433 20.813 12.5601C20.8388 12.3769 20.7917 12.1948 20.6801 12.0472L18.9761 9.78962L20.5538 8.2122C20.6622 8.10362 20.7166 7.95397 20.7065 7.7907C20.6966 7.62881 20.6243 7.47293 20.503 7.35177C20.3729 7.22185 20.1994 7.14731 20.0266 7.14731C19.8784 7.14731 19.7419 7.202 19.6426 7.30135L17.711 9.23289V7.74489C17.711 7.36308 17.4005 7.05258 17.0187 7.05258C16.6369 7.05258 16.3264 7.36308 16.3264 7.74489V12.4811Z" fill="#1CB0F6"/>
+</svg>
+</div>
+                    </a>
+                     <a href="#" style="text-decoration: none;">
+                      <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 25" fill="none">
+  <g clip-path="url(#clip0_570_1319)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2185 -5.72205e-06C5.71266 -5.72205e-06 0.438387 5.27413 0.438387 11.7808C0.438387 14.0064 1.05598 16.0881 2.12862 17.8638L0.00244141 24.1841L6.52467 22.096C8.21248 23.0291 10.1534 23.5614 12.2185 23.5614C18.7252 23.5614 23.9994 18.2866 23.9994 11.7806C23.9994 5.27467 18.7254 -5.72205e-06 12.2185 -5.72205e-06ZM12.2185 21.5875C10.2269 21.5875 8.37193 20.9901 6.82311 19.966L3.05447 21.1724L4.27942 17.5307C3.10546 15.9135 2.41185 13.9271 2.41185 11.7806C2.41198 6.37274 6.81127 1.97319 12.2185 1.97319C17.6257 1.97319 22.0258 6.37274 22.0258 11.7808C22.0258 17.1888 17.6266 21.5877 12.2185 21.5877V21.5875ZM17.7422 14.4574C17.4469 14.2957 15.9963 13.5127 15.7242 13.4021C15.4523 13.2918 15.2538 13.2342 15.0418 13.5276C14.83 13.8204 14.2281 14.4762 14.0458 14.6704C13.8627 14.8645 13.6864 14.8827 13.391 14.7206C13.0964 14.5594 12.1391 14.2052 11.0288 13.138C10.165 12.3074 9.59836 11.3004 9.43394 10.9931C9.26952 10.6854 9.43273 10.5286 9.58894 10.3847C9.72915 10.2547 9.90299 10.0444 10.0599 9.87457C10.2164 9.70477 10.2717 9.58138 10.3793 9.3844C10.4869 9.18742 10.4436 9.00994 10.3738 8.85669C10.3041 8.70384 9.75821 7.20117 9.53014 6.58991C9.30221 5.97864 9.04818 6.0696 8.87259 6.0626C8.69714 6.05655 8.4976 6.02358 8.29712 6.01618C8.09664 6.00851 7.76779 6.07175 7.4812 6.36211C7.19434 6.65261 6.39026 7.35093 6.33482 8.83099C6.27939 10.3101 7.30319 11.7805 7.44595 11.9864C7.58884 12.1928 9.40098 15.4001 12.4125 16.7191C15.4247 18.0377 15.4404 17.6356 15.993 17.6062C16.5459 17.577 17.7994 16.945 18.0764 16.2527C18.3535 15.5602 18.3757 14.9582 18.3052 14.83C18.2347 14.7019 18.0373 14.6187 17.7421 14.4572L17.7422 14.4574Z" fill="#1CB0F6"/>
+  </g>
+  <defs><clipPath id="clip0_570_1319"><rect width="24" height="24.1841" fill="white"/></clipPath></defs>
+</svg>
+</div>
+                    </a>
+                </div>
+            </div>
+            
+             <div class="featured-articles">
+                <h3 class="p-sb-b">RELATED ARTICLES</h3>
+                <div class="featured-articles-content">
+                     <div >
+                            <div class="featured-card">
+                                <div class="feature-card--image">
+                                      <img src="https://placehold.co/400x200?text=Article+Image" alt="Related Article 1">
+                                </div>
+                                 <div class="caption-wrap">
+                                   <span class="caption">January 16, 2025</span>
+                                       <span class="divider"><svg  xmlns="http://www.w3.org/2000/svg" width="3" height="13" viewBox="0 0 3 13" fill="none"><path d="M1.5 1L1.5 11.7217" stroke="#E5E5E5" stroke-width="2" stroke-linecap="round"></path></svg></span>
+                                    <span class="caption author">Author Name</span>
+                                </div>
+                                <h3>Related Article Title 1</h3>
+                            </div>
+                        </div>
+                         <div >
+                             <div class="featured-card">
+                                <div class="feature-card--image">
+                                      <img src="https://placehold.co/400x200?text=Article+Image" alt="Related Article 2">
+                                </div>
+                                 <div class="caption-wrap">
+                                   <span class="caption">January 16, 2025</span>
+                                        <span class="divider"><svg  xmlns="http://www.w3.org/2000/svg" width="3" height="13" viewBox="0 0 3 13" fill="none"><path d="M1.5 1L1.5 11.7217" stroke="#E5E5E5" stroke-width="2" stroke-linecap="round"></path></svg></span>
+                                    <span class="caption author">Author Name</span>
+                                </div>
+                                <h3>Related Article Title 2</h3>
+                            </div>
+                        </div>
+                        <div >
+                             <div class="featured-card">
+                                <div class="feature-card--image">
+                                      <img src="https://placehold.co/400x200?text=Article+Image" alt="Related Article 3">
+                                </div>
+                                 <div class="caption-wrap">
+                                   <span class="caption">January 16, 2025</span>
+                                        <span class="divider"><svg  xmlns="http://www.w3.org/2000/svg" width="3" height="13" viewBox="0 0 3 13" fill="none"><path d="M1.5 1L1.5 11.7217" stroke="#E5E5E5" stroke-width="2" stroke-linecap="round"></path></svg></span>
+                                    <span class="caption author">Author Name</span>
+                                </div>
+                                <h3>Related Article Title 3</h3>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: #fff; padding: 40px 20px; width: 100%; position: relative; font-family: 'Roboto', sans-serif;">
+        <!-- Borda amarela superior -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, rgba(255,193,7,0.2) 0%, rgba(255,193,7,1) 50%, rgba(255,193,7,0.2) 100%);"></div>
+        
+        <!-- Container principal -->
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 0 1rem;">
+            <!-- Logo e nome -->
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
+                    alt="MyFriend Logo" 
+                    style="height: 40px; width: auto; @media (max-width: 768px) {height: 30px;}"
+                >
+                <span style="color: #000000; font-size: 24px; font-weight: 600; @media (max-width: 768px) {font-size: 20px;}">
+                    MyFriend<sup style="font-size: 12px;">®</sup>
+                </span>
+            </div>
+
+            <!-- Links legais -->
+            <div style="display: flex; gap: 30px; margin-bottom: 20px; @media (max-width: 768px) {flex-direction: column; align-items: center; gap: 15px;}">
+                <a href="https://myfriend.app.br/pgs/legal/privacy-policy" 
+                style="color: #9e9e9e; text-decoration: none; font-size: 14px; transition: color 0.3s ease; &:hover {color: #333;}"
+                >
+                    Privacy Policy
+                </a>
+                <a href="https://myfriend.app.br/pgs/legal/terms-of-use"
+                style="color: #9e9e9e; text-decoration: none; font-size: 14px; transition: color 0.3s ease; &:hover {color: #333;}"
+                >
+                    Terms of Use
+                </a>
+                <a href="https://myfriend.app.br/pgs/legal/refund-policy"
+                    style="color: #9e9e9e; text-decoration: none; font-size: 14px; transition: color 0.3s ease; &:hover {color: #333;}"
+                >
+                    Refund Policy
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div style="color: #6e6e6e; font-size: 12px; text-align: center;">
+                MyFriend<sup style="font-size: 8px;">®</sup> - 2024. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+     <!-- Navbar Script -->
+     <script>
+        // Navbar visibility
+        const navbar = document.getElementById('navbar');
+        
+        // Debounce function for better performance
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Handle scroll
+        const handleScroll = debounce(() => {
+            if (window.scrollY > 300) {
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('visible');
+            }
+        }, 10);
+
+        window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+</html>
