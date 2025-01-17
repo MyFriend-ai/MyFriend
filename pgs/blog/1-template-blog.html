@@ -134,7 +134,7 @@
             margin-bottom: 0.5em;
         }
         .post-title {
-            font-size: clamp(2rem, 7vw, 3rem);
+            font-size: clamp(1rem, 5vw, 3rem) !important;
             font-weight: 700;
             color: #1A1A1A;
             margin-bottom: 0.5em;
@@ -331,6 +331,10 @@
                 overflow-x: hidden;
 
             }
+
+            #main-title {
+                font-size: 2rem !important;
+            }
             
             .featured-articles-content {
                 flex-direction: column;
@@ -381,15 +385,15 @@
    <header class="blog-header" style="margin-top: 1rem;">
     <div class="post-banner" style="width: 90%; max-width: 1140px; margin: 0 auto; display: flex; flex-direction: column; margin-bottom: -3em; padding-top: 5rem;">
         <div class="post-banner--header" style="text-align: center; margin: 0; padding: 1em 0; margin-top: -2rem;">
-            <h1 class="post-title" style="font-family: 'Fredoka One', cursive; font-size: clamp(2.5rem, 9vw, 3rem); font-weight: 800; background: linear-gradient(135deg, #ffd500 0%, #d5a001 100%); -webkit-background-clip: text; color: transparent; text-align: center; margin-bottom: 0.5em; line-height: 1.2;">
-            Headline Blog Post
+            <h1 id="main-title" class="post-title" style="font-family: 'Fredoka One', cursive; font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #ffd500 0%, #d5a001 100%); -webkit-background-clip: text; color: transparent; text-align: center; margin-bottom: 0.5em; line-height: 1.2;">
+            Titulo do Blog Post
             </h1>
         
         <p class="subtitle" style="margin: 0 auto 1em; font-family: 'Inter', sans-serif;; font-size: clamp(1rem, 4vw, 1.2rem);
-                text-align: center;
-                color: #9c9c9c;
-                max-width: 600px;
-                line-height: 1.5;">
+    text-align: center;
+    color: #9c9c9c;
+    max-width: 600px;
+    line-height: 1.5;">
             <em>por Ana Carolina Silva • 16 de Janeiro de 2024 • 8 min de leitura</em>
             </p>
         </div>
@@ -414,8 +418,8 @@
             
             <!-- CONTEÚDO A SER SUBSTITUÍDO PELO MARKDOWN -->
             <section class="post-content" style="padding: 0em;">
-                
-                <p>Adicione aqui o texto do Blog</p>
+
+                <p>Aqui vai o conteúdo do Blog Post</p>
                 
                 
                 <hr>
