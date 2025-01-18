@@ -17,6 +17,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyFriend - Aprenda Inglês</title>
+    
     <style>
          /* Reset básico e configs globais */
         * {
@@ -24,6 +25,11 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -2933,15 +2939,51 @@
         </div>
     </section>
 
+     <!-- MELHOR IA SECTION -->
+     <section id="best-ai" class="best-ai-2024" style="background: linear-gradient(135deg, #ffffff 0%, #dbdbda 100%); padding: 6rem 2rem; color: black;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title" style="font-size: clamp(2rem, 8vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
+                Eleita a <span style="background: black; color: #facc15; padding: 0 0.5rem;">Melhor IA de 2024:</span>
+            </h2>
+
+            <div class="awards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Certificada pela Comunidade LendárIA®</h3>
+                    <p>Reconhecida como a IA mais efetiva para aprendizado de idiomas em 2024.</p>
+                </div>
+
+                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🧠</div>
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Neurociência + BR DNA</h3>
+                    <p>Método que trabalha com seu cérebro, não contra ele. <br><br> Afinal, na amizade e no papo natural tudo fica mais fácil (e gostoso).</p>
+                </div>
+
+                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📈</div>
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">98.7% de Satisfação</h3>
+                    <p>Mais de 1000 profissionais já desbloquearam seu inglês conosco.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- LEARN SECTION -->
     <section class="learn-section">
         <div class="container">
             
-            <p class="learn-subtitle">
-                <span style="color: #facc15;">MyFriend®</span> usa o método (comprovadamente) MAIS <span style="color: #facc15;">RÁPIDO</span> do MUNDO de aprendizado:
+            <h2 class="section-title">
+                MyFriend tem um <span style="color: #facc15;">método REVOLCIONÁRIO de aprendizado rápido:</span> 🏆
+            </h2>
+            
+            <p class="npc-intro">
+                Enquanto as escolas e apps tradicionais focam em <span style="color: #facc15;">gramática e "verb to be"</span> que nem um robô
+                <br> Sabemos que o método mais rápido do mundo é simples:
             </p>
-            <h2 class="learn-title">
-                <br> "CONVERSAR" <br> 🗣️🗣️
+
+            <h2 class="learn-title" style="margin-top: -5rem;">
+                <br> CONVERSAR SOBRE O QUE VOCÊ GOSTA<br> 🗣️🗣️
             </h2>
             <p style="color: white; font-weight: normal;">
                 5 minutos de conversa por dia
@@ -3043,8 +3085,8 @@
     </section>
 
 
-    <!-- LEVERAGE SECTION -->
-    <section class="leverage-section">
+    <!-- LEVERAGE SECTION (OCULTA) -->
+    <section class="leverage-section" style="display: none">
         <div class="container">
             <h2 class="section-title">
                 Já imaginou se o inglês não fosse mais uma barreira, 
@@ -3235,8 +3277,8 @@
         </button>
     </section>
 
-    <!-- HONEST CHECK SECTION -->
-    <section class="honest-check">
+    <!-- HONEST CHECK SECTION (OCULTA) -->
+    <section class="honest-check" style="display: none">
         <div class="container">
             <div class="check-box">
                 <h2 class="check-title">Seja sincero comigo:</h2>
@@ -3293,8 +3335,8 @@
     </section>
 
 
-    <!-- PRICE COMPARISON -->
-    <section class="price-comparison">
+    <!-- PRICE COMPARISON (OCULTA) -->
+    <section class="price-comparison"style="display: none">
         <div class="container">
             <h2 class="section-title">
                 Sabe quanto custa um <span style="color: #facc15;">curso tradicional?</span>
@@ -3353,8 +3395,8 @@
         </div>
     </section>
 
-    <!-- DAILY PROGRESS -->
-    <section class="daily-progress">
+    <!-- DAILY PROGRESS (OCULTA) -->
+    <section class="daily-progress"style="display: none">
         <div class="container">
             <div class="time-waste">
                 <h2 class="time-title">Todo dia você gasta:</h2>
@@ -3615,6 +3657,8 @@
     </section>
 
 
+
+    
     <!-- PRICING SECTION -->
     <section class="pricing-epic" id="pricing">
         <div class="container">
@@ -3943,35 +3987,7 @@
         </style>
     </section>
 
-    <!-- MELHOR IA SECTION -->
-    <section id="best-ai" class="best-ai-2024" style="background: linear-gradient(135deg, #facc15 0%, #eab308 100%); padding: 6rem 2rem; color: black;">
-        <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            <h2 class="section-title" style="font-size: clamp(2rem, 8vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
-                Eleita a <span style="background: black; color: #facc15; padding: 0 0.5rem;">Melhor IA de 2024:</span>
-            </h2>
-
-            <div class="awards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>
-                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Certificada pela Comunidade LendárIA®</h3>
-                    <p>Reconhecida como a IA mais efetiva para aprendizado de idiomas em 2024.</p>
-                </div>
-
-                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">🧠</div>
-                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Neurociência + BR DNA</h3>
-                    <p>Método que trabalha com seu cérebro, não contra ele. <br><br> Afinal, na amizade e no papo natural tudo fica mais fácil (e gostoso).</p>
-                </div>
-
-                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">📈</div>
-                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">98.7% de Satisfação</h3>
-                    <p>Mais de 1000 profissionais já desbloquearam seu inglês conosco.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
+   
     <!-- CASOS DE SUCESSO SECTION -->
     <section id="success-stories" class="success-stories" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 6rem 2rem; color: white; position: relative;">
         <div class="container" style="max-width: 1200px; margin: 0 auto;">
