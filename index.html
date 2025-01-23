@@ -3,3985 +3,392 @@
 <head>
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KPV7SGDW');</script>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KPV7SGDW');</script>
     <!-- End Google Tag Manager -->
-    
-   <!-- Favicon -->
-   <link rel="icon" href="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" type="image/png">
-   
-   
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" type="image/png">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyFriend - Aprenda Inglês</title>
-    
+    <title>MyFriend - Seu Best Gringo Friend de Bolso</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
-         /* Reset básico e configs globais */
+        /* Animacoes suaves */
+        html, body {
+        width: 100%;
+        overflow-x: hidden;
+        }
+        
+        html {
+        scroll-behavior: smooth;
+        }
+
+        /* CSS geral da pagina */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
-            }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.5;
+            font-family: 'Inter', sans-serif;
+            background: #0F0F0F;
+            color: white;
+            overflow-x: hidden;
         }
 
-        /* Container responsivo */
         .container {
-            width: 100%;
-            max-width: 1200px;
+            width: 90%;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 clamp(2rem, 5vw, 6rem); 
+            padding: 0 15px;
         }
 
-        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            background-color: black;
+            width: 100%;
             padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
+            transition: all 0.3s ease;
+            opacity: 0;
             transform: translateY(-100%);
-            transition: transform 0.3s;
+            z-index: 1000;
         }
 
         .navbar.visible {
+            opacity: 1;
             transform: translateY(0);
+            background: rgba(15,15,15,0.95);
+            backdrop-filter: blur(10px);
         }
 
-        .navbar-logo {
-            height: 2rem;
-        }
-
-        .navbar-cta {
-            background-color: #facc15;
-            color: black;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .navbar-cta:hover {
-            transform: scale(1.05);
-        }
-
-
-
-
-        /* Hero Section */
-        .hero {
-            background-color: #facc15;
-            padding-top: 4rem;
-            min-height: 85vh;
-            width: 100%;
+        .hero-section {
+            min-height: 100vh;
+            padding: 2rem 0;
+            background: linear-gradient(180deg, #0F0F0F 0%, #1A1A1A 100%);
             display: flex;
             align-items: center;
         }
 
-
-        .container {
+        .brand-logo {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            max-width: 200px;
+            margin: 2rem auto;
+            display: block;
         }
 
-        .hero .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 6rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
+        /* ESTILO PARA FAZER HIGHLIGHTS PADRÃO */
+        .highlight {
+            color: #FFD700; /* Amarelo puro */
+            background: none; /* Remove o gradiente */
+            -webkit-background-clip: border-box; /* Evita conflito */
         }
 
-        .hero-content {
-            flex: 1;
-            max-width: 60%;
-            padding-top: 2rem;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 3.2vw, 3.5rem);
-            font-weight: 900;
-            line-height: 1.1;
+        .main-title {
+            font-size: clamp(1.8rem, 8vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #d8d8d8 100%);
+            -webkit-background-clip: text;
+            color: transparent; /* Necessário para o gradiente funcionar */
+            text-align: center;
+            line-height: 1.2;
             margin-bottom: 1rem;
         }
 
-        .highlight-box {
-            background-color: black;
-            color: #facc15;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            margin-top: 0.75rem;
-            display: inline-block;
+        .subtitle {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            text-align: center;
+            color: #E0E0E0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.5;
         }
 
-        .hero-subtitle {
-            font-size: clamp(1.25rem, 2vw, 1.5rem);
-            margin: 1.25rem 0;
-            font-weight: 600;
-        }
-
-        .whatsapp-preview {
-            width: 440px;
-            height: auto;
-            align-self: center;
-            margin-left: -2rem;
-            margin-top: -4rem;
+        .phone-mockup {
+            width: 90%;
+            max-width: 300px;
+            margin: 6rem auto;
+            display: block;
+            filter: drop-shadow(0 20px 40px rgba(255,215,0,0.15));
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #059669, #10b981);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.75rem;
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            background: #FFD700;
+            color: #000;
             font-weight: 700;
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            padding: 1em 2em;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            transition: all 0.3s;
-            max-width: fit-content;
+            display: block;
+            margin: 2rem auto;
+            transition: transform 0.2s ease;
+            box-shadow: 0 4px 20px rgba(255,215,0,0.25);
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
         }
 
-        .cta-helper {
-            margin-top: 0.75rem;
-            font-size: 0.875rem;
-            color: #666;
-        }
-
-        .price-box {
-            margin-top: 1.25rem;
-            padding: 0.75rem;
-            background: rgba(0,0,0,0.05);
-            border-radius: 1rem;
-            display: flex;
-            align-items: center;
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-
-        .old-price {
-            position: relative;
-            color: #666;
-            text-decoration: line-through;
-        }
-
-        .discount-tag {
-            position: absolute;
-            top: -1rem;
-            right: -5rem;
-            background: #ef4444;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            transform: rotate(-3deg);
-        }
-
-        .current-price {
-            display: flex;
-            align-items: baseline;
-            gap: 0.25rem;
-        }
-
-
-        .current-price .currency {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-        
-        .current-price .amount {
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .current-price .cents {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .price-info {
-            color: #666666;
-            font-size: 0.875rem;
-
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem; /* Espaço entre linhas */
-            text-align: center;
-        }
-
-  
-        .whatsapp-preview img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        /* Animations */
-        @keyframes shine {
-            0% {
-                left: -100%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        
-
-        /* Utility classes */
-        .text-center { text-align: center; }
-        .mt-4 { margin-top: 1rem; }
-        .mb-4 { margin-bottom: 1rem; }
-
-
-
-
-
-        /* SOCIAL PROOF STYLES */
-        .social-proof {
-            background-color: #facc15;
-            padding: 4rem 0;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .badges-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            margin: 2rem 0;
             padding: 0 1rem;
         }
 
-        .badges-grid {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .badge-item {
+        .trust-card {
             background: white;
-            border-radius: 1rem;
-            padding: 1.5rem 2rem;
-            min-width: 250px;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .badge-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .badge-icon {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: #f8fafc;
-        }
-
-        .badge-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: #0f172a;
-        }
-
-        .badge-content {
-            flex: 1;
-        }
-
-        .badge-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 0.25rem;
-        }
-
-        .badge-subtitle {
-            font-size: 0.875rem;
-            color: #64748b;
-        }
-
-        /* Icons - Replace emojis with SVG */
-        .trophy-icon {
-            stroke: #eab308;
-        }
-
-        .globe-icon {
-            stroke: #3b82f6;
-        }
-
-        .star-icon {
-            stroke: #ef4444;
-        }
-
-        .fire-icon {
-            stroke: #f97316;
-        }
-
-
-
-
-
-        
-
-        /* LEARN SECTION STYLES */
-        .learn-section {
-            background: linear-gradient(135deg, #000 0%, #111 100%);
-            padding: 4rem 1rem;
-            color: white;
-            text-align: center;
-        }
-
-        .learn-title {
-            font-size: clamp(2.75rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #facc15, #eab308);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .learn-subtitle {
-            font-size: clamp(1.25rem, 3vw, 2.25rem);
-            font-weight: 900;
-            color: white;
-            line-height: 1.4;
-        }
-
-
-
-
-
-
-        /* MATH SECTION STYLES */
-        .math-section {
-            background-color: #111;
-            padding: 4rem 1rem;
-            color: white;
-        }
-
-        .section-title {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .highlight {
-            color: #facc15;
-        }
-
-        .pain-points {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .pain-card {
-            background: rgba(250, 204, 21, 0.1);
-            padding: 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .pain-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .pain-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .solution-box {
-            background: linear-gradient(135deg, #85815a, #b99a10);
-            padding: 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .solution-box h3 {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
-            margin-bottom: 1.5rem;
-        }
-
-        .solution-list {
-            list-style: none;
-            padding: 0;
-            margin: 1.5rem 0;
-        }
-
-        .solution-list li {
-            margin: 1rem 0;
-            font-size: clamp(1rem, 2vw, 1.25rem);
-        }
-
-        /* NPC SECTION STYLES */
-        .npc-section {
-            background: linear-gradient(135deg, #000 0%, #111 100%);
-            padding: 4rem 1rem;
-            color: white;
-            position: relative;
-        }
-
-        .npc-intro {
-            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #a1a1aa;
-        }
-
-        .revolution-points {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .point {
-            background: rgba(250, 204, 21, 0.1);
             padding: 1.5rem;
-            border-radius: 1rem;
-            text-align: center;
-            border: 1px solid rgba(250, 204, 21, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .point:hover {
-            transform: translateY(-4px);
-            background: rgba(250, 204, 21, 0.15);
-        }
-
-        .point-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .point p {
-            font-size: clamp(1rem, 2vw, 1.125rem);
-            line-height: 1.6;
-        }
-
-
-
-
-        /* LEVERAGE SECTION STYLES */
-        .leverage-section {
-            background: linear-gradient(135deg, #967705, #ebc800);
-            padding: 4rem 1rem;
-            color: white;
+            border-radius: 16px;
             text-align: center;
         }
-        
-        .feature-box {
-            background: rgba(0,0,0,0.2);
-            border-radius: 1rem;
-            padding: 2rem;
-            margin: 2rem auto 0;
-            max-width: 800px;
+
+        .trust-number {
+            color: #0F0F0F;
+            font-weight: 800;
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            margin-bottom: 0.5rem;
         }
-        
-        .feature-highlight {
-            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+
+        .trust-text {
+            color: #666;
+            font-size: clamp(0.875rem, 3vw, 1rem);
             font-weight: 500;
-            line-height: 1.6;
-        }
-        
-        /* CHARACTERS SHOWCASE STYLES */
-        .characters-showcase {
-            background: #000;
-            color: white;
-            padding: 4rem 0;
-            overflow: hidden;
-        }
-        
-        .showcase-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 0 1rem;
-        }
-        
-        .characters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            width: 95%;
-            max-width: 1200px;
-            margin: 0 auto;
-            justify-items: center; /* centraliza os cards */
-        }
-        
-
-        /* Characters Showcase Base */
-        .character-spotlight {
-            width: 100%; /* Garante largura total */
-            max-width: 400px; /* Limita largura máxima */
-            margin: 0 auto 2rem;
-            background: rgba(255,255,255,0.03);
-            border-radius: 2rem;
-            padding: 1.5rem; /* Reduzido no mobile */
         }
 
-        /* Character Image Container */
-        .character-image {
-            width: 100%;
-            max-width: 400px; /* imagem menor */
-            margin-bottom: 2rem;
-            border-radius: 1rem; /* borda redonda */
-            overflow: hidden;
-            aspect-ratio: 16/9;
-        }
-
-        .character-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        
-        .image-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(0,0,0,0) 0%,
-                rgba(0,0,0,0.3) 100%
-            );
-        }
-        
-        /* Character Info Container */
-        .character-info {
-            padding: 1rem;
-            width: 100%;
-            max-width: 500px; /* limita largura do texto */
-        }
-        
-        .character-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #facc15;
-            color: black;
-            font-weight: 700;
-            border-radius: 999px;
-            font-size: 0.875rem;
-            align-self: flex-start;
-        }
-        
-        .character-name {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, #facc15, #eab308);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .character-quote {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: #a1a1aa;
-            font-style: italic;
-        }
-        
-        .character-features {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 0.75rem;
-            transition: transform 0.3s;
-        }
-        
-        .feature:hover {
-            transform: translateX(8px);
-            background: rgba(255,255,255,0.08);
-        }
-        
-        .feature-icon {
-            font-size: 1.5rem;
-            color: #facc15;
-        }
-        
- 
-        
-        .moonwalk .character-image img {
-            animation: moonwalking 2s ease-in-out infinite;
-        }
-        
-        .portal .character-image img {
-            animation: portal-spinning 4s ease-in-out infinite;
-        }
-        
-        .gang .character-image img {
-            animation: gang-walking 3s ease-in-out infinite;
-        }
-
-        /* EPIC TESTIMONIALS */
-        .testimonials {
-            background: linear-gradient(135deg, #000 0%, #111 100%);
+        .contrast-section {
+            background: #FFD700;
             padding: 4rem 1rem;
-            position: relative;
-            overflow: hidden;
             text-align: center;
         }
-        
-        .testimonials::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            max-width: 1024px;
-            margin: 0 auto;
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            border: 1px solid rgba(250, 204, 21, 0.2);
-            transition: all 0.3s;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 20px rgba(250, 204, 21, 0.1);
-        }
-        
-        .card-header {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+
+        .contrast-title {
+            font-size: clamp(1.5rem, 6vw, 2.5rem);
+            color: #0F0F0F;
+            font-weight: 800;
             margin-bottom: 1.5rem;
-        }
-        
-        .user-info {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-        
-        .user-avatar {
-            position: relative;
-            width: 48px;
-            height: 48px;
-        }
-        
-        .user-avatar img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid #facc15;
-            object-fit: cover;
-        }
-        
-        .status-badge {
-            position: absolute;
-            bottom: -0.5rem;
-            right: -0.5rem;
-            background: #facc15;
-            color: black;
-            padding: 0.25rem 0.5rem;
-            border-radius: 999px;
-            font-size: 0.625rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        
-        .user-meta h3 {
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-        
-        .user-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .tag {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #a1a1aa;
-        }
-        
-        .tag.highlighted {
-            background: rgba(250, 204, 21, 0.2);
-            color: #facc15;
-        }
-        
-        .rating {
-            color: #facc15;
-        }
-        
-        .testimonial-content {
-            color: white;
-            font-size: 1.125rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        .achievement-badge {
             display: inline-flex;
             align-items: center;
-            padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(234, 179, 8, 0.1));
-            border: 1px solid rgba(250, 204, 21, 0.3);
-            border-radius: 999px;
-            color: #facc15;
-            font-weight: 600;
-        }
-        
-        /* HONEST CHECK SECTION */
-        .honest-check {
-            background: linear-gradient(135deg, #000 0%, #111 100%);
-            padding: 4rem 1rem;
-            color: white;
+            gap: 0.5rem;
         }
 
-        .check-box {
+        .contrast-text {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: #0F0F0F;
+            line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 2rem;
-            padding: 2rem;
-            border: 1px solid rgba(250, 204, 21, 0.2);
         }
 
-        .check-title {
-            font-size: clamp(1.75rem, 5vw, 3rem);
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .checkboxes {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .check-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 1rem;
+        #pricing > div > div {
+            display: grid;
+            grid-template-columns: 1fr; /* Garante que no mobile seja 1 coluna */
+            gap: 2rem;
         }
 
-        .check-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateX(8px);
-        }
 
-        
-        .hidden-check {
-            display: none;
-        }
-        
-        .custom-checkbox {
-            width: 28px;
-            height: 28px;
-            border: 2px solid #facc15;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.3s;
-        }
-        
-        .check-icon {
-            width: 24px;  /* ou o tamanho que você preferir */
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .hidden-check:checked + .custom-checkbox {
-            background: #facc15;
-        }
-
-        .hidden-check:checked + .custom-checkbox::after {
-            content: '✓';
-            color: black;
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-        
-        .hidden-check:checked + .custom-checkbox .check-icon {
-            opacity: 1;
-            transform: scale(1);
-            stroke: black;
-        }
-
-        .check-text {
-            font-size: 1.125rem;
-            line-height: 1.5;
-        }
-        
-        .check-item span {
-            font-size: 1.125rem;
-            line-height: 1.5;
-        }
-        
-        .celebration {
-            display: none;
-            margin-top: 2rem;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s;
-        }
-
-        .celebration.show {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .celebration-content {
-            background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(234, 179, 8, 0.1));
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(250, 204, 21, 0.3);
-        }
-        
-        .celebration-emoji {
-            font-size: 3rem;
-            display: block;
-            margin-bottom: 1rem;
-            animation: bounce 1s infinite;
-        }
-        
+        /* Animação "bounce" na seção garantia */
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-5px);}
+            60% {transform: translateY(-3px);}
         }
 
-          /* PRICE COMPARISON SECTION */
-        .price-comparison {
-            background: linear-gradient(135deg, #000 0%, #111 100%);
-            padding: 4rem 0rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        /* Container com largura máxima e centralizado */
-        .price-comparison .container {
-            width: 100%;
-            max-width: 1024px; /* Ajusta o tamanho máximo */
-            margin: 0 auto;
-            padding: 0 2rem; /* Padding lateral fixo */
-        }
-        
-        .price-comparison::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-        }
-        
-        .comparison-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            margin: 2rem auto; /* Centraliza */
-            position: relative;
-            max-width: 800px; /* Limita largura dos cards */
-        }
-        
-        .card {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-        
-        .card.traditional {
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-        
-        .card.myfriend {
-            border: 1px solid rgba(250, 204, 21, 0.3);
-        }
-        
-        .card-tag {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .traditional .card-tag {
-            background: rgba(239, 68, 68, 0.2);
-            color: #ef4444;
-        }
-        
-        .myfriend .card-tag {
-            background: rgba(250, 204, 21, 0.2);
-            color: #facc15;
-        }
-        
-        /* CHECKPOINT 1: Hero Price Fix */
-        .price-amount {
-            text-align: center; /* Força centralização */
-            width: 100%; /* Garante largura total */
-        }
-
-        .current-price {
-            display: flex;
-            align-items: baseline;
-            justify-content: center; /* Força centralização */
-            gap: 0.25rem;
-        }
-
-        .price-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center; /* Redundância intencional */
-        }
-        
-        .traditional .price-box {
-            background: rgba(239, 68, 68, 0.1);
-        }
-        
-        .myfriend .price-box {
-            background: rgba(250, 204, 21, 0.1);
-        }
-        
-        .price {
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .amount {
-            font-size: clamp(1.25rem, 3vw, 1.5rem);
-            font-weight: 700;
-        }
-        
-        .value {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            font-weight: 900;
-        }
-        
-        .value.highlight {
-            background: linear-gradient(135deg, #facc15, #eab308);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .vs-badge {
-            width: 98px;
-            height: 98px;
-            background: #facc15;
-            color: black;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 2.125rem;
-            margin: 0.1rem auto;
-            box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
-        }
-        
-        /* DAILY PROGRESS SECTION */
-        .daily-progress {
-            background: linear-gradient(135deg, #000 0%, #0a0a0a 100%);
-            padding: 4rem 1rem;
-            color: white;
-        }
-        
-        .time-waste {
-            max-width: 800px;
-            margin: 0 auto 4rem;
-        }
-        
-        .time-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            padding: 1.25rem;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 1rem;
-            align-items: center;
-            margin: 0 auto; /* Centraliza */
-            width: calc(100% - 2rem); /* Ajusta largura considerando padding */
-            max-width: 500px; /* Limita largura máxima */
-        }
-        
-        .time-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 1rem;
-            align-items: center;
-            transition: all 0.3s;
-        }
-        
-        .time-card:hover {
-            transform: translateX(8px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-        
-        .app-icon {
-            font-size: 1.5rem;
-            width: 24px; /* Largura fixa */
-            text-align: center;
-        }
-
-        
-        .time-spent {
-            color: #facc15;
-            font-weight: 700;
-            margin-left: auto; /* Alinha à direita */
-            min-width: 50px; /* Garante espaço mínimo */
-            text-align: right;
-        }
-        
-        .waste-bar {
-            grid-column: 1 / -1; /* Ocupa todas as colunas */
-            height: 8px;
-            margin-top: 0.5rem;
-        }
-        
-        .bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #facc15, #eab308);
-            border-radius: 999px;
-            transition: width 1.5s ease-out;
-        }
-        
-        .attention-box {
-            background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(234, 179, 8, 0.1));
-            border: 1px solid rgba(250, 204, 21, 0.3);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
-        .magic-text {
-            display: block;
-            font-size: clamp(1.25rem, 3vw, 1.5rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, #facc15, #eab308);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-
-        /* Timeline Section */
-        .timeline-section {
-            background: #fff;
-            padding: 6rem 1rem;
-        }
-
-        .timeline-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 900;
-            text-align: center;
-            color: #000;
-            margin-bottom: 6rem;
-        }
-        
-        .timeline {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            padding: 0 1rem;
-        }
-
-        /* Linha amarela */
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 2.5rem; /* Ajustado para mobile */
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #facc15;
-        }
-
-        .timeline-item {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 2rem;
-            margin-bottom: 6rem;
-            position: relative;
-        }
-
-        /* Número */
-        .timeline-number {
-            width: 4rem;
-            height: 4rem;
-            background: #facc15;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Texto do período */
-        .timeline-period {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 1rem;
-            position: absolute;
-            left: 5rem;
-            top: 1rem;
-        }
-
-        /* Card de conteúdo */
-        .timeline-content {
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            margin-left: 3rem; /* Espaço para o período no mobile */
-        }
-
-        .timeline-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-description {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .timeline-badges {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .timeline-badge {
-            background: transparent;
-            border: 1px solid #facc15;
-            color: #000;
-            padding: 0.5rem 1rem;
-            border-radius: 999px;
-            font-size: 0.875rem;
-        }
-
-
-
-
-        /* EPIC DEV SUCCESS STYLES */
-        .epic-dev-success {
-            display:none;
-            background: linear-gradient(135deg, #000 0%, #111 100%);
-            padding: 6rem 2rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .epic-dev-success::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-        }
-
-        .success-story {
-            max-width: 1024px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 2rem;
-            padding: 3rem;
-            border: 1px solid rgba(250, 204, 21, 0.2);
-        }
-
-        .dev-profile {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .dev-avatar {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            flex-shrink: 0;
-        }
-
-        .profile-pic {
-            width: 100%;
-            height: 100%;
-            border-radius: 1rem;
-            object-fit: cover;
-            border: 4px solid #facc15;
-        }
-
-        .dev-badge {
-            position: absolute;
-            bottom: -1rem;
-            right: -1rem;
-            background: #facc15;
-            color: black;
-            padding: 0.5rem 1rem;
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 0.875rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .dev-transformation {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .before, .after {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: #a1a1aa;
-        }
-
-        .value {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .arrow {
-            color: #facc15;
-            font-size: 1.5rem;
-        }
-
-        .dev-metrics {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .metric {
-            text-align: center;
-        }
-
-        .metric .value {
-            display: block;
-            font-size: 2rem;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 0.25rem;
-        }
-
-        .metric.highlight .value {
-            background: linear-gradient(135deg, #facc15, #eab308);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .metric .label {
-            font-size: 0.875rem;
-            color: #a1a1aa;
-        }
-
-        .dev-testimony {
-            position: relative;
-            padding: 2rem;
-            margin: 3rem 0;
-            text-align: center;
-        }
-
-        .quote-mark {
-            font-size: 4rem;
-            color: rgba(250, 204, 21, 0.3);
-            line-height: 1;
-            position: absolute;
-        }
-
-        .quote-mark:first-child {
-            top: -1rem;
-            left: 2rem;
-        }
-
-        .quote-mark:last-child {
-            bottom: -2rem;
-            right: 2rem;
-        }
-
-        .testimony-text {
-            font-size: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .testimony-text .highlight {
-            display: block;
-            color: #facc15;
-            font-weight: 700;
-            margin: 0.5rem 0;
-        }
-
-        .dev-achievements {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .achievement {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            transition: all 0.3s;
-        }
-
-        .achievement:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .achievement-icon {
-            font-size: 2rem;
-            filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.4));
-        }
-
-        .achievement-info h4 {
-            font-weight: 700;
-            color: #facc15;
-            margin-bottom: 0.25rem;
-        }
-
-        .achievement-info p {
-            font-size: 0.875rem;
-            color: #a1a1aa;
-        }
-
-
-        /* ALAN NICOLAS REVIEW STYLES */
-        .alan-review {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 6rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .review-card {
-            max-width: 1024px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 2rem;
-            padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        /* Google Badge */
-        .google-badge {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.75rem 1.5rem;
-            background: #f8fafc;
-            border-radius: 999px;
-            margin-bottom: 2rem;
-        }
-
-        .google-logo {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-        }
-
-        .verify-text {
-            color: #64748b;
-            font-size: 0.875rem;
-        }
-
-        .rating {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .stars {
-            letter-spacing: 0.1em;
-        }
-
-        .score {
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        /* Profile */
-        .reviewer-profile {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .profile-pic {
-            position: relative;
-            width: 120px;
-            height: 120px;
-        }
-
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            border-radius: 1rem;
-            object-fit: cover;
-        }
-
-        .verified-badge {
-            position: absolute;
-            bottom: -0.5rem;
-            right: -0.5rem;
-            width: 32px;
-            height: 32px;
-            background: #10b981;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            border: 2px solid white;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
-        }
-
-        .verified-badge svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .profile-info h3 {
-            font-size: 1.75rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #059669, #10b981);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .credentials {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .credentials .title {
-            font-weight: 600;
-            color: #0f172a;
-        }
-
-        .credentials .achievement {
-            color: #000000;
-        }
-
-        /* Review Content */
-        .review-text {
-            font-size: 1.75rem;
-            line-height: 1.4;
-            color: #0f172a;
-            margin-bottom: 3rem;
-        }
-
-        .review-text .highlight {
-            font-weight: 900;
-            background: linear-gradient(135deg, #059669, #10b981);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Metrics */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            background: #f8fafc;
-            border-radius: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .metric {
-            text-align: center;
-        }
-
-        .metric-value {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: #0f172a;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-value .unit {
-            font-size: 1.5rem;
-            color: #64748b;
-        }
-
-        .metric.highlight .metric-value {
-            background: linear-gradient(135deg, #059669, #10b981);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .metric-label {
-            color: #64748b;
-            font-size: 0.875rem;
-        }
-
-        /* Expert Badge */
-        .expert-badge {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8fafc;
-            border-radius: 0.75rem;
-        }
-
-        .badge-icon {
-            font-size: 2rem;
-        }
-
-        .badge-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .badge-title {
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .badge-subtitle {
-            font-size: 0.875rem;
-            color: #64748b;
-        }
-
-
-
-
-        /* PRICING SECTION STYLES */
-        .pricing-epic {
-            background: linear-gradient(135deg, #000 0%, #111 100%);
-            padding: 8rem 2rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-epic::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-        }
-
-        .pricing-cards {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            position: relative;
-        }
-
-        /* CARD BASE STYLES */
-        .price-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 2rem;
-            padding: 2rem;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        /* BASIC CARD STYLES */
-        .price-card.basic {
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .price-card.basic:hover {
-            transform: translateY(-4px);
-        }
-
-        /* PRO CARD STYLES */
-        .price-card.pro {
-            border: 2px solid #facc15;
-            background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(234, 179, 8, 0.1));
-            transform: scale(1.05);
-            box-shadow: 0 8px 32px rgba(250, 204, 21, 0.1);
-        }
-
-        .price-card.pro:hover {
-            transform: scale(1.07);
-            box-shadow: 0 12px 48px rgba(250, 204, 21, 0.2);
-        }
-
-        /* BADGES */
-        .card-badge {
-            position: absolute;
-            top: -1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 999px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #a1a1aa;
-        }
-
-        .card-badge.pro {
-            background: #facc15;
-            color: black;
-            font-weight: 800;
-            padding: 0.75rem 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .fire {
-            animation: flame 1s infinite;
-        }
-
-        @keyframes flame {
-            0%, 100% { transform: rotate(-10deg); }
-            50% { transform: rotate(10deg); }
-        }
-
-        /* PLAN NAME */
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            text-align: center;
-            margin: 2rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .pro-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .pro-tag {
-            background: linear-gradient(135deg, #facc15, #eab308);
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            font-weight: 800;
-            font-size: 0.875rem;
-            color: black;
-        }
-
-        /* PRICING BLOCK */
-        .plan-price {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .old-price {
-            margin-bottom: 0.5rem;
-        }
-
-        .strike {
-            text-decoration: line-through;
-            color: #a1a1aa;
-        }
-
-        .save {
-            background: #dc2626;
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            margin-left: 0.5rem;
-        }
-
-        .price-block {
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 0.25rem;
-        }
-
-        .currency {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .amount {
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .cents {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .period {
-            color: #a1a1aa;
-            margin-left: 0.5rem;
-        }
-
-        .price-note {
-            font-size: 0.875rem;
-            color: #a1a1aa;
-            display: block;
-            margin-top: 0.5rem;
-        }
-
-        /* FEATURES LIST */
-        .features-list {
-            margin: 2rem 0;
-        }
-
-        .feature-group {
-            margin-bottom: 2rem;
-        }
-
-        .group-title {
-            font-weight: 700;
-            color: #facc15;
-            margin-bottom: 1rem;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .feature:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .feature .icon {
-            font-size: 1.25rem;
-        }
-
-        .feature .text {
-            flex: 1;
-        }
-
-        .feature .bonus {
-            font-size: 0.75rem;
-            background: rgba(250, 204, 21, 0.2);
-            color: #facc15;
-            padding: 0.25rem 0.5rem;
-            border-radius: 999px;
-        }
-
-        /* LIMITED FEATURES */
-        .features-list.limited .feature {
-            color: #a1a1aa;
-        }
-
-        /* PREMIUM FEATURES */
-        .features-list.premium .feature {
-            color: white;
-        }
-
-        /* EARLY BIRD */
-        .early-bird {
-            background: linear-gradient(135deg, rgba(250, 204, 21, 0.2), rgba(234, 179, 8, 0.2));
-            border-radius: 1rem;
-            padding: 1rem;
-            margin: 2rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
 
-        .timer, .spots {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
 
-        .countdown, .spots-number {
-            font-weight: 800;
-            color: #facc15;
-        }
 
-        /* CTA BUTTONS */
-        .cta-button {
-            width: 100%;
-            border: none;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
+        @media (max-width: 768px) {
+            .brand-logo {
+                max-width: 150px;
+                margin: 1.5rem auto;
+            }
         }
 
-        .cta-button.basic {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            display: block;
-            margin: 0 auto; /* Centraliza horizontalmente */
+        @media (min-width: 768px) {
+            .trust-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
             
-        }
-
-        .cta-button.basic:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .cta-button.pro {
-            background: linear-gradient(135deg, #facc15, #eab308);
-            color: black;
-            display: block;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button.pro::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% {
-                left: -100%;
+            #pricing > div > div {
+    grid-template-columns: repeat(2, 1fr);
             }
-            100% {
-                left: 100%;
+                #pricing > div > div > div:nth-child(2) {
+                transform: scale(1.05);
             }
         }
-
-        .cta-button.pro:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(250, 204, 21, 0.4);
-        }
-
-        .cta-button .main-text {
-            font-size: 1.25rem;
-        }
-
-        .cta-button .sub-text {
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
-
-        /* SOCIAL PROOF */
-        .social-proof {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 0.75rem;
-        }
-
-        .avatars {
-            display: flex;
-            align-items: center;
-        }
-
-        .avatars img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid #facc15;
-            margin-left: -0.5rem;
-        }
-
-        .avatars img:first-child {
-            margin-left: 0;
-        }
-
-        .avatars .more {
-            width: 32px;
-            height: 32px;
-            background: #facc15;
-            color: black;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-left: -0.5rem;
-        }
-
-        .proof-text {
-            font-size: 0.875rem;
-            color: #a1a1aa;
-        }
-
-        /* DISCLAIMERS */
-        .plan-disclaimer {
-            text-align: center;
-            color: #a1a1aa;
-            font-size: 0.875rem;
-            margin-top: 1rem;
-        }
-
-
-
-
-
-
-
-        /* GUARANTEE SECTION STYLES */
-        .guarantee-section {
-            background: linear-gradient(135deg, #000 0%, #111 100%);
-            padding: 8rem 2rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .guarantee-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-        }
-
-        .guarantee-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 2rem;
-            padding: 3rem;
-            border: 1px solid rgba(250, 204, 21, 0.2);
-            text-align: center;
-            position: relative;
-        }
-
-        /* Shield Styles */
-        .shield-wrapper {
-            position: relative;
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
-        }
-
-        .shield-icon {
-            font-size: 4rem;
-            position: relative;
-            z-index: 2;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .shield-glow {
-            position: absolute;
-            inset: -20px;
-            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.3) 0%, rgba(0,0,0,0) 70%);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.8; }
-        }
-
-        /* Title Styles */
-        .guarantee-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 900;
-            margin-bottom: 3rem;
-            line-height: 1.2;
-        }
-
-        .guarantee-title .highlight {
-            display: block;
-            background: linear-gradient(135deg, #facc15, #eab308);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Checklist Styles */
-        .guarantee-checks {
-            text-align: left;
-            margin-bottom: 3rem;
-        }
-
-        .check-intro {
-            text-align: center;
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: #a1a1aa;
-        }
-
-        .check-list {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .check-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-            transition: all 0.3s;
-        }
-
-        .check-item:nth-child(1) .check-icon::before {
-            content: '✔';
-            font-size: 2rem;
-        }
-
-        .check-item:nth-child(2) .check-icon::before {
-            content: '✔';
-            font-size: 2rem;
-        }
-
-        .check-item:nth-child(3) .check-icon::before {
-            content: '✔';
-            font-size: 2rem;
-        }
-
-        .check-item:hover {
-            transform: translateX(8px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .check-text {
-            font-size: 1.25rem;
-            flex: 1;
-        }
-        
-        .check-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #facc15, #eab308);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .check-text {
-            font-size: 1.125rem;
-        }
-
-        /* Statement Styles */
-        .guarantee-statement {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 3rem 0;
-        }
-
-        .guarantee-statement .highlight {
-            color: #facc15;
-        }
-
-        /* Whisper Styles */
-        .guarantee-whisper {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 999px;
-            margin-bottom: 3rem;
-        }
-
-        .whisper-icon {
-            font-size: 1.5rem;
-        }
-
-        .whisper-text {
-            font-size: 1rem;
-            color: #a1a1aa;
-        }
-
-        /* CTA Button */
-        .guarantee-cta {
-            margin: 0 auto;
-            max-width: 400px;
-            position: relative;
-            overflow: hidden;
-            /* Adicionando o estilo base do botão */
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            text-decoration: none;
-            padding: 1.5rem 2rem;
-            border-radius: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .guarantee-cta::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(
-                to right,
-                transparent,
-                rgba(255,255,255,0.2),
-                transparent
-            );
-            transform: skewX(-25deg);
-            animation: shine 3s infinite;
-        }
-
-        .guarantee-cta:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
-        }
-
-        .guarantee-cta .main-text {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .guarantee-cta .sub-text {
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
-
-
-
-
-
-
-        
-        @media screen and (max-width: 768px) {
-        /* GLOBAL FIXES */
-        .container {
-            padding: 0 1rem;
-        }
-
-
-
-
-
-        /* HERO SECTION */
-        .hero {
-            padding: 4rem 1rem;
-            min-height: auto;
-        }
-
-        .hero .container {
-            flex-direction: column;
-            text-align: center;
-            padding: 0 1rem;
-            gap: 0;
-            max-width: 100%;
-        }
-
-        .hero-content {
-            width: 100%;
-            max-width: 100%;
-            padding-top: 0;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 4vw, 4.5rem);
-            margin-bottom: 2rem;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.25rem, 3vw, 1.875rem);
-            margin: 2rem 0;
-        }
-
-        .whatsapp-preview {
-            width: 500px; /* Tamanho ideal no desktop */
-            max-width: 100%; /* No mobile, usa toda a largura possível */
-            margin: 0 auto -4rem; /* Mantém a centralização */
-            display: block;
-            object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
-        }
-
-        .cta-button {
-            width: 100%;
-            max-width: 100%;
-            justify-content: center;
-            margin: 1rem auto;
-        }
-
-        .cta-helper {
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-
-
-
-        
-
-
-
-
-
-
-
-        /* SOCIAL PROOF */
-        .social-proof {
-            padding: 2rem 0;
-        }
-
-        .badges-grid {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            padding: 0.5rem;
-        }
-        
-        .badge-item {
-            min-width: unset;
-            width: 100%;
-            padding: 1rem 0.75rem;
-        }
-
-        .badge-icon {
-            width: 36px;
-            height: 36px;
-        }
-
-        .badge-icon svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .badge-title {
-            font-size: 1rem;
-        }
-
-        .badge-subtitle {
-            font-size: 0.75rem;
-        }
-
-
-
-
-
-
-
-        /* VALUE PROP */
-        .value-prop {
-            padding: 4rem 1rem;
-        }
-
-        .friend-benefits {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-
-
-
-
-
-
-
-
-
-        /* TESTIMONIALS */
-        .testimonials-grid {
-            grid-template-columns: 1fr;
-            padding: 1rem;
-        }
-
-        /* CHARACTERS */
-        .character-spotlight {
-            grid-template-columns: 1fr;
-            min-height: auto;
-        }
-
-        .character-info {
-            padding: 2rem 1rem;
-        }
-
-        .character-image {
-            height: 300px;
-        }
-
-
-
-
-
-        /* COMPARISON */
-        .comparison-cards {
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .card.myfriend {
-            transform: none;
-        }
-
-        .vs-badge {
-            position: relative;
-            margin: 2rem auto;
-        }
-
-        /* Timeline Section */
-        .timeline-item {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-bottom: 4rem;
-            gap: 0.5rem;
-        }
-
-        .timeline-number {
-            width: 3rem;
-            height: 3rem;
-            font-size: 1.25rem;
-            margin: 0;
-            position: relative;
-            left: 1rem;
-        }
-
-        .timeline::before {
-            left: 2rem;
-        }
-
-        .timeline-content {
-            margin-left: 0;
-            width: 100%;
-            background: white;
-            padding: 1rem;
-            border-radius: 0.75rem;
-        }
-
-        .timeline-period {
-            font-size: 1.25rem;
-            margin: 0.5rem 0;
-            padding-left: 4rem;
-        }
-
-        .timeline-description {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #666;
-        }
-
-        .timeline-badges {
-            margin-top: 1rem;
-        }
-
-
-
-
-        /* EPIC DEV SUCCESS */
-        .epic-dev-success {
-            padding: 0;
-            background: #000;
-        }
-
-        .success-story {
-            padding: 1rem;
-            background: none;
-            border: none;
-            border-radius: 0;
-        }
-
-        .dev-profile {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .dev-avatar {
-            width: auto;
-            height: auto;
-            margin: 0;
-        }
-
-        .profile-pic {
-            display: none;
-        }
-
-        .dev-badge {
-            position: static;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: none;
-            border: 2px solid #facc15;
-            color: #facc15;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 999px;
-            box-shadow: none;
-        }
-
-        .dev-testimony {
-            padding: 0;
-            text-align: left;
-            margin: 2rem 0;
-        }
-
-        .quote-mark {
-            display: none;
-        }
-
-        .testimony-text {
-            font-size: 1.25rem;
-            line-height: 1.4;
-        }
-
-        .testimony-text .highlight {
-            color: #facc15;
-            margin: 1rem 0;
-            font-size: 1.25rem;
-            font-weight: normal;
-        }
-
-        .dev-achievements {
-            margin-top: 2rem;
-            gap: 1.5rem;
-        }
-
-        .achievement {
-            background: rgba(30, 30, 30, 0.5);
-            padding: 1rem;
-            border-radius: 0.75rem;
-        }
-
-        .achievement-icon {
-            font-size: 1.5rem;
-        }
-
-        .achievement-info h4 {
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .achievement-info p {
-            font-size: 0.875rem;
-            opacity: 0.7;
-        }
-
-
-
-
-        /* HONEST CHECK */
-        .check-box {
-            padding: 2rem 1rem;
-        }
-
-        .check-title {
-            font-size: 1.75rem;
-        }
-
-
-
-
-        /* FINAL CTA */
-        .final-cta {
-            padding: 4rem 1rem;
-        }
-
-        .final-title {
-            font-size: 2rem;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            padding: 0.75rem 1rem;
-        }
-
-        .navbar-logo {
-            height: 1.5rem;
-        }
-
-
-
-        /* ALAN REVIEW MOBILE STYLES - ADD TO MEDIA QUERIES */
-        .alan-review {
-            padding: 4rem 1rem;
-        }
-
-        .review-card {
-            padding: 1.5rem;
-            border-radius: 1.5rem;
-        }
-
-        .google-badge {
-            padding: 0.5rem 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .rating {
-            margin: 0.5rem 0 0;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .reviewer-profile {
-            flex-direction: column;
-            text-align: center;
-            gap: 1rem;
-        }
-
-        .profile-pic {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto;
-        }
-
-        .review-text {
-            font-size: 1.25rem;
-            text-align: left;
-        }
-
-        .metrics-grid {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            padding: 1rem;
-        }
-
-        .metric-value {
-            font-size: 2rem;
-        }
-
-        .expert-badge {
-            flex-direction: column;
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-
-
-
-        /* PRICING MOBILE STYLES - ADD TO MEDIA QUERIES */
-        .pricing-epic {
-            padding: 4rem 1rem;
-        }
-
-        .pricing-cards {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-
-        .price-card.pro {
-            transform: none;
-            order: 1; /* Coloca PRO primeiro no mobile */
-        }
-
-        .price-card.pro:hover {
-            transform: translateY(-4px);
-        }
-
-        .card-badge.pro {
-            font-size: 0.75rem;
-            padding: 0.5rem 1rem;
-        }
-
-        .plan-name {
-            font-size: 1.25rem;
-        }
-
-        .amount {
-            font-size: 3rem;
-        }
-
-        .early-bird {
-            flex-direction: column;
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .timer, .spots {
-            justify-content: center;
-        }
-
-        .social-proof {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .avatars {
-            justify-content: center;
-        }
-
-
-        /* GUARANTEE MOBILE STYLES - ADD TO MEDIA QUERIES */
-        .guarantee-section {
-            padding: 4rem 1rem;
-        }
-
-        .guarantee-card {
-            padding: 2rem 1rem;
-            border-radius: 1.5rem;
-        }
-
-        .shield-wrapper {
-            width: 60px;
-            height: 60px;
-        }
-
-        .shield-icon {
-            font-size: 3rem;
-        }
-
-        .guarantee-title {
-            font-size: 1.75rem;
-        }
-
-        .check-intro {
-            font-size: 1rem;
-        }
-
-        .check-item {
-            padding: 0.75rem;
-        }
-
-        .check-text {
-            font-size: 1rem;
-        }
-
-        .guarantee-statement {
-            font-size: 1.25rem;
-        }
-
-        .guarantee-whisper {
-            flex-direction: column;
-            gap: 0.5rem;
-            padding: 1rem;
-        }
-
-        .guarantee-cta {
-            width: 100%;
-            padding: 1.25rem;
-        }
-    }
 
 
         
     </style>
-    
-    
 </head>
-<body>
+<body style="margin: 0 !important; padding: 0 !important; overflow-x: hidden !important">
 
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPV7SGDW"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPV7SGDW"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
 
-    
-    <!-- Navbar fixa -->
-    <nav class="navbar">
-        <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" alt="MyFriend Logo" class="navbar-logo">
-        <button class="navbar-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">Join Now</button>
-    </nav>
-
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Enquanto você lê isso em português,
-                    <div class="highlight-box">
-                        alguém tá passando na sua frente só por saber inglês.
-                    </div>
-                </h1>
-    
-                <p class="hero-subtitle">
-                    E se você tivesse um <span style="color: #a04300;">Melhor Amigo Gringo</span> no seu WhatsApp, 24/7 pra destravar seu inglês <span style="color: #a04300; text-decoration: underline;">desde a primeira conversa?</span> 😎
-                </p>
-                
-                
-                <!-- BOTÃO!!!! -->
-                <button class="cta-button" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-                    LEVEL UP⬆️ MY LIFE NOW
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
+                 alt="MyFriend Logo" 
+                 style="height: 32px;">
+            <a href="#pricing">
+                <button class="cta-button" style="margin: 0; padding: 0.5em 1em; font-size: 0.875rem;">
+                    TESTE AGORA
                 </button>
-    
-                <p class="cta-helper">
-                    *Seu inglês destravado <span style="text-decoration: underline;">desde a primeira conversa</span> ou seu dinheiro de volta, pode crer
-                </p>
-    
-                <div class="price-box">
-                    <div class="old-price">
-                        <span>R$ 49,90</span>
-                        <div class="discount-tag">-40% OFF</div>
-                    </div>
-                    <div class="current-price">
-                        <span class="currency">R$</span>
-                        <span class="amount">29</span>
-                        <span class="cents">,90</span>
-                    </div>
-                    <div class="price-info">por mês • Cancele quando quiser • Teste 14 dias</div>
-                </div>
-            </div>
-    
-            <div class="whatsapp-preview">
-                <img src="https://github.com/MyFriend-ai/MyFriend/blob/main/assets/images/landing-pages/Phone%20Mockup%20LOW.png?raw=true" 
-                     alt="MyFriend no WhatsApp"
-                     loading="lazy">
-            </div>
+            </a>
         </div>
-    </header>
-
-
-    <!-- SOCIAL PROOF SECTION -->
-    <section class="social-proof">
-        <div class="badges-container">
-            <div class="badges-grid">
-                <!-- Award Badge -->
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <svg class="trophy-icon" viewBox="0 0 24 24" fill="none" stroke-width="2">
-                            <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.11" />
-                            <path d="M15 7a4 4 0 1 0 0-8H9a4 4 0 1 0 0 8" />
-                        </svg>
-                    </div>
-                    <div class="badge-content">
-                        <div class="badge-title">Melhor IA 2024</div>
-                        <div class="badge-subtitle">Comunidade Alan Nicolas</div>
-                    </div>
-                </div>
+    </nav>
     
-                <!-- Users Badge -->
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <svg class="globe-icon" viewBox="0 0 24 24" fill="none" stroke-width="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M2 12h20" />
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                        </svg>
-                    </div>
-                    <div class="badge-content">
-                        <div class="badge-title">1000+ Profissionais</div>
-                        <div class="badge-subtitle">Desbloqueados Globalmente</div>
-                    </div>
-                </div>
-    
-                <!-- Rating Badge -->
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke-width="2">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                        </svg>
-                    </div>
-                    <div class="badge-content">
-                        <div class="badge-title">4.9/5 Estrelas</div>
-                        <div class="badge-subtitle">25 Reviews no Google</div>
-                    </div>
-                </div>
-    
-                <!-- Success Badge -->
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <svg class="fire-icon" viewBox="0 0 24 24" fill="none" stroke-width="2">
-                            <path d="M12 2c1 3 2.5 3.5 3.5 4.5C17 8 17 10 17 12c0 3-1 6-5 7-4-1-5-4-5-7 0-2 0-4 1.5-5.5C9.5 5.5 11 5 12 2Z" />
-                        </svg>
-                    </div>
-                    <div class="badge-content">
-                        <div class="badge-title">98.7% Sucesso</div>
-                        <div class="badge-subtitle">Taxa de Satisfação</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-     <!-- MELHOR IA SECTION -->
-     <section id="best-ai" class="best-ai-2024" style="background: linear-gradient(135deg, #ffffff 0%, #dbdbda 100%); padding: 6rem 2rem; color: black;">
-        <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            <h2 class="section-title" style="font-size: clamp(2rem, 8vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
-                Eleita a <span style="background: black; color: #facc15; padding: 0 0.5rem;">Melhor IA de 2024:</span>
-            </h2>
-
-            <div class="awards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>
-                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Certificada pela Comunidade LendárIA®</h3>
-                    <p>Reconhecida como a IA mais efetiva para aprendizado de idiomas em 2024.</p>
-                </div>
-
-                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">🧠</div>
-                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Neurociência + BR DNA</h3>
-                    <p>Método que trabalha com seu cérebro, não contra ele. <br><br> Afinal, na amizade e no papo natural tudo fica mais fácil (e gostoso).</p>
-                </div>
-
-                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">📈</div>
-                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">98.7% de Satisfação</h3>
-                    <p>Mais de 1000 profissionais já desbloquearam seu inglês conosco.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- LEARN SECTION -->
-    <section class="learn-section">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            
-            <h2 class="section-title">
-                MyFriend tem um <span style="color: #facc15;">método REVOLUCIONÁRIO de aprendizado rápido:</span> 🏆
-            </h2>
-            
-            <p class="npc-intro">
-                Enquanto as escolas e apps tradicionais focam em <span style="color: #facc15;">gramática e "verb to be"</span> que nem um robô
-                <br> Sabemos que o método mais rápido do mundo é simples:
-            </p>
-
-            <h2 class="learn-title" style="margin-top: -5rem;">
-                <br> CONVERSAR SOBRE O QUE VOCÊ GOSTA<br> 🗣️🗣️
-            </h2>
-            <p style="color: white; font-weight: normal;">
-                5 minutos de conversa por dia
-                <br>
-                100% <span style="color: #facc15;">personalizado</span> PRA VOCÊ
-                <br>
-                ✦ (sem julgamentos)
-                <br>
-                ✦ (privacidade 100%)
+            <!-- Logo + Brand -->
+            <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
+                 alt="MyFriend Logo"
+                 class="brand-logo">
+            <p style="font-family: 'Fredoka One', cursive; color: #FFD700; text-align: center; font-size: clamp(0.8rem, 2vw, 1rem);">
+                MyFriend®
             </p>
             
-            <!-- BOTÃO!!!! -->
-            <button class="cta-button" style="margin-top: 20px;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-                QUERO CONVERSAR MYFRIEND! 😎
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </button>
-        </div>
-        
-    </section>
-
-    <!-- MATH SECTION -->
-    <section class="math-section">
-        <div class="container">
-            <h2 class="section-title">
-                Te ensinaram inglês errado a vida toda 
-                <span class="highlight"><br>E EU POSSO PROVAR:</span>
-            </h2>
-            
-            <div class="pain-points">
-                <div class="pain-card">
-                    <span class="pain-icon">📚</span>
-                    <p>✦ Livros imensos. <br>✦ Lições intermináveis. <br><br> <b>QUEM TEM TEMPO PRA ISSO??</b></u></p>
-                </div>
-                
-                <div class="pain-card">
-                    <span class="pain-icon">🍎</span>
-                    <p>Vocabulário que você NUNCA vai usar na VIDA REAL <br><br> Apples? Bananas? <br><b>Ta de brinqueition wit me??</b></p>
-                </div>
-            </div>
-            
-            <div class="solution-box">
-                <h3>Agora pensa: como você aprendeu <span style="color: #facc15;">português?</span></h3>
-                <ul class="solution-list">
-                    <li>❌ Decorando regras? NÃO</li>
-                    <li>❌ Fazendo exercícios? NÃO</li>
-                    <li>❌ Estudando gramática? NÃO</li>
-                </ul>
-                <div class="solution-highlight">
-                    <strong>Você aprendeu <span style="font-size: 2em;">CONVERSANDO!</span></strong>
-                    <p>(yep, "simple as that")</p>
-                </div>
-            </div>
-            <!-- BOTÃO!!!! -->
-            <button class="cta-button" style= "margin-top: 20px; display: block; margin: 2rem auto;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-                QUERO APRENDER DO JEITO FÁCIL! 😎
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </button>
-        </div>
-    </section>
-
-    <!-- NPC SECTION (OCULTA)-->
-    <section class="npc-section" style="display:none">
-        <div class="container">
-            <h2 class="section-title">
-                MyFriend tem um <span style="color: #facc15;">método REVOLCIONÁRIO de aprendizado rápido:</span> 🏆
-            </h2>
-
-            <p class="npc-intro">
-                Enquanto você tá aí, decorando <span style="color: #facc15;">"verb to be"</span> que nem um NPC... 
-                O MyFriend pratica conversação 100% PERSONALIZADO para você conquistar:
+            <!-- Main Content -->
+            <h1 class="main-title">
+                Do zero a <span class="highlight">Reuniões em Inglês</span> em apenas 90 dias
+            </h1>
+            <p class="subtitle">
+                Aprenda inglês Conversando Sobre o Que Você Ama <br><u>(Ou Devolvo 2x seu Dinheiro)</u> 
             </p>
 
-            <div class="revolution-points">
-                <div class="point">
-                    <span class="point-icon">💰💰💰</span>
-                    <p>Vagas EM QUALQUER ÁREA pagando 5X mais em DÓLAR <br><br>(só precisa do inglês, sério)</p>
-                </div>
-                <div class="point">
-                    <span class="point-icon">🌎</span>
-                    <p>Não ficar mais LIMITADO no Brasil e se tornar um CIDADÃO GLOBAL</p>
-                </div>
-                <div class="point">
-                    <span class="point-icon">🧠</span>
-                    <p>90% do CONHECIMENTO do MUNDO está em inglês <br><br>(e você aqui se contentando com as sobras dos "gurus" BR)</p>
-                </div>
-            </div>
-            <!-- BOTÃO!!!! -->
-            <button class="cta-button" style= "margin-top: 20px; display: block; margin: 2rem auto;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-                QUERO FICAR MAIS INTELIGENTE E RICO!
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
+            <!-- CTA -->
+            <a href="#pricing">
+            <button class="cta-button">
+                INICIAR MINHA VERSÃO GLOBAL 🌎
             </button>
-        </div>
-    </section>
+            </a>
 
 
-    <!-- LEVERAGE SECTION (OCULTA) -->
-    <section class="leverage-section" style="display: none">
-        <div class="container">
-            <h2 class="section-title">
-                Já imaginou se o inglês não fosse mais uma barreira, 
-                mas sim sua <u>ALAVANCA pra conquistar o MUNDO?</u>
-            </h2>
-
-            <div class="feature-box">
-                <p class="feature-highlight">
-                    MyFriend® é a PRIMEIRA I.A. do mundo que ensina na BROTHERAGEM desde o PRIMEIRO CONTATO, 
-                    direto no seu WhatsApp, 24 horas por dia
-                </p>
-            </div>
-            <!-- BOTÃO!!!! -->
-            <button class="cta-button" style= "margin-top: 20px;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-                TESTAR POR 14 DIAS SEM COMPROMISSO!
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </button>
-        </div>
-    </section>
-
-    <!-- CHARACTERS SHOWCASE -->
-    <section class="characters-showcase">
-        <div class="container">
-            <h2 class="showcase-title">
-                O <span style="color: #facc15;">MyFriend®</span> ainda deixa você aprender inglês com <span style="color: #facc15;">ELES:</span>
-            </h2>
-
-            <div class="characters">
-                <!-- Lord Character -->
-                <div class="character-spotlight moonwalk">
-                    <div class="character-image">
-                        <img src="https://i.ytimg.com/vi/TZNCJs2g31A/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAYA1fAHj0H01WkFDMby5YKbGBqYA" alt="Lord Maico">
-                        
-                    </div>
-                    <div class="character-info">
-                        <div class="character-badge">HEE-HEE LEGEND</div>
-                        <h3 class="character-name">Michael Jackson de Xique Xique 📍</h3>
-                        <p class="character-quote">"É LORD, ourai? 👑"</p>
-                        <div class="character-features">
-                            <div class="feature">
-                                <span class="feature-icon">🕴️</span>
-                                <span>Te ensina a GROCADA DE 30 🔫💥</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">🎵</span>
-                                <span>Sempre esperto com o P.Diddy</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">👑</span>
-                                <span>Seja o REI do inglês</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Trust Badges -->
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <h3 class="trust-number">1.000+</h3>
+                    <p class="trust-text">Profissionais transformados em cidadãos globais</p>
                 </div>
-
-                <!-- Rick Character -->
-                <div class="character-spotlight portal">
-                    <div class="character-image">
-                        <img src="https://static.tvtropes.org/pmwiki/pub/images/abcb6534_7913_4eb1_a7a5_62b081ebc628.png" alt="Rick">
-                        
-                    </div>
-                    <div class="character-info">
-                        <div class="character-badge">GENIUS MODE</div>
-                        <h3 class="character-name">Rick Sanchez</h3>
-                        <p class="character-quote">"buuurp, m-morty!!!"</p>
-                        <div class="character-features">
-                            <div class="feature">
-                                <span class="feature-icon">🧪</span>
-                                <span>Science English that will blow your mind</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">🌀</span>
-                                <span>Multiversal vocabulary expansion</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">🤯</span>
-                                <span>200+ IQ conversations</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="trust-card">
+                    <h3 class="trust-number">5.0 <br>★★★★</h3>
+                    <p class="trust-text">Avaliado no Google Reviews</p>
                 </div>
-
-                <!-- CJ Character -->
-                <div class="character-spotlight gang">
-                    <div class="character-image">
-                        <img src="https://i.redd.it/essa-ia-fez-um-bom-trabalho-na-imagem-do-cj-v0-6l72vdli0ogd1.png?width=1000&format=png&auto=webp&s=bd4f27a663bebf940c21e1afff32d12c8a87f5eb" alt="CJ">
-                        
-                    </div>
-                    <div class="character-info">
-                        <div class="character-badge">STREET MASTER</div>
-                        <h3 class="character-name">Carl Johnson</h3>
-                        <p class="character-quote">"Ain't that a surprise, I got a gun!"</p>
-                        <div class="character-features">
-                            <div class="feature">
-                                <span class="feature-icon">🎮</span>
-                                <span>Te ensina tanto quando o videogame ensinou a vida toda</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">🗽</span>
-                                <span>Grove Street certified learning</span>
-                            </div>
-                            <div class="feature">
-                                <span class="feature-icon">🔥</span>
-                                <span>“One last thing… you do know that I’m black, and not Chinese, right?”</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="trust-card">
+                    <h3 class="trust-number">#1</h3>
+                    <p class="trust-text">Eleita melhor IA de Idiomas do Brasil em 2024 <br><br> <em>(Pelo especialista nº1 em IA no Brasil)</em></p>
                 </div>
             </div>
-            
         </div>
-        <!-- BOTÃO!!!! -->
-        <button class="cta-button" style= "margin-top: 20px; display: block; margin: 1rem auto;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-            I WANT SOME PROPER ENGLISH, MOTHERF*CKER
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-        </button>
     </section>
 
-     <!-- 2 TESTIMONIALS -->
-     <section style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 4rem 1rem; position: relative; overflow: hidden; text-align: center;">
-        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+    <!-- SEÇÃO: Contraste -->
+    <section style="width: 100%; background-color: #FFD700; padding: 2rem 1rem;">
+        <div style="max-width: 1140px; margin: 0 auto; display: flex; flex-direction: column-reverse; gap: 2rem; padding: 0 1rem; box-sizing: border-box;">
+            <!-- Coluna de Texto (Esquerda no Desktop) -->
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <!-- Headline Principal -->
+                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
+                    <span style="font-size: clamp(4rem, 15vw, 8rem); line-height: 1; margin-bottom: 0.5rem;">✋🏼</span>
+                    <h2 style="font-family: 'Inter', sans-serif; font-size: clamp(1.5rem, 5vw, 2rem); font-weight: 800; line-height: 1.2; color: #000000; margin: 0; text-align: center;">
+                        Chega de <br><em>Apps Infantis e Aulas Chatas</em> <br>(e caras):<br><br> Tenha um <u>Amigo Gringo 24/7</u> que Te Ensina Inglês Enquanto Você <u>Vive Sua Vida.</u>
+                    </h2>
+                    <p style="font-size: 1.25rem; line-height: 1.6; color: #000000; margin: 1.5rem 0; text-align: center;">
+                        A <b>ciência mostra</b> que aprender uma língua é <b>FÁCIL</b> quando você CONVERSA sobre o que gosta.
+                        
+                    </p>
+                </div>
+
+                <!-- Bullet Points Complementares -->
+                <div style="display: flex; flex-direction: column; align-items: center; margin: 0rem 0;">
+                    <span style="font-size: clamp(1.2rem, 4vw, 1.5rem); color: #000; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: 0.5px; text-shadow: 1px 1px 2px rgba(0,0,0,0.15);">
+                       Converse em:
+                    </span>
+                    <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; padding: 1rem 8rem;">
+
+                        <span style="font-size: clamp(1.1rem, 3.5vw, 1.3rem); color: #1a1a1a; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;  background: rgba(255, 255, 255, 0.75); padding: 0.75rem 1rem; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s ease; cursor: pointer;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'"
+                            >
+                                <span style="font-size: 1.25rem;  text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">🔈</span>
+                            <span style=" text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">Áudio</span>
+                        </span>
+                        <span style="font-size: clamp(1.1rem, 3.5vw, 1.3rem); color: #1a1a1a; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;  background: rgba(255, 255, 255, 0.75); padding: 0.75rem 1rem; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s ease; cursor: pointer;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'"
+                            >
+                            <span style="font-size: 1.25rem;  text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">💬</span>
+                            <span style=" text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">Texto</span>
+                        </span>
+                        <span style="font-size: clamp(1.1rem, 3.5vw, 1.3rem); color: #1a1a1a; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;  background: rgba(255, 255, 255, 0.75); padding: 0.75rem 1rem; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s ease; cursor: pointer;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'"
+                            >
+                            <span style="font-size: 1.25rem;  text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">🏞️</span>
+                            <span style=" text-shadow: 1px 1px 1px rgba(0,0,0,0.15);">Imagem</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Botão CTA -->
+                <a href="#pricing">
+                    <!-- CTA Button -->
+                    <button onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" style="display: block; margin: 0 auto; padding: 1rem 1.2rem; background: linear-gradient(100deg, #000000 0%, #1f1f1f 100%); color: #ffffff; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: bold; font-size: 1.5rem; transition: all 0.3s ease-in-out; width: 100%; max-width: 500px;">
+                        <span style="display: block; font-size: clamp(1.2rem, 5vw, 1.5rem);">Teste por 15 dias</span>
+                        <span style="display: block; font-size: 0.7rem; font-weight: normal; opacity: 0.8;">15 dias de <b>Garantia Dupla</b></span>
+                    </button>
+                </a>
+            </div>
+
+            <!-- Coluna da Imagem (Direita no Desktop) -->
+            <div style="flex: 1; display: flex; justify-content: center; align-items: center;">
+                <img src="https://github.com/MyFriend-ai/MyFriend/blob/main/assets/images/landing-pages/Phone%20Mockup%20LOW.png?raw=true"
+                    alt="MyFriend App Demo"
+                    style="width: 100%; max-width: 280px; height: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));">
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section style="background: linear-gradient(135deg, #111 0%, #222 100%); padding: 4rem 0.5rem; position: relative; overflow: hidden; text-align: center;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.1) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+        <h2 style="color: #ffffff; font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem;">APRENDIZADO <span class="highlight">8x MAIS RÁPIDO</span> QUE CURSOS:</h2>
         <div style="max-width: 1024px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
             <!-- Card 1 -->
-            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;">
-                     <div style="display: flex; gap: 1rem; align-items: center;">
-                        <div style="position: relative; width: 48px; height: 48px;">
-                            <img src="https://media.licdn.com/dms/image/v2/C4D03AQE18ivzlg-bXA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517570637392?e=2147483647&v=beta&t=CO5-BRMPYNWT2GQX5ZnjZydU2KThqnNBvu0dZ5d6NBg" alt="Guilherme" style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #facc15; object-fit: cover;">
-                            <div style="position: absolute; bottom: -0.5rem; right: -0.5rem; background: #facc15; color: black; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase;">CHAD</div>
-                        </div>
-                         <div style="color: white; font-size: 1.25rem; font-weight: 700; display: flex; flex-direction: column;">
-                           <h3 style="margin:0; line-height: 1.3;">Guilherme</h3>
-                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-                                <span style="font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; background: rgba(255, 255, 255, 0.1); color: #a1a1aa; margin: 0;">ex-NPC</span>
-                                <span style="font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; background: rgba(250, 204, 21, 0.2); color: #facc15; margin: 0;">hoje Global Chad</span>
-                            </div>
-                        </div>
-                    </div>
-                     <div style="color: #facc15; align-self: flex-start;">⭐⭐⭐⭐⭐</div>
-                    <div style="color: #a1a1aa; font-size: 0.9rem; align-self: flex-start;">(Google Review)</div>
-                      <div style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(234, 179, 8, 0.1)); border: 1px solid rgba(250, 204, 21, 0.3); border-radius: 999px; color: #facc15; font-weight: 600; align-self: flex-start;">
-                      <span>20 dias de papo</span>
-                    </div>
-                    <div style="color: white; font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem; align-self: flex-start;">
-                        <p style="margin:0;">"Simplesmente fantástico, ele realmente me entende, como um amigo. Melhor que já vi disparado."</p>
-                    </div>
-    
-                </div>
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 0.5rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/4.jpg" alt="Depoimento 1" style="width: 100%; border-radius: 1rem; margin-bottom: 1rem; max-width: 400px;">
+                
             </div>
             <!-- Card 2 -->
-            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;">
-                     <div style="display: flex; gap: 1rem; align-items: center;">
-                        <div style="position: relative; width: 48px; height: 48px;">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQFeFDzagr_p2w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1677587451039?e=2147483647&v=beta&t=kGaJm4Nu-M9uHa2cXM9S7fGH_PGpO230tyDxeBqDKuQ" alt="Pedro" style="width: 100%; height: 100%; border-radius: 50%; border: 2px solid #facc15; object-fit: cover;">
-                             <div style="position: absolute; bottom: -0.5rem; right: -0.5rem; background: #facc15; color: black; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.625rem; font-weight: 700; text-transform: uppercase;">KING</div>
-                        </div>
-                         <div style="color: white; font-size: 1.25rem; font-weight: 700; display: flex; flex-direction: column;">
-                           <h3 style="margin:0; line-height: 1.3;">Pedro</h3>
-                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-                                <span style="font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; background: rgba(255, 255, 255, 0.1); color: #a1a1aa; margin: 0;">ex-tímido</span>
-                                <span style="font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; background: rgba(250, 204, 21, 0.2); color: #facc15; margin: 0;">hoje Gentleman Internacional</span>
-                            </div>
-                        </div>
-                     </div>
-                    <div style="color: #facc15; align-self: flex-start;">⭐⭐⭐⭐⭐</div>
-                      <div style="color: #a1a1aa; font-size: 0.9rem; align-self: flex-start;">(Google Review)</div>
-                    <div style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(234, 179, 8, 0.1)); border: 1px solid rgba(250, 204, 21, 0.3); border-radius: 999px; color: #facc15; font-weight: 600; align-self: flex-start;">
-                        <span>17 dias de papo</span>
-                    </div>
-                       <div style="color: white; font-size: 1.125rem; line-height: 1.6; margin-bottom: 1.5rem; align-self: flex-start;">
-                         <p style="margin:0;">"Ele me ensinou até como chegar na balada e meter um WHAT'S UP LADIES, muito brabo kkk"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- CTA Button -->
-        <button onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" style="display: flexbox; margin: 0 auto; margin-top: 3rem; padding: 1rem 1.2rem; background: linear-gradient(100deg, #facc15 0%, #f59e0b 100%); color: #111; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: bold; font-size: 1.5rem; transition: all 0.3s ease-in-out; width: 100%; max-width: 300px;">
-            <span style="display: block; font-size: clamp(1.2rem, 5vw, 1.5rem);">QUERO LEVEL UP MINHA VIDA ⬆️</span>
-            <span style="display: block; font-size: 0.7rem; font-weight: normal; opacity: 0.8;">15 dias de garantia incondicional</span>
-        </button>
-    </section>
-
-    <!-- HONEST CHECK SECTION (OCULTA) -->
-    <section class="honest-check" style="display: none">
-        <div class="container">
-            <div class="check-box">
-                <h2 class="check-title">Seja sincero comigo:</h2>
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 0.5rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/2.jpg" alt="Depoimento 2" style="width: 100%; border-radius: 1rem; margin-bottom: 1rem; max-width: 400px;">
                 
-                <div class="checkboxes">
-                    <label class="check-item">
-                        <input type="checkbox" class="hidden-check">
-                        <div class="custom-checkbox">
-                            <svg class="check-icon" viewBox="0 0 24 24">
-                                <path d="M20 6L9 17l-5-5"/>
-                            </svg>
-                        </div>
-                        <span>Ser fluente em inglês é uma <span style="color: #facc15;"><b>prioridade REAL</b></span> pra você agora?</span>
-                    </label>
-
-                    <label class="check-item">
-                        <input type="checkbox" class="hidden-check">
-                        <div class="custom-checkbox">
-                            <svg class="check-icon" viewBox="0 0 24 24">
-                                <path d="M20 6L9 17l-5-5"/>
-                            </svg>
-                        </div>
-                        <span>Você consegue ver como ter um Melhor Amigo Gringo 24/7 <span style="color: #facc15;"><b>resolveria seu problema</b></span> com inglês... <u>pra sempre?</u></span>
-                    </label>
-
-                    <label class="check-item">
-                        <input type="checkbox" class="hidden-check">
-                        <div class="custom-checkbox">
-                            <svg class="check-icon" viewBox="0 0 24 24">
-                                <path d="M20 6L9 17l-5-5"/>
-                            </svg>
-                        </div>
-                        <span>Se o investimento fosse <span style="color: #facc15;"><b>menor que um curso tradicional</b></span>, você começaria <u>HOJE MESMO?</u></span>
-                    </label>
-                </div>
-
-                <div class="celebration hidden">
-                    <div class="celebration-content">
-                        <span class="celebration-emoji">🎉</span>
-                        <h3>SHEEEESH! Você tá pronto pra explodir!</h3>
-                        <p>São só R$29,90 meu parça!</p>
-                        <span class="celebration-subtext">*RISK FREE pra vc!*</span>
-                    </div>
-                </div>
-                <!-- BOTÃO!!!! -->
-                <button class="cta-button" style= "margin-top: 20px; display: block; margin: 2rem auto;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-                    QUERO ECONOMIZAR TEMPO E DINHEIRO, MYFRIEND!
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
         </div>
     </section>
 
 
-    <!-- PRICE COMPARISON (OCULTA) -->
-    <section class="price-comparison"style="display: none">
-        <div class="container">
-            <h2 class="section-title">
-                Sabe quanto custa um <span style="color: #facc15;">curso tradicional?</span>
-            </h2>
-
-            <div class="comparison-cards">
-                <div class="card traditional">
-                    <div class="card-tag">OLD SCHOOL 💀</div>
-                    <h3>Curso Tradicional</h3>
-                    
-                    <div class="price-box">
-                        <div class="price">
-                            <span class="amount">12x</span>
-                            <span class="value">R$ 250</span>
-                        </div>
-                        <div class="total">= R$ 3.000 por ano + materiais didáticos 📚</div>
-                    </div>
-                    
-                    <ul class="feature-list">
-                        <li>⏰ 4 anos da sua vida</li>
-                        <li>❌ Sem garantia de fluência</li>
-                        <li>💀 Método ultrapassado</li>
-                    </ul>
-                </div>
-
-                <div class="vs-badge">VS</div>
-
-                <div class="card myfriend">
-                    <div class="card-tag">NEXT GEN 😎</div>
-                    <h3>MyFriend®</h3>
-                    
-                    <div class="price-box">
-                        <div class="price">
-                            <span>Apenas</span>
-                            <span class="value highlight">R$ 29,90</span>
-                            <span>/mês</span>
-                        </div>
-                        <div class="total">Menos que um café por dia ☕</div>
-                    </div>
-                    
-                    <ul class="feature-list">
-                        <li>⚡ Resultado em semanas</li>
-                        <li>💯 Garantia de fluência</li>
-                        <li>🎮 Método revolucionário</li>
-                    </ul>
-                    
-                    <!-- BOTÃO!!!! -->
-                    <button class="cta-button" style= "margin-top: 20px; display: block; margin: 2rem auto;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-                        TESTE POR 14 DIAS!
-                        <svg width="40" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DAILY PROGRESS (OCULTA) -->
-    <section class="daily-progress"style="display: none">
-        <div class="container">
-            <div class="time-waste">
-                <h2 class="time-title">Todo dia você gasta:</h2>
-                
-                <div class="time-cards">
-                    <div class="time-card">
-                        <div class="app-icon">📱</div>
-                        <span class="app-name">Instagram</span>
-                        <span class="time-spent">2h</span>
-                        <div class="waste-bar">
-                            <div class="bar-fill" style="width: 80%"></div>
-                        </div>
-                    </div>
-
-                    <div class="time-card">
-                        <div class="app-icon">🎵</div>
-                        <span class="app-name">TikTok</span>
-                        <span class="time-spent">1h</span>
-                        <div class="waste-bar">
-                            <div class="bar-fill" style="width: 60%"></div>
-                        </div>
-                    </div>
-
-                    <div class="time-card">
-                        <div class="app-icon">▶️</div>
-                        <span class="app-name">YouTube</span>
-                        <span class="time-spent">30min</span>
-                        <div class="waste-bar">
-                            <div class="bar-fill" style="width: 40%"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="attention-box">
-                    <h3>Me dá 5 MINUTOS desse tempo</h3>
-                    <p>Só 5 minutos de ATENÇÃO REAL</p>
-                    <span class="magic-text">E veja o que acontece:</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- PROGRESS TIMELINE -->
-    <section class="timeline-section">
-        <div class="container">
-            <h2 class="timeline-title" style="font-size: 2rem;">
-                Seu Progresso é REAL:
-            </h2>
-    
-            <div class="timeline">
-                <!-- Semana 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-number">1</div>
-                    <div class="timeline-period">1ª Semana</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Primeira conversa em inglês</h3>
-                        <p class="timeline-description">
-                            Você vai estar trocando ideia com gringos como se fosse nada
-                        </p>
-                        <div class="timeline-badges">
-                            <span class="timeline-badge">🔥 Daily Flame System</span>
-                            <span class="timeline-badge">🌎 Global Start</span>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Semana 4 -->
-                <div class="timeline-item">
-                    <div class="timeline-number">4</div>
-                    <div class="timeline-period">4ª Semana</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Primeiro desafio na VIDA REAL</h3>
-                        <p class="timeline-description">
-                            Botar o inglês na RUA e ver que funciona mesmo
-                        </p>
-                        <div class="timeline-badges">
-                            <span class="timeline-badge">🗣️ Street English</span>
-                            <span class="timeline-badge">🚀 Global Rise-Up</span>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- 90 Dias -->
-                <div class="timeline-item">
-                    <div class="timeline-number">90</div>
-                    <div class="timeline-period">90 dias</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Global BOSS Status 😎</h3>
-                        <p class="timeline-description">
-                            Pronto pra vagas internacionais e vida global
-                        </p>
-                        <div class="timeline-badges">
-                            <span class="timeline-badge">Certificado de FLUÊNCIA 📝</span>
-                            <span class="timeline-badge">World Domination Ready 🏆</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- BOTÃO!!!! -->
-                <button class="cta-button" style= "margin-top: 20px; display: block; margin: 1rem auto;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-                    QUERO DESTRAVAR MEU INGLÊS!
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- EPIC DEV SUCCESS SECTION (OCULTO) -->
-    <section class="epic-dev-success">
-        <div class="container">
-            <div class="success-story">
-                <div class="dev-profile">
-                    <div class="dev-avatar">
-                        <img src="/api/placeholder/120/120" alt="João P." class="profile-pic">
-                        <span class="dev-badge">🚀 SENIOR DEV</span>
-                    </div>
-                    
-                    <div class="dev-info">
-                        <div class="dev-transformation">
-                            <div class="before">
-                                <span class="label">ANTES</span>
-                                <span class="value">Dev BR Sofredor</span>
-                            </div>
-                            <div class="arrow">→</div>
-                            <div class="after">
-                                <span class="label">DEPOIS</span>
-                                <span class="value">Global Chad Dev</span>
-                            </div>
-                        </div>
-
-                        <div class="dev-metrics">
-                            <div class="metric">
-                                <span class="value">4</span>
-                                <span class="label">semanas</span>
-                            </div>
-                            <div class="metric highlight">
-                                <span class="value">$8.5k</span>
-                                <span class="label">USD/mês</span>
-                            </div>
-                            <div class="metric">
-                                <span class="value">POG</span>
-                                <span class="label">demais</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dev-testimony">
-                    <span class="quote-mark">❝</span>
-                    <p class="testimony-text">
-                        mano do céu kkkk nunca pensei q ia ser tao easy
-                        <span class="highlight">conversei 5min todo dia no MyFriend, só papo de dev mesmo</span>
-                        <span class="highlight">dps de 4 semanas ja tava fazendo entrevista em ingles de boa</span>
-                        <span class="highlight">agora to na deel ganhando 8.5k USD POG</span>
-                    </p>
-                    <span class="quote-mark">❞</span>
-                </div>
-
-                <div class="dev-achievements">
-                    <div class="achievement">
-                        <span class="achievement-icon">🎯</span>
-                        <div class="achievement-info">
-                            <h4>Tech Interview Master</h4>
-                            <p>Desbloqueou o poder de fazer entrevistas técnicas em inglês</p>
-                        </div>
-                    </div>
-                    <div class="achievement">
-                        <span class="achievement-icon">💰</span>
-                        <div class="achievement-info">
-                            <h4>Salary 5x Combo</h4>
-                            <p>Multiplicou o salário em tempo recorde</p>
-                        </div>
-                    </div>
-                    <div class="achievement">
-                        <span class="achievement-icon">🌎</span>
-                        <div class="achievement-info">
-                            <h4>Global Dev Unlocked</h4>
-                            <p>Virou jogador do mercado internacional</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ALAN NICOLAS EPIC REVIEW -->
-    <section style="padding: 2rem 1rem; background: rgba(255, 255, 255, 0.03); border-radius: 1.5rem; max-width: 800px; margin: 0 auto;">
-        <!-- Review Card -->
-        <div style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)); border-radius: 1rem; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.1);">
-            
-            <!-- Google Verification Badge -->
-            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" 
-                    alt="Google Logo" 
-                    style="width: 24px; height: 24px; object-fit: contain;">
-                <span style="color: #666; font-size: 0.9rem;">Verified Review</span>
-                <div style="margin-left: auto; display: flex; align-items: center; gap: 0.5rem;">
-                    <span style="color: #facc15;">⭐⭐⭐⭐⭐</span>
-                    <span style="font-weight: bold;">5.0</span>
-                </div>
-            </div>
-
-            <!-- Profile Info -->
-            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
-                <!-- Profile Picture -->
-                <div style="position: relative; flex-shrink: 0;">
-                    <img src="https://yt3.googleusercontent.com/BkKTMzVvz7y02I-1zR4lJdjHLWkC24W4OMaL7BqKqRZsmfUPTa0_KbN0zMHl3SCby9Mqt5EF=s900-c-k-c0x00ffffff-no-rj" 
-                        alt="Alan Nicolas" 
-                        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #facc15;">
-                    <div style="position: absolute; bottom: 0; right: 0; background: #facc15; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="black" style="width: 16px; height: 16px;">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/>
-                        </svg>
-                    </div>
-                </div>
-                
-                <!-- Profile Info -->
-                <div>
-                    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem; font-weight: bold;">Alan Nicolas</h3>
-                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
-                        <span style="color: #facc15; font-size: 0.9rem;">Criador da Comunidade Lendária</span>
-                        <span style="color: #666; font-size: 0.9rem;">R$150M+ faturados no Digital</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review Text -->
-            <div style="margin-bottom: 2rem;">
-                <p style="font-size: 1.1rem; line-height: 1.5; margin: 0;">
-                    <span style="color: #facc15; font-weight: bold;">"Fantástico!</span> 
-                    Andre Turra, CEO e criador do MyFriend é genial e essa criação dele pode mudar a forma como aprendemos idiomas."
-                </p>
-            </div>
-
-            <!-- Single Metric -->
-            <div style="text-align: center; padding: 1rem; background: rgba(250, 204, 21, 0.1); border-radius: 0.5rem;">
-                <div style="font-size: 1.5rem; font-weight: bold; color: #facc15;">98<span style="font-size: 1rem; opacity: 0.8;">/100</span></div>
-                <div style="font-size: 0.9rem; color: #666;">Impact Score</div>
-            </div>
-        </div>
-    </section>
-
-
-
-    
-    <!-- PRICING SECTION -->
-    <section class="pricing-epic" id="pricing">
-        <div class="container">
-            <div class="pricing-cards">
-                <!-- BASIC PLAN -->
-                <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease; width: 100%; text-align: center;">
-                    <!-- Badge -->
-                    <div style="background: rgba(255, 255, 255, 0.1); color: #a1a1aa; font-size: 0.875rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 999px; display: inline-block; margin-bottom: 1rem;">
-                        STARTER PACK
-                    </div>
-                    
-                    <!-- Título -->
-                    <h3 style="font-size: 1.5rem; font-weight: 800; margin: 1rem 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                        <span>🤓</span>
-                        BASIC FRIEND
-                    </h3>
-
-                    <!-- Preço -->
-                    <div style="margin-bottom: 1.5rem;">
-                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 0.25rem;">
-                            <span style="font-size: 1.5rem; font-weight: 600;">R$</span>
-                            <span style="font-size: 4rem; font-weight: 900; line-height: 1;">29</span>
-                            <span style="font-size: 1.5rem; font-weight: 600;">,90</span>
-                            <span style="color: #a1a1aa; margin-left: 0.5rem;">/mês</span>
-                        </div>
-                        <span style="font-size: 0.875rem; color: #a1a1aa;">*preço de 1 café/dia</span>
-                    </div>
-
-                    <!-- Features -->
-                    <div style="margin: 2rem 0; text-align: left;">
-                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; margin-bottom: 0.5rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                            <span>💬</span>
-                            <span style="color: #a1a1aa;">10 mensagens por dia</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; margin-bottom: 0.5rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                            <span>🎯</span>
-                            <span style="color: #a1a1aa;">Profile Analysis básico</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; margin-bottom: 0.5rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                            <span>🎮</span>
-                            <span style="color: #a1a1aa;">2 Missões diárias</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; margin-bottom: 0.5rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                            <span>🏆</span>
-                            <span style="color: #a1a1aa;">Conquistas básicas</span>
-                        </div>
-                    </div>
-
-                    <!-- CTA Button -->
-                    <button onclick="window.location.href='https://pay.kirvano.com/50cd2b3c-2bf5-435c-b834-e68c494a7fc1';" 
-                            style="width: 100%; background: rgba(255, 255, 255, 0.1); color: white; padding: 1.5rem; border-radius: 1rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s ease; margin-top: 1rem;">
-                        Começar Jornada ➡️
-                    </button>
-
-                    <div style="text-align: center; color: #a1a1aa; font-size: 0.875rem; margin-top: 1rem;">
-                        (*Ideal para testar o sistema)
-                    </div>
-                </div>
-
-                <!-- PRO PLAN -->
-                <div style="background: rgba(250, 204, 21, 0.1); border-radius: 1.5rem; padding: 2rem; border: 2px solid #facc15; transition: transform 0.3s ease; width: 100%; position: relative; box-shadow: 0 8px 32px rgba(250, 204, 21, 0.1); text-align: center; @media (min-width: 768px) { transform: scale(1.05); }">
-                    <!-- Badge Promotion -->
-                    <div style="position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); background: #facc15; color: black; font-weight: 800; padding: 0.75rem 1.5rem; border-radius: 999px; white-space: nowrap; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="animation: flame 1s infinite;">🔥</span> MAIS POPULAR <span style="animation: flame 1s infinite;">🔥</span>
-                    </div>
-
-                    <!-- Título PRO -->
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2.5rem;">
-                        <h3 style="font-size: 1.5rem; font-weight: 800;">
-                            <span>👑</span>
-                            MYFRIEND <span style= "color: #eab308";>PRO</span>
-                        </h3>
-                        
-                    </div>
-
-                    <!-- Preço PRO -->
-                    <div style="text-align: center; margin: 1rem 0;">
-                        <div style="margin-bottom: 0.5rem;">
-                            
-                            <span style="text-decoration: line-through; color: #a1a1aa;"><br>R$79,90</span>
-                        </div>
-                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 0.25rem;">
-                            <span style="font-size: 1.5rem; font-weight: 600;">R$</span>
-                            <span style="font-size: 4rem; font-weight: 900; line-height: 1;">39</span>
-                            <span style="font-size: 1.5rem; font-weight: 600;">,90</span>
-                            <span style="color: #a1a1aa; margin-left: 0.5rem;">/mês</span>
-                        </div>
-                        <span style="font-size: 0.875rem; color: #a1a1aa;">*plano trimestral<br></span>
-                        <span style="background: #dc2626; color: white; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.75rem; margin-left: 0.5rem;">ECONOMIZE 50%</span>
-                    </div>
-
-
-
-
-
-
-                    
-                    <!-- Features PRO -->
-                    <div style="margin: 2rem 0; text-align: left;">
-                        <!-- PRO Features Title -->
-                    <div style="color: #facc15; font-weight: 700; margin-bottom: 1rem; text-align: center;">
-                        ⭐ FEATURES EXCLUSIVAS PRO:
-                    </div>
-
-                    <!-- Feature Items Container -->
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                            <!-- Chat Ilimitado -->
-                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                    <span>💬</span>
-                                    <span style="color: white;">Chat ILIMITADO 24/7</span>
-                                </div>
-                                <span style="background: rgba(250, 204, 21, 0.2); color: #facc15; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.75rem; white-space: nowrap;">+500% interação</span>
-                            </div>
-
-                            <!-- Tech Profile -->
-                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                    <span>🎯</span>
-                                    <span style="color: white;">Análise de Perfil Avançada</span>
-                                </div>
-                                <span style="background: rgba(250, 204, 21, 0.2); color: #facc15; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.75rem; white-space: nowrap;">IA personalizada</span>
-                            </div>
-
-                            <!-- Missões Multiplayer -->
-                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                    <span>🎮</span>
-                                    <span style="color: white;">Missões Diárias Ilimitadas</span>
-                                </div>
-                                <span style="background: rgba(250, 204, 21, 0.2); color: #facc15; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.75rem; white-space: nowrap;">2x GringoCoins</span>
-                            </div>
-
-                            <!-- Simulador de Entrevista -->
-                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                    <span>🌎</span>
-                                    <span style="color: white;">Simulador de Entrevista</span>
-                                </div>
-                                <span style="background: rgba(250, 204, 21, 0.2); color: #facc15; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.75rem; white-space: nowrap;">Prepare-se pra gringa!</span>
-                            </div>
-                        </div>
-
-                        <!-- Bonus Title -->
-                        <div style="color: #facc15; font-weight: 700; margin: 2rem 0 1rem; text-align: center;">
-                            🎁 BÔNUS EXCLUSIVOS:
-                        </div>
-
-                        <!-- Bonus Items Container -->
-                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                            <!-- 2x GringoCoins -->
-                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                    <span>🔥</span>
-                                    <span style="color: white;">Daily Flames com Prêmios Diários</span>
-                                </div>
-                            </div>
-
-                            <!-- Personagens Especiais -->
-                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                    <span>🎭</span>
-                                    <span style="color: white;">Personagens Especiais</span>
-                                </div>
-                            </div>
-
-                            <!-- Conquistas Lendárias -->
-                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
-                                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                    <span>🏆</span>
-                                    <span style="color: white;">Conquistas Lendárias</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-                    <!-- Timer e Spots Container -->
-                    <div style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.2), rgba(234, 179, 8, 0.2)); border-radius: 1rem; padding: 1rem; margin: 2rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <span>Preço</span>
-                            <span style="font-weight: 800; color: #facc15;">disponível</span>
-                            <span>até:</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <span>⏰</span>
-                            <span id="fixed-countdown" style="font-weight: 800; color: #facc15;">03:12:32</span>
-                        </div>
-                    </div>
-
-                    <!-- CTA Button PRO -->
-                    <button onclick="window.location.href='https://pay.kirvano.com/98dd6353-1008-4a83-bb81-aad80ac1fe06';" 
-                            style="width: 100%; background: linear-gradient(135deg, #facc15, #eab308); color: black; padding: 1.5rem; border-radius: 1rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;">
-                        <span style="font-size: 1.25rem;">VIRAR LEGEND AGORA</span>
-                        <span style="font-size: 0.875rem; opacity: 0.9;">Teste por 14 dias</span>
-                    </button>
-
-                    <!-- Social Proof -->
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.75rem; flex-wrap: wrap; justify-content: center;">
-                        <div style="display: flex; align-items: center; min-width: fit-content;">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLMCtoESswQgAD9SS1btEcoCMvuL2xXrlBw&s" 
-                                alt="User 1" 
-                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 0;">
-                            <img src="https://i1.rgstatic.net/ii/profile.image/11431281229012838-1710275282413_Q512/Rafael-Pereira-Da-Silva.jpg" 
-                                alt="User 2" 
-                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 1;">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaSWsaIU_3oHiwwOX9DonH1EzRKuKzlpaXmg&s" 
-                                alt="User 3" 
-                                style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -12px; z-index: 2;">
-                            <span style="width: 32px; height: 32px; background: #facc15; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem;">+127</span>
-                        </div>
-                        <span style="font-size: 0.875rem; color: #a1a1aa; text-align: center;">pessoas escolheram LEGEND hoje</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- GUARANTEE SECTION -->
-    <section class="guarantee-section">
-        <div class="container">
-            <div class="guarantee-card">
-                <!-- Shield Icon -->
-                <div class="shield-wrapper">
-                    <div class="shield-icon">🛡️</div>
-                    <div class="shield-glow"></div>
-                </div>
-
-                <!-- Guarantee Title -->
-                <h2 class="guarantee-title">
-                    <span class="highlight">"15-DAY MONEY BACK GUARANTEE"</span>
-                    Risco ZERO pra você!
-                </h2>
-
-                <!-- Guarantee Checklist -->
-                <div class="guarantee-checks">
-                    <p class="check-intro">Se em 15 dias você não:</p>
-                    
-                    <div class="check-list">
-                        <div class="check-item">
-                            <div class="check-icon"></div>
-                            <span class="check-text">Mandar bem em pelo menos uma conversa REAL em inglês</span>
-                        </div>
-                        <div class="check-item">
-                            <div class="check-icon"></div>
-                            <span class="check-text">Impressionar alguém com sua evolução</span>
-                        </div>
-                        <div class="check-item">
-                            <div class="check-icon"></div>
-                            <span class="check-text">Sentir que tá finalmente progredindo</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guarantee Statement -->
-                <div class="guarantee-statement">
-                    Eu <span class="highlight">FAÇO QUESTÃO</span> de devolver sua grana.
-                </div>
-
-                <!-- Whisper Text -->
-                <div class="guarantee-whisper">
-                    <span class="whisper-icon">🤫</span>
-                    <p class="whisper-text">mas entre nós: você vai é querer assinar o plano Pro 😎</p>
-                </div>
-
-                <!-- CTA Button -->
-                <button class="guarantee-cta"onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
-                    <span class="main-text">TESTAR SEM MEDO</span>
-                    <span class="sub-text">15 dias de garantia incondicional</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Navbar scroll logic -->
-    <script>
-        const navbar = document.querySelector('.navbar');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                navbar.classList.add('visible');
-            } else if (currentScroll < lastScroll && currentScroll < 100) {
-                navbar.classList.remove('visible');
-            }
-
-            lastScroll = currentScroll;
-        });
-    </script>
-
-
-    <!-- Timer Countdown -->    
-    <script>
-        // Data e hora de expiração (defina o horário de término da promoção)
-        const expirationDate = new Date();
-        expirationDate.setHours(23, 59, 59, 0); // Hoje, às 23:59:59
-
-        // Função para atualizar o countdown
-        function updateCountdown() {
-            const now = new Date();
-            const timeRemaining = expirationDate - now;
-
-            if (timeRemaining >= 0) {
-                const hours = Math.floor((timeRemaining / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((timeRemaining / (1000 * 60)) % 60);
-                const seconds = Math.floor((timeRemaining / 1000) % 60);
-
-                // Atualiza o texto no HTML
-                document.querySelector('.countdown').textContent = 
-                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            } else {
-                // Quando o tempo acabar
-                document.querySelector('.countdown').textContent = "Expirado";
-                clearInterval(timerInterval); // Para o intervalo
-            }
-        }
-
-        // Atualiza o countdown a cada segundo
-        const timerInterval = setInterval(updateCountdown, 1000);
-        updateCountdown(); // Chamada inicial para evitar atraso de 1s
-    </script>
-
-
-
-
-    <!-- COMO FUNCIONA SECTION -->
-    <section id="how-it-works" class="how-it-works" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 6rem 2rem; color: white; position: relative; overflow: hidden;">
+     <!-- COMO FUNCIONA SECTION -->
+    <section id="how-it-works" class="how-it-works" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 5rem 0.2rem; color: white; position: relative; overflow: hidden;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-            <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
+            <h2 class="main-title" style="font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
                 Como Funciona o <span class="highlight" style="color: #facc15;">MyFriend®?</span>
             </h2>
 
@@ -3996,7 +403,7 @@
                             <div class="icon" style="font-size: 2rem;">🗣️</div>
                             <div>
                                 <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Conversas Naturais</h4>
-                                <p style="color: #a1a1aa;">Nada de "the book is on the table". Sou a primeira IA focada em assuntos REAIS que você AMA.</p>
+                                <p style="color: #a1a1aa;">⭐️ Quer simular uma entrevista com o Elon Musk? <br><br>⭐️ Quer falar sobre NBA? <br><br>⭐️ Quer conquistar a gatinha gringa? <br><br>⭐️ Eu sou seu best friend pra qualquer assunto</p>
                             </div>
                         </div>
                         
@@ -4004,7 +411,7 @@
                             <div class="icon" style="font-size: 2rem;">⚡</div>
                             <div>
                                 <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Evolução Ultra Rápida</h4>
-                                <p style="color: #a1a1aa;">5 minutos por dia são suficientes pra você ver resultados reais.</p>
+                                <p style="color: #a1a1aa;">5 minutos por dia são suficientes pra você ver resultados impressionantes. <br><br> 🔥 A Cada dia você acumula 1 <b>Daily Flame</b> que viram PRÊMIOS da VIDA REAL <br><br> 💀 Mas CUIDADO! Se pular um dia, perde seu progresso</p>
                             </div>
                         </div>
                         
@@ -4012,7 +419,7 @@
                             <div class="icon" style="font-size: 2rem;">🎯</div>
                             <div>
                                 <h4 style="font-size: 1.25rem; margin-bottom: 0.5rem;">100% Personalizado</h4>
-                                <p style="color: #a1a1aa;">IA que entende seus interesses e adapta o nível das conversas pra você.</p>
+                                <p style="color: #a1a1aa;">IA que entende seus interesses e adapta o nível das conversas pra você. <br><br> 🚶 Iniciante <br><br> 🏃 Intermediário<br><br> 🏅 Avançado</p>
                             </div>
                         </div>
                     </div>
@@ -4045,15 +452,359 @@
         </style>
     </section>
 
-   
-    <!-- CASOS DE SUCESSO SECTION -->
-    <section id="success-stories" class="success-stories" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 6rem 2rem; color: white; position: relative;">
+    <!-- MELHOR IA SECTION -->
+    <section id="best-ai" class="best-ai-2024" style="background: linear-gradient(135deg, #facc15 0%, #eab308 100%); padding: 6rem 0.5rem; color: black;">
         <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
+            <h2 class="main-title" style="color: #000; font-size: clamp(2rem, 8vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
+                Eleita a <span style="background: black; color: #facc15; padding: 0 0.5rem;">Melhor IA de 2024:</span>
+            </h2>
+
+            <div class="awards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🏆</div>
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Certificada pela Comunidade LendárIA®</h3>
+                    <p>Reconhecida como a IA mais efetiva para aprendizado de idiomas em 2024.</p>
+                </div>
+
+                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🧠</div>
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Neurociência + BR DNA</h3>
+                    <p>Método que trabalha com seu cérebro, não contra ele. <br><br> Afinal, na amizade e no papo natural tudo fica mais fácil (e gostoso).</p>
+                </div>
+
+                <div class="award-card" style="background: rgba(0,0,0,0.1); padding: 2rem; border-radius: 1rem; text-align: center; transition: transform 0.3s;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📈</div>
+                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">98.7% de Satisfação</h3>
+                    <p>Mais de 1000 profissionais já desbloquearam seu inglês conosco.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: CTA fodona -->
+    <section style="width: 100%; background-color: #fff; padding: 4rem 1rem; display: flex; justify-content: center; align-items: center; flex-direction: column; overflow: hidden; position: relative;">
+    
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.2) 0%, rgba(0,0,0,0) 60%); pointer-events: none;"></div>
+         
+         
+         <div style="max-width: 1140px; width: 100%; padding: 0 1rem; position: relative; z-index: 1;">
+             <p style="font-size: clamp(1.5rem, 5vw, 1.8rem); color: #333; font-style: italic; text-align: center; margin-bottom: 1.5rem; letter-spacing: 0.8px;  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);">
+                 <span style="font-weight: 900; color: #1a1a1a; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">RESULTADO DESDE O PRIMEIRO DIA</span> ou <span style="text-decoration: underline; color: #1a1a1a; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">SEU MONEY BACK 💵</span>
+             </p>
+             <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+                 <a href="#pricing">
+                     <!-- CTA Button -->
+                    <button onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" style="display: block; margin: 0 auto; padding: 1rem 1.5rem; background: linear-gradient(100deg, #facc15 0%, #f59e0b 100%); color: #111; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: bold; font-size: 1.5rem; transition: all 0.3s ease-in-out; width: 100%; max-width: 400px;">
+                        <span style="display: block; font-size: clamp(1.2rem, 5vw, 1.5rem);">QUERO APRENDER RÁPIDO</span>
+                        <span style="display: block; font-size: 0.7rem; font-weight: normal; opacity: 0.8;">15 dias de garantia incondicional</span>
+                    </button>
+                     
+                 </a>
+             </div>
+             <p style="font-size: clamp(1.1rem, 3.5vw, 1.3rem); color: #777; text-align: center; line-height: 1.5; margin-top: 0.75rem; letter-spacing: 0.5px; text-shadow: 1px 1px 2px rgba(0,0,0,0.05);">
+                 <span style="font-weight: 700; color: #333;">Pague Pouco e Aprenda Rápido</span>  •  Cancele quando quiser
+             </p>
+         </div>
+     </section>
+
+    
+    <!-- TESTIMONIALS SECTION -->
+    <section style="background: linear-gradient(135deg, #111 0%, #222 100%); padding: 4rem 0.5rem; position: relative; overflow: hidden; text-align: center;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.1) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+        <h2 style="color: #ffffff; font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem;">CONQUISTE SEU INGLÊS <span class="highlight">EM 90 DIAS</span> FALANDO COM UM AMIGO:</h2>
+        <div style="max-width: 1024px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <!-- Card 1 -->
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 0.5rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/6.jpg" alt="Depoimento 1" style="width: 100%; border-radius: 1rem; margin-bottom: 1rem; max-width: 400px;">
+                
+            </div>
+            <!-- Card 2 -->
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 0.5rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/7.jpg" alt="Depoimento 2" style="width: 100%; border-radius: 1rem; margin-bottom: 1rem; max-width: 400px;">
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    
+    <!-- PRICING SECTION -->
+    <section id="pricing" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 4rem 1rem; color: white; position: relative; overflow: hidden; text-align: center;">
+        <!-- Background Glow -->
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+    
+        <!-- Container Principal -->
+        <div style="max-width: 1140px; margin: 0 auto; width: 100%;">
+            <!-- Cards Container - Flexbox responsivo -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem; width: 100%; margin: 0 auto; max-width: 600px; padding: 0 0.1rem;">
+    
+                <!-- PRO PLAN -->
+                <div style="background: rgba(250, 204, 21, 0.1); border-radius: 1.5rem; padding: 1rem; border: 2px solid #facc15; transition: transform 0.3s ease; width: 100%; position: relative; box-shadow: 0 8px 32px rgba(250, 204, 21, 0.1);">
+                    <!-- Badge Promotion -->
+                    <div style="position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); background: #facc15; color: black; font-weight: 800; padding: 0.75rem 1.5rem; border-radius: 999px; white-space: nowrap; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="animation: flame 1s infinite;">🔥</span> SEU PASSAPORTE PARA O MUNDO <span style="animation: flame 1s infinite;">🔥</span>
+                    </div>
+    
+                    <!-- Título PRO -->
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2.5rem;">
+                        <h3 style="font-size: 1.5rem; font-weight: 800;">
+                            <span>👑</span>
+                            MYFRIEND PRO
+                        </h3>
+                    </div>
+    
+                    <!-- Preço PRO -->
+                    <div style="text-align: center; margin: 1rem 0;">
+                        <div style="text-decoration: line-through; color: #a1a1aa;">R$59,90</div>
+                        <div style="display: flex; align-items: baseline; justify-content: center; gap: 0.25rem;">
+                            <span style="font-size: 1.5rem; font-weight: 600;">R$</span>
+                            <span style="font-size: 4rem; font-weight: 900; line-height: 1;">39</span>
+                            <span style="font-size: 1.5rem; font-weight: 600;">,90</span>
+                            <span style="color: #a1a1aa; margin-left: 0.5rem;">/mês</span>
+                        </div>
+                        <span style="font-size: 0.875rem; color: #a1a1aa;">*plano trimestral</span>
+                        <div style="display: block; background: #dc2626; color: white; padding: 0.25rem 0.5rem; border-radius: 999px; font-size: 0.75rem; margin-top: 0.5rem;">ECONOMIZE 30% NA PROMO DE LANÇAMENTO</div>
+                    </div>
+    
+                    <!-- Garantia -->
+                    <div style="margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.05); text-align: left;">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem;">15 Dias de Teste + Garantia Dupla:</div>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="font-size: 0.875rem; margin-bottom: 0.25rem;">• Perca seu medo de falar em 90 dias <span class="highlight">ou devolvo 2x seu Dinheiro</span></li>
+                        </ul>
+                    </div>
+    
+                    <!-- COMPARE E ESCOLHA - Tabela Comparativa (Otimizada para Mobile) -->
+                    <div style="margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.05);">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem; text-align: center;">COMPARE E ESCOLHA:</div>
+    
+                        <!-- Tabela - Layout Mobile -->
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <!-- Professor Particular -->
+                            <div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
+                                <div style="font-weight: bold; color: #a1a1a1; margin-bottom: 0.5rem;">Professor Particular</div>
+                                <div style="font-size: 1.125rem;">R$150/hora</div>
+                                <div style="font-size: 0.875rem;">4-8 meses p/ resultado</div>
+                                <div style="font-size: 0.875rem;">Horários fixos</div>
+                                <div style="font-size: 0.875rem;">1h por semana</div>
+                                <div style="font-weight: bold; font-size: 1rem; color: #d20000;">Total: R$4.800</div>
+                            </div>
+    
+                            <!-- Curso de Inglês -->
+                            <div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
+                                <div style="font-weight: bold; color: #a1a1a1; margin-bottom: 0.5rem;">Curso de Inglês</div>
+                                <div style="font-size: 1.125rem;">R$250/mês</div>
+                                <div style="font-size: 0.875rem;">5 ANOS pra se formar</div>
+                                <div style="font-size: 0.875rem;">Aulas fixas</div>
+                                <div style="font-size: 0.875rem;">2h por semana</div>
+                                <div style="font-weight: bold; font-size: 1rem; color: #d20000;">Total: R$15.000</div>
+                            </div>
+    
+                            <!-- MyFriend - DESTAQUE -->
+                            <div style="padding: 1rem; border-radius: 0.5rem; border: 2px solid #facc15; text-align: center; background: rgba(250, 204, 21, 0.05);">
+                                <div style="font-weight: bold; color: #facc15; margin-bottom: 0.5rem;">MYFRIEND - A ESCOLHA INTELIGENTE!</div>
+                                <div style="font-size: 1.5rem; font-weight: 900; color: #facc15;">R$39,90/mês</div>
+                                <div style="font-size: 1rem;">90 dias ou menos</div>
+                                <div style="font-size: 1rem;">24/7 no seu celular</div>
+                                <div style="font-size: 1rem;">5min/dia</div>
+                                <div style="margin-top: 0.5rem; color: #facc15; font-weight: bold;">ECONOMIZE ATÉ 97%!</div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- O QUE VOCÊ RECEBE HOJE -->
+                    <div style="margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.05); text-align: left;">
+                        <div style="font-weight: bold; margin-bottom: 0.5rem; text-align: center; color: #facc15;">⭐ O QUE VOCÊ RECEBE HOJE: ⭐</div>
+    
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+    
+                            <!-- Amigo Gringo -->
+                            <div style="display: flex; flex-direction: column; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
+                                <h3 style="font-size: 1.125rem; font-weight: bold; color: white;">🌎 90 Dias de Amigo Gringo 24/7</h3>
+                                <span style="color: #a1a1aa; font-size: 0.875rem;">Valor Real: R$400</span>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 0 1rem;">
+                                    <li style="font-size: 0.75rem; color: #a1a1aa;">→ <span class="highlight">Mesma personalização de um professor particular</span></li>
+                                    <li style="font-size: 0.75rem; color: #a1a1aa;">→ Disponível 24h no seu WhatsApp</li>
+                                    <li style="font-size: 0.75rem; color: #a1a1aa;">→ Fala sobre SEUS interesses</li>
+                                </ul>
+                            </div>
+    
+                            <!-- Pacote Vagas Internacionais -->
+                            <div style="display: flex; flex-direction: column; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
+                                <h3 style="font-size: 1.125rem; font-weight: bold; color: white;">💵 Pacote "Vagas Internacionais"</h3>
+                                <span style="color: #a1a1aa; font-size: 0.875rem;">Valor Real: R$250</span>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 0 1rem;">
+                                    <li style="font-size: 0.75rem; color: #a1a1aa;">→ <span class="highlight">Simulações de entrevistas em empresas estrangeiras</span></li>
+                                    <li style="font-size: 0.75rem; color: #a1a1aa;">→ Template para seu LinkedIn</li>
+                                    <li style="font-size: 0.75rem; color: #a1a1aa;">→ 100% Personalizado Para Sua Área</li>
+                                </ul>
+                            </div>
+    
+                            <!-- Acelerador de Fluência -->
+                            <div style="display: flex; flex-direction: column; padding: 0.75rem; border-radius: 0.5rem; background: rgba(255, 255, 255, 0.02);">
+                                <h3 style="font-size: 1.125rem; font-weight: bold; color: white;">🎯 Acelerador de Fluência</h3>
+                                <span style="color: #a1a1aa; font-size: 0.875rem;">Valor Real: R$97</span>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 0 1rem;">
+                                    <li style="font-size: 0.75rem; color: #a1a1aa;">→ <span class="highlight">Evolução 8x Mais Rápida que Qualquer Curso</span></li>
+                                    <li style="font-size: 0.75rem; color: #a1a1aa;">→ Conversa Natural via ÁUDIO e FOTO</li>
+                                    <li style="font-size: 0.75rem; color: #a1a1aa;">→ Discuta Séries, Trabalho, Aprenda Cantadas e Muito Mais</li>
+                                </ul>
+                            </div>
+    
+                        </div>
+                    </div>
+    
+                    <!-- Valor Total e Investimento -->
+                    <div style="margin: 1rem 0; text-align: center;">
+                        <div style="font-size: 1rem; color: #a1a1aa;">Valor Total: <span style="text-decoration: line-through;">R$747</span></div>
+                        <div style="font-size: 1.25rem; font-weight: 600; color: #a1a1aa;">Seu Investimento: R$39,90/mês</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #dc2626;">Você Economiza: 95% 🔥</div>
+                    </div>
+    
+                    <!-- CTA Button -->
+                    <button onclick="window.location.href='https://pay.kirvano.com/98dd6353-1008-4a83-bb81-aad80ac1fe06';" style="width: 100%; background: linear-gradient(135deg, #facc15, #eab308); color: black; padding: 1.5rem; border-radius: 1rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;">
+                        <span style="font-size: 1.25rem;">INICIAR MINHA VERSÃO GLOBAL</span>
+                        <span style="font-size: 0.875rem; opacity: 0.9;">Teste por 15 dias</span>
+                    </button>
+    
+                    <!-- Timer -->
+                    <div style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.2), rgba(234, 179, 8, 0.2)); border-radius: 1rem; padding: 1rem; margin: 1rem 0; display: flex; justify-content: center; align-items: center; gap: 0.5rem;">
+                        <span>⏰</span>
+                        <span id="fixed-countdown" style="font-weight: 800; color: #facc15;"></span> <!-- TIMER FUNCIONAL AQUI -->
+                    </div>
+
+                    <!-- Social Proof (MANTIDO) -->
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.75rem; flex-wrap: wrap; justify-content: center;">
+                        <div style="display: flex; align-items: center; min-width: fit-content;">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLMCtoESswQgAD9SS1btEcoCMvuL2xXrlBw&s" alt="Sara João" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -8px; z-index: 0;">
+                            <img src="https://i1.rgstatic.net/ii/profile.image/11431281229012838-1710275282413_Q512/Rafael-Pereira-Da-Silva.jpg" alt="Thiago" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #facc15; margin-right: -12px; z-index: 1;">
+                            <span style="width: 32px; height: 32px; background: #facc15; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem;">+127</span>
+                        </div>
+                        <span style="font-size: 0.875rem; color: #a1a1aa; text-align: center;">pessoas escolheram MyFriend hoje</span>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- GUARANTEE SECTION -->
+    <section style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 4rem 1rem; color: white; position: relative; overflow: hidden; width: 100%; box-sizing: border-box;">
+        <!-- Background effect -->
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+        
+        <!-- Main container -->
+        <div style="max-width: 800px; margin: 0 auto; background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem); border: 1px solid rgba(250, 204, 21, 0.2); text-align: center; position: relative;">
+            
+            <!-- Shield Icon -->
+            <div style="display: inline-flex; width: 70px; height: 70px; align-items: center; justify-content: center; margin: 0 auto 1.5rem; position: relative;">
+                <div style="font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1;">🛡️</div>
+                <div style="position: absolute; inset: 0; background: radial-gradient(circle, rgba(250,204,21,0.4) 10%, transparent 60%); filter: blur(5px);"></div>
+            </div>
+
+            <!-- Title -->
+            <h2 style="font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: bold; margin-bottom: 1.2rem; line-height: 1.2;">
+                <span style="color: #facc15; font-weight: bold; display: inline;">GARANTIA DE 15 DIAS</span>
+                <br>
+                <span style="font-size: clamp(1rem, 2vw, 1.2rem); font-weight: bold;">OU O DOBRO DE DINHEIRO DE VOLTA</span>
+            </h2>
+
+            <!-- Text and checklist -->
+            <div style="margin-bottom: 1.5rem;">
+                <p style="font-size: 0.9rem; margin-bottom: 0.8rem; color: #838383;">Se em 15 dias você não:</p>
+                
+                <!-- Checkbox items -->
+                <div style="display: flex; flex-direction: column; gap: 0.7rem; padding: 0 1rem; margin-top: 0.8rem;">
+                    <!-- Checkbox item 1 -->
+                    <div style="display: flex; align-items: flex-start; background: rgba(255, 255, 255, 0.03); padding: 0.8rem 1rem; border-radius: 0.75rem; text-align: left;">
+                        <div style="width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #facc15; margin-right: 0.8rem; display: flex; align-items: center; justify-content: center; min-width: 1.2rem; margin-top: 0.1rem;">
+                            <svg style="width: 0.9rem; height: 0.9rem; color: #111" viewBox="0 0 24 24" fill="none">
+                                <path d="M20.285 6.857L9.54 17.573 3.714 11.714l1.429-1.429 4.4 4.4 9.314-9.314 1.428 1.429z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <span style="font-size: clamp(0.9rem, 2vw, 1.1rem); line-height: 1.4;">Mandar bem em pelo menos uma conversa REAL em inglês</span>
+                    </div>
+
+                    <!-- Checkbox item 2 -->
+                    <div style="display: flex; align-items: flex-start; background: rgba(255, 255, 255, 0.03); padding: 0.8rem 1rem; border-radius: 0.75rem; text-align: left;">
+                        <div style="width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #facc15; margin-right: 0.8rem; display: flex; align-items: center; justify-content: center; min-width: 1.2rem; margin-top: 0.1rem;">
+                            <svg style="width: 0.9rem; height: 0.9rem; color: #111" viewBox="0 0 24 24" fill="none">
+                                <path d="M20.285 6.857L9.54 17.573 3.714 11.714l1.429-1.429 4.4 4.4 9.314-9.314 1.428 1.429z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <span style="font-size: clamp(0.9rem, 2vw, 1.1rem); line-height: 1.4;">Impressionar alguém com sua evolução</span>
+                    </div>
+
+                    <!-- Checkbox item 3 -->
+                    <div style="display: flex; align-items: flex-start; background: rgba(255, 255, 255, 0.03); padding: 0.8rem 1rem; border-radius: 0.75rem; text-align: left;">
+                        <div style="width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #facc15; margin-right: 0.8rem; display: flex; align-items: center; justify-content: center; min-width: 1.2rem; margin-top: 0.1rem;">
+                            <svg style="width: 0.9rem; height: 0.9rem; color: #111" viewBox="0 0 24 24" fill="none">
+                                <path d="M20.285 6.857L9.54 17.573 3.714 11.714l1.429-1.429 4.4 4.4 9.314-9.314 1.428 1.429z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <span style="font-size: clamp(0.9rem, 2vw, 1.1rem); line-height: 1.4;">Sentir que tá finalmente progredindo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guarantee text -->
+            <div style="font-size: clamp(1rem, 2vw, 1.1rem); margin-bottom: 1.3rem; font-weight: bold; line-height: 1.2;">
+                Eu <span style="color: #facc15; font-weight: bold; display: inline;">FAÇO QUESTÃO</span> de devolver o DOBRO da sua grana.
+            </div>
+
+            <!-- Whisper text -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.8rem; margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.75);">
+                <span style="font-size: 1rem;">🤫</span>
+                <p style="font-size: 0.8rem; margin: 0; line-height: 1.2;"><em>mas entre nós: você vai é querer assinar o plano Pro</em> 😎</p>
+            </div>
+
+            <!-- CTA Button -->
+            <button onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" style="display: inline-block; margin: 0 auto; padding: 1rem 1.2rem; background: linear-gradient(100deg, #facc15 0%, #f59e0b 100%); color: #111; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: bold; font-size: 1.5rem; transition: all 0.3s ease-in-out; width: 100%; max-width: 300px;">
+                <span style="display: block; font-size: clamp(1.2rem, 5vw, 1.5rem);">TESTAR SEM MEDO</span>
+                <span style="display: block; font-size: 0.7rem; font-weight: normal; opacity: 0.8;">15 dias de garantia incondicional</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- CASOS DE SUCESSO SECTION -->
+    <section id="success-stories" class="success-stories" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 6rem 1rem; color: white; position: relative;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="main-title" style="font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
                 Aprendizado Rápido <span style="color: #facc15;">COMPROVADO</span> por ELES:
             </h2>
 
             <div class="stories-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                
+                <!-- Card 4: Alan Nicolas -->
+                <div class="story-card" style="background: rgba(255,255,255,0.05); border-radius: 1rem; overflow: hidden; transition: transform 0.3s;">
+                    <div style="height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img 
+                            src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/4.jpg"
+                            alt="Alan Nicolas" 
+                        style="width: 100%; height: auto; max-height: 100%; object-fit: contain; object-position: center;"
+                        />
+                    </div>
+                    <div class="content" style="padding: 2rem;">
+                        <div class="badge" style="background: #facc15; color: black; padding: 0.5rem 1rem; border-radius: 999px; display: inline-block; margin-bottom: 1rem;">
+                            🎯 Brazil #1 A.I. Expert
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Alan Nicolas</h3>
+                        <p style="color: #a1a1aa; margin-bottom: 1rem;">
+                            "Fantástico! Andre Turra, CEO e criador do MyFriend é genial e essa criação dele pode mudar a forma como aprendemos idiomas."
+                        </p>
+                        <div class="achievement" style="color: #facc15; font-weight: bold;">
+                            🏆 Eleita melhor IA de 2024
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Card 1: ECO Assessoria Digital -->
                 <div class="story-card" style="background: rgba(255,255,255,0.05); border-radius: 1rem; overflow: hidden; transition: transform 0.3s;">
                     <div style="height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
@@ -4124,28 +875,7 @@
                     </div>
                 </div>
 
-                <!-- Card 4: Alan Nicolas -->
-                <div class="story-card" style="background: rgba(255,255,255,0.05); border-radius: 1rem; overflow: hidden; transition: transform 0.3s;">
-                    <div style="height: 250px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-                        <img 
-                            src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/4.jpg"
-                            alt="Alan Nicolas" 
-                        style="width: 100%; height: auto; max-height: 100%; object-fit: contain; object-position: center;"
-                        />
-                    </div>
-                    <div class="content" style="padding: 2rem;">
-                        <div class="badge" style="background: #facc15; color: black; padding: 0.5rem 1rem; border-radius: 999px; display: inline-block; margin-bottom: 1rem;">
-                            🎯 Brazil #1 A.I. Expert
-                        </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Alan Nicolas</h3>
-                        <p style="color: #a1a1aa; margin-bottom: 1rem;">
-                            "Fantástico! Andre Turra, CEO e criador do MyFriend é genial e essa criação dele pode mudar a forma como aprendemos idiomas."
-                        </p>
-                        <div class="achievement" style="color: #facc15; font-weight: bold;">
-                            🏆 Eleita melhor IA de 2024
-                        </div>
-                    </div>
-                </div>
+                
 
                  <!-- Card 5: Thiago Silva -->
                 <div class="story-card" style="background: rgba(255,255,255,0.05); border-radius: 1rem; overflow: hidden; transition: transform 0.3s;">
@@ -4263,45 +993,25 @@
                 </div>
             </div>
         
-            <style>
-                @media screen and (max-width: 768px) {
-                    .stories-grid {
-                        grid-template-columns: 1fr !important;
-                    }
-        
-                    .story-card img {
-                        max-height: 200px !important;
-                        height: auto !important;
-                    }
-        
-                    .content {
-                        padding: 1rem !important;
-                    }
-                }
-        
-                .story-card {
-                    transition: all 0.3s ease;
-                }
-        
-                .story-card:hover {
-                    transform: translateY(-4px);
-                    box-shadow: 0 8px 32px rgba(250, 204, 21, 0.1);
-                }
-        
-                /* Ajuste para desktop */
-                @media screen and (min-width: 769px) {
-                    .stories-grid {
-                        grid-template-columns: repeat(3, 1fr) !important;
-                    }
-                }
-            </style>
+            
     </section>
-    
+
+    <section id="success-stories" class="success-stories" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 6rem 1rem; color: white; position: relative;">
+        <!-- CTA Button -->
+        <button onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" style="display: block; margin: 0 auto; padding: 1rem 1.2rem; background: linear-gradient(100deg, #facc15 0%, #f59e0b 100%); color: #111; border: none; border-radius: 0.5rem; cursor: pointer; font-weight: bold; font-size: 1.5rem; transition: all 0.3s ease-in-out; width: 100%; max-width: 300px;">
+            <span style="display: block; font-size: clamp(1.2rem, 5vw, 1.5rem);">TESTAR SEM MEDO</span>
+            <span style="display: block; font-size: 0.7rem; font-weight: normal; opacity: 0.8;">15 dias de garantia incondicional</span>
+        </button>
+
+    </section>
+
+
+
     <!-- TEST FREE SECTION -->
     <section id="test-free" style="background: linear-gradient(135deg, #000 0%, #111 100%); padding: 6rem 2rem; color: white; position: relative; overflow: hidden;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-            <h2 class="section-title" style="font-size: clamp(2rem, 10vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
-                Teste 14 Dias <span style="color: #facc15;">GRÁTIS</span>
+            <h2 class="main-title" style="font-size: clamp(2rem, 10vw, 3.5rem); text-align: center; margin-bottom: 4rem;">
+                Teste 15 Dias <span style="color: #facc15;">GRÁTIS</span>
             </h2>
 
                 <div style="max-width: 800px; margin: 0 auto; text-align: center;">
@@ -4309,7 +1019,7 @@
                     DESAFIO MYFRIEND:
                 </h3>
                 <p style="font-size: clamp(1.125rem, 2.5vw, 1.5rem); line-height: 1.6; color: #a1a1aa; margin-bottom: 2rem;">
-                    se você não estiver falando suas primeiras frases em inglês COM CONFIANÇA em 14 dias, devolvemos o DOBRO do seu dinheiro.
+                    Se você não estiver falando suas primeiras frases em inglês COM CONFIANÇA em 15 dias, devolvemos o DOBRO do seu dinheiro.
                 </p>
 
                 <p style="font-size: clamp(1.125rem, 2.5vw, 1.5rem); line-height: 1.6; margin-bottom: 2rem;">
@@ -4322,13 +1032,127 @@
                     <!-- BOTÃO!!!! -->
                 <button class="cta-button" style="margin: 2rem auto; display: block;" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})">
                     COMEÇAR MEU TESTE GRÁTIS! 
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
                 </button>
             </div>
         </div>
     </section>
+        
+        
+    
+
+    
+   
+
+
+
+
+
+
+
+    <!-- Script desktop Seção CONTRASTE -->
+    <script>
+    function adjustLayout() {
+        const section = document.querySelector('section[style*="background-color: #FFD700"]');
+        if (!section) return;
+        
+        const container = section.querySelector('div[style*="max-width: 1140px"]');
+        if (!container) return;
+        
+        if (window.innerWidth >= 768) {
+            container.style.flexDirection = 'row';
+            container.style.padding = '4rem 2rem';
+            
+            const img = container.querySelector('img');
+            if (img) {
+                img.style.maxWidth = '400px';
+            }
+        } else {
+            container.style.flexDirection = 'column-reverse';
+            container.style.padding = '2rem 1rem';
+            
+            const img = container.querySelector('img');
+            if (img) {
+                img.style.maxWidth = '280px';
+            }
+        }
+    }
+    
+    // Executa no carregamento e no redimensionamento
+    window.addEventListener('load', adjustLayout);
+    window.addEventListener('resize', adjustLayout);
+    </script>
+    
+    <!-- Navbar visibility Script -->
+    <script>
+        // Navbar visibility
+        const navbar = document.getElementById('navbar');
+        
+        // Debounce function for better performance
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Handle scroll
+        const handleScroll = debounce(() => {
+            if (window.scrollY > 300) {
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('visible');
+            }
+        }, 10);
+
+        window.addEventListener('scroll', handleScroll);
+        
+        // Handle clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', () => {
+                console.log('CTA clicked!');
+                // Add your click handling here
+            });
+        });
+    </script>
+
+
+    <!-- Script Countdown -->
+    <script>
+        // Tempo inicial fixo (3h 12m 32s em milissegundos)
+        const INITIAL_TIME = (3 * 60 * 60 + 12 * 60 + 32) * 1000;
+        let timeLeft = INITIAL_TIME;
+        
+        function updateFixedTimer() {
+            // Converte milissegundos para h:m:s
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // Formata com zeros à esquerda
+            const display = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            
+            // Atualiza display
+            document.getElementById('fixed-countdown').textContent = display;
+            
+            // Reduz 1 segundo
+            timeLeft -= 1000;
+            
+            // Se chegou a zero, reseta
+            if (timeLeft < 0) {
+                timeLeft = INITIAL_TIME;
+            }
+        }
+        
+        // Atualiza a cada segundo
+        setInterval(updateFixedTimer, 1000);
+        updateFixedTimer(); // Primeira atualização imediata
+    </script>
+
 
     <!-- SEÇÃO: Footer MyFriend -->
     <footer style="background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%); padding: 40px 20px; width: 100%; position: relative; font-family: 'Inter', sans-serif;">
@@ -4373,49 +1197,5 @@
             </div>
         </div>
     </footer>
-
-
-    
-    <!-- Script Countdown -->
-    <script>
-        // Tempo inicial fixo (3h 12m 32s em milissegundos)
-        const INITIAL_TIME = (3 * 60 * 60 + 12 * 60 + 32) * 1000;
-        let timeLeft = INITIAL_TIME;
-        
-        function updateFixedTimer() {
-            // Converte milissegundos para h:m:s
-            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            // Formata com zeros à esquerda
-            const display = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            
-            // Atualiza display
-            document.getElementById('fixed-countdown').textContent = display;
-            
-            // Reduz 1 segundo
-            timeLeft -= 1000;
-            
-            // Se chegou a zero, reseta
-            if (timeLeft < 0) {
-                timeLeft = INITIAL_TIME;
-            }
-        }
-        
-        // Atualiza a cada segundo
-        setInterval(updateFixedTimer, 1000);
-        updateFixedTimer(); // Primeira atualização imediata
-    </script>
-
-    
-    
-
-    <!-- GTM Script -->  
-    <script src="/js/includeHeader.js"></script>
-
 </body>
-
- 
-
 </html>
