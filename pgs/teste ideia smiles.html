@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Logo and Smileys</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* Fundo preto */
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+
+        /* Logo styles */
+        #logo {
+            width: 300px; /* Tamanho maior para impacto visual */
+            animation: stayStill 5s linear, spinOut 2s linear 5s forwards;
+        }
+
+        @keyframes stayStill {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes spinOut {
+            0% { transform: rotate(0deg); opacity: 1; }
+            100% { transform: rotate(360deg) scale(0); opacity: 0; }
+        }
+
+        /* Smileys container */
+        #smileys {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: block; /* Always visible for background effect */
+        }
+
+        .smiley {
+            position: absolute;
+            font-size: 50px; /* Adjust size of emoji */
+            animation: float 8s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100%) scale(1); opacity: 1; }
+            100% { transform: translateY(-50%) scale(1.2); opacity: 0; }
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100%); opacity: 1; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+
+        /* CTA Button */
+        #cta-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #cta-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo -->
+    <img id="logo" src="https://github.com/dynamicsolutions-lab/Dynamiclab.github.io/blob/main/img/Logo%20MyFriend%20-%20Sem%20Fundo.png?raw=true" alt="Logo">
+
+    <!-- CTA Button -->
+    <button id="cta-button">sua cta</button>
+
+    <!-- Smileys Container -->
+    <div id="smileys"></div>
+
+    <script>
+        const smileyChars = [
+            '😎', '🆒', '😃', '🤭', '🫣', '😏', '🤯', '😵‍💫', '😉', '😊', '😗', '🫡', '🤐', '🕶️', '🤙', '😌', '🥶'
+        ];
+
+        const smileys = document.getElementById('smileys');
+        const ctaButton = document.getElementById('cta-button');
+
+        // Function to create a smiley
+        function createSmiley(isWaterfall = false) {
+            const smiley = document.createElement('div');
+            const size = Math.random() * 50 + 50; // Random font size between 50px and 100px
+            smiley.className = 'smiley';
+            smiley.textContent = smileyChars[Math.floor(Math.random() * smileyChars.length)]; // Random smiley
+            smiley.style.fontSize = `${size}px`;
+            smiley.style.left = `${Math.random() * 100}%`; // Random horizontal position
+
+            if (isWaterfall) {
+                smiley.style.animation = 'fall 2s linear forwards'; // Waterfall effect
+            } else {
+                smiley.style.animationDuration = `${Math.random() * 4 + 6}s`; // Random duration between 6s and 10s
+            }
+
+            smileys.appendChild(smiley);
+
+            // Remove smiley after animation ends
+            smiley.addEventListener('animationend', () => {
+                if (smiley.parentNode) smiley.remove();
+            });
+        }
+
+        // Generate background smileys at intervals
+        setInterval(() => {
+            createSmiley();
+        }, 1500); // New smiley every 1.5 seconds
+
+        // Event listener for CTA button
+        ctaButton.addEventListener('click', () => {
+            // Create waterfall effect
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    createSmiley(true);
+                }, i * 20); // Staggered start for waterfall effect
+            }
+
+            // Hide CTA button after click
+            ctaButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
