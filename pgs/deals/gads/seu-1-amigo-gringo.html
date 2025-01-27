@@ -248,7 +248,7 @@
             <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
                  alt="MyFriend Logo" 
                  style="height: 32px;">
-            <a href="#pricing">
+            <a href="#pricing" id="cta-button-link">
                 <button class="cta-button" style="margin: 0; padding: 0.5em 1em; font-size: 0.875rem;">
                     QUERO MEU AMIGO GRINGO
                 </button>
@@ -276,7 +276,7 @@
             </p>
 
             <!-- CTA -->
-            <a href="#pricing">
+            <a href="#pricing" id="cta-button-link">
             <button class="cta-button">
                 INICIAR MINHA VERSÃO GLOBAL 🌎
             </button>
@@ -1503,6 +1503,21 @@
         // Call the function on load and resize
         window.addEventListener('load', adjustPadding);
         window.addEventListener('resize', adjustPadding);
+    </script>
+
+    <!-- Script Para Preservar UTMs ao clicar nos botoes -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttonLink = document.getElementById('cta-button-link');
+            const currentUrlParams = new URLSearchParams(window.location.search);
+            
+            if (currentUrlParams.toString()) {
+                // Adiciona os parâmetros UTM ao link
+                const hash = buttonLink.getAttribute('href'); // Obtém o hash, ex: "#pricing"
+                const newUrl = `${hash}?${currentUrlParams.toString()}`;
+                buttonLink.setAttribute('href', newUrl);
+            }
+        });
     </script>
 
     <!-- SEÇÃO: Footer MyFriend -->
