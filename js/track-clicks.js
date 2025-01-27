@@ -17,8 +17,8 @@ document.addEventListener('click', function(event) {
   const checkoutPlatforms = ['kirvano', 'kiwify', 'stripe', 'hotmart'];
 
   if (event.target.tagName === 'A') {
-       destino = event.target.href;
-        if (checkoutPlatforms.some(platform => destino.includes(platform))) {
+      destino = event.target.href;
+       if (checkoutPlatforms.some(platform => destino.includes(platform))) {
             tipo_click = "INICIATE_CHECKOUT";
         }else if(destino.includes('/legal/')){
             tipo_click = "LEGAL";
@@ -77,16 +77,17 @@ document.addEventListener('click', function(event) {
      return;
   }
 
+
   const now = new Date();
   const origem = window.location.href;
   const utms = {};
-  const urlParamsOrigem = new URLSearchParams(origem.split('?')[1] || '');
-    for (const [key, value] of urlParamsOrigem.entries()) {
-      if (key.startsWith('utm_')) {
-        utms[key] = value;
-       }
-     }
 
+  const urlParamsOrigem = new URLSearchParams(window.location.search);
+     for (const [key, value] of urlParamsOrigem.entries()) {
+      if (key.startsWith('utm_')) {
+         utms[key] = value;
+       }
+    }
 
 
   const userId = localStorage.getItem('user_id');
@@ -102,25 +103,25 @@ document.addEventListener('click', function(event) {
       
  const webhookURL = 'https://my-friend-n8n.uha4jw.easypanel.host/webhook-test/03237c00-2742-47ad-af61-f561d78d24e1';
 
-    if (event.target.tagName === 'A' && event.target.hostname !== window.location.hostname) {
+  if (event.target.tagName === 'A' && event.target.hostname !== window.location.hostname) {
         event.preventDefault();
             fetch(webhookURL, {
-                method: 'POST',
-                headers: {
-                     'Content-Type': 'application/json',
-                  },
-                 body: JSON.stringify(data),
+               method: 'POST',
+               headers: {
+                   'Content-Type': 'application/json',
+                },
+               body: JSON.stringify(data),
               })
               .then(() => {
-                 window.location.href = destino;
-                 });
-        }else if(event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
-             fetch(webhookURL, {
-                 method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                   },
-                   body: JSON.stringify(data),
+                  window.location.href = destino;
+                  });
+    } else if(event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
+         fetch(webhookURL, {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
                 });
-           }
+        }
 });
