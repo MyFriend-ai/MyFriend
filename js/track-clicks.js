@@ -30,7 +30,7 @@ document.addEventListener('click', function(event) {
   } else if (event.target.tagName === 'BUTTON') {
       if (event.target.onclick) {
           const onclickString = event.target.onclick.toString();
-           const match = onclickString.match(/scrollIntoView\({behavior: 'smooth'}\)\'/);
+          const match = onclickString.match(/scrollIntoView\({behavior: 'smooth'}\)\'/);
            if (match) {
             const idMatch = onclickString.match(/document\.getElementById\('([^']+)'\)/);
              if (idMatch) {
@@ -121,27 +121,25 @@ document.addEventListener('click', function(event) {
   
       const webhookURL = 'https://my-friend-n8n.uha4jw.easypanel.host/webhook-test/03237c00-2742-47ad-af61-f561d78d24e1';
 
-    if (event.target.tagName === 'A' && event.target.hostname !== window.location.hostname){
-            event.preventDefault();
-             fetch(webhookURL, {
-                method: 'POST',
-                   headers: {
+      if (event.target.tagName === 'A' && event.target.hostname !== window.location.hostname) {
+          event.preventDefault();
+          fetch(webhookURL, {
+             method: 'POST',
+              headers: {
+                   'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+              })
+            .then(() => {
+                window.location.href = destino; //Redireciona APÓS enviar o dado
+              });
+      } else if (event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
+           fetch(webhookURL, {
+               method: 'POST',
+                  headers: {
                       'Content-Type': 'application/json',
-                    },
-                  body: JSON.stringify(data),
-               })
-                 .then(() => {
-                    window.location.href = destino;
-                  });
-        } else if (event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
-                fetch(webhookURL, {
-                     method: 'POST',
-                       headers: {
-                          'Content-Type': 'application/json',
-                       },
-                       body: JSON.stringify(data),
-                  });
-          }
-
-
+                     },
+                     body: JSON.stringify(data),
+                    });
+        }
 });
