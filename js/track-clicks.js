@@ -17,7 +17,7 @@ document.addEventListener('click', function(event) {
 
   if (event.target.tagName === 'A') {
        destino = event.target.href;
-       if (destino.includes('kirvano.com')) {
+       if (destino.includes('checkout') || destino.includes('payment') || destino.includes('purchase')) {
             tipo_click = "INICIATE_CHECKOUT";
         }else if(destino.includes('/legal/')){
             tipo_click = "LEGAL";
@@ -25,38 +25,57 @@ document.addEventListener('click', function(event) {
              tipo_click = "link";
          }
   } else if (event.target.tagName === 'BUTTON') {
-    if (event.target.onclick) {
+      if (event.target.onclick) {
           const onclickString = event.target.onclick.toString();
-      const match = onclickString.match(/scrollIntoView\({behavior: 'smooth'}\)\'/);
-        if(match){
-          const idMatch = onclickString.match(/document\.getElementById\('([^']+)'\)/);
-          if(idMatch){
-              destino = "#" + idMatch[1];
-              tipo_click = "botao_scroll"
-          } else {
-            tipo_click = "botao_sem_destino";
-            destino = "NA";
-          }
-          
-        }else if (event.target.onclick.toString().includes("window.location.href='")) {
-             if(event.target.onclick.toString().includes('kirvano.com')){
-               destino = event.target.onclick.toString().match(/window\.location\.href='(.*?)'/)[1];
-               tipo_click = "INICIATE_CHECKOUT"
-              } else{
-                destino = "NA";
-                 tipo_click = "botao_sem_destino";
-              }
-          } else {
-            destino = "NA";
-              tipo_click = "botao_sem_destino";
-          }
-    } else {
-        destino = "NA";
-        tipo_click = "botao_sem_destino";
-    }
+          const match = onclickString.match(/scrollIntoView\({behavior: 'smooth'}\)\'/);
+           if (match) {
+               const idMatch = onclickString.match(/document\.getElementById\('([^']+)'\)/);
+                if(idMatch){
+                      destino = "#" + idMatch[1];
+                     tipo_click = "botao_scroll";
+
+                       // Preserve UTMs in scroll links
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const utmParams = new URLSearchParams();
+                          urlParams.forEach((value, key) => {
+                            if (key.startsWith('utm_')) {
+                              utmParams.set(key, value);
+                            }
+                          });
+                        if (utmParams.toString()) {
+                          destino += (destino.includes('?') ? '&' : '?') + utmParams.toString();
+                        }
+                  } else {
+                      tipo_click = "botao_sem_destino";
+                      destino = "NA";
+                      }
+
+          } else if (event.target.onclick.toString().includes("window.location.href='")) {
+               const hrefMatch = event.target.onclick.toString().match(/window\.location\.href='(.*?)'/);
+               if (hrefMatch) {
+                   destino = hrefMatch[1];
+                   if (destino.includes('checkout') || destino.includes('payment') || destino.includes('purchase')) {
+                     tipo_click = "INICIATE_CHECKOUT";
+                   } else{
+                     tipo_click = "botao_sem_destino";
+                   }
+               }else {
+                  destino = "NA";
+                  tipo_click = "botao_sem_destino";
+                 }
+           }  else {
+           destino = "NA";
+           tipo_click = "botao_sem_destino";
+         }
+      }else {
+          destino = "NA";
+           tipo_click = "botao_sem_destino";
+      }
   } else{
     return;
   }
+
+
   const now = new Date();
   const origem = window.location.href;
   const utms = {};
@@ -81,27 +100,26 @@ document.addEventListener('click', function(event) {
           tipo_click: tipo_click,
       };
 
-
-  const webhookURL = 'https://my-friend-n8n.uha4jw.easypanel.host/webhook-test/03237c00-2742-47ad-af61-f561d78d24e1';
-      if (event.target.tagName === 'A' && event.target.hostname !== window.location.hostname){ //Verifica se é link externo
-          event.preventDefault();
-          fetch(webhookURL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-             body: JSON.stringify(data),
-            })
-            .then(() => {
-               window.location.href = destino; //Redireciona APÓS enviar o dado
-            });
-         }else if (event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
-              fetch(webhookURL, {
-                  method: 'POST',
-                   headers: {
-                      'Content-Type': 'application/json',
-                     },
-                     body: JSON.stringify(data),
-                   });
-           }
+    const webhookURL = 'https://my-friend-n8n.uha4jw.easypanel.host/webhook-test/03237c00-2742-47ad-af61-f561d78d24e1';
+    if (event.target.tagName === 'A' && event.target.hostname !== window.location.hostname){
+           event.preventDefault();
+           fetch(webhookURL, {
+             method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                 },
+                  body: JSON.stringify(data),
+              })
+             .then(() => {
+              window.location.href = destino; //Redireciona APÓS enviar o dado
+               });
+          }else if (event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
+            fetch(webhookURL, {
+              method: 'POST',
+               headers: {
+                 'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+               });
+          }
 });
