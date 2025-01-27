@@ -83,30 +83,12 @@ document.addEventListener('click', function(event) {
   const origem = window.location.href;
   const utms = {};
 
-
   const urlParamsOrigem = new URLSearchParams(window.location.search);
-  if (destino && destino != "NA") {
-        const urlParamsDestino = new URLSearchParams(new URL(destino, origem).search);
-          for (const [key, value] of urlParamsDestino.entries()) {
-              if (key.startsWith('utm_')) {
-                  utms[key] = value;
-               }
-          }
-         for (const [key, value] of urlParamsOrigem.entries()) {
-          if (key.startsWith('utm_')) {
-            utms[key] = value;
-              }
-          }
-
-  }else{
-      for (const [key, value] of urlParamsOrigem.entries()) {
+   for (const [key, value] of urlParamsOrigem.entries()) {
       if (key.startsWith('utm_')) {
               utms[key] = value;
           }
       }
-   }
-
-
 
   const userId = localStorage.getItem('user_id');
 
@@ -119,27 +101,28 @@ document.addEventListener('click', function(event) {
           tipo_click: tipo_click,
       };
   
-      const webhookURL = 'https://my-friend-n8n.uha4jw.easypanel.host/webhook-test/03237c00-2742-47ad-af61-f561d78d24e1';
+  const webhookURL = 'https://my-friend-n8n.uha4jw.easypanel.host/webhook-test/03237c00-2742-47ad-af61-f561d78d24e1';
 
       if (event.target.tagName === 'A' && event.target.hostname !== window.location.hostname) {
           event.preventDefault();
-          fetch(webhookURL, {
-             method: 'POST',
-              headers: {
-                   'Content-Type': 'application/json',
+             fetch(webhookURL, {
+               method: 'POST',
+               headers: {
+                  'Content-Type': 'application/json',
               },
               body: JSON.stringify(data),
-              })
-            .then(() => {
-                window.location.href = destino; //Redireciona APÓS enviar o dado
-              });
+            })
+          .then(() => {
+                 window.location.href = destino;
+           });
       } else if (event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
-           fetch(webhookURL, {
-               method: 'POST',
-                  headers: {
+               fetch(webhookURL, {
+                  method: 'POST',
+                   headers: {
                       'Content-Type': 'application/json',
                      },
-                     body: JSON.stringify(data),
-                    });
-        }
+                   body: JSON.stringify(data),
+                 });
+          }
+
 });
