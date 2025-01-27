@@ -131,7 +131,7 @@ document.addEventListener('click', function(event) {
           tipo_click: tipo_click,
       };
       
- const webhookURL = 'https://my-friend-n8n.uha4jw.easypanel.host/webhook-test/03237c00-2742-47ad-af61-f561d78d24e1';
+ const webhookURL = 'https://my-friend-n8n.uha4jw.easypanel.host/webhook-test/974d8300-e758-436d-a24f-daf98498f442';
 
   fetch(webhookURL, {
       method: 'POST',
