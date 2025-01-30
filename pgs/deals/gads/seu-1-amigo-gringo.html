@@ -215,35 +215,6 @@
                 max-width: 150px;
                 margin: 1.5rem auto;
             }
-
-            /* Styles para os Graphs */
-            [style*="padding: 32px"] {
-                padding: 24px !important;
-            }
-            [style*="font-size: 16px"] {
-                font-size: 14px !important;
-            }
-            [style*="width: 60px"] {
-                width: 40px !important;
-            }
-            [style*="height: 20px"] {
-                height: 15px !important;
-            }
-            [style*="height: 120px"] {
-                height: 80px !important;
-            }
-            [style*="height: 80px"] {
-                height: 50px !important;
-            }
-            [style*="height: 150px"] {
-                height: 100px !important;
-            }
-            [style*="height: 30px"] {
-                height: 20px !important;
-            }
-            [style*="height: 60px"] {
-                height: 40px !important;
-            }
         }
 
         @media (min-width: 768px) {
@@ -466,81 +437,46 @@
             </div>
 
             <!-- Gráficos de Comparação -->     
-            <div style="max-width: 800px; margin: 0 auto; padding: 24px;">
-                <!-- Price Graph -->
-                <div style="background: white; border-radius: 24px; padding: 32px; margin-bottom: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
-                    <h2 style="font-size: 20px; font-weight: bold; color: #25d366; margin-bottom: 20px; text-align: center;">Preço:</h2>
-                    <div style="display: flex; justify-content: space-around; align-items: flex-end; gap: 20px;">
-            
-                        <!-- MyFriend Bar -->
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <div style="width: 60px; margin-bottom: 5px; display: flex; align-items: flex-end; justify-content: center;">
-                                <div style="height: 20px; width: 100%; background: #25D366; border-radius: 5px;"></div>
-                            </div>
-                            <span style="font-weight: 600; font-size: 16px; color: #1a1a1a; text-align: center; margin-bottom: -5px; line-height: 1;">MyFriend</span>
-                            <span style="font-size: 14px; color: #999; white-space: nowrap; line-height: 1;">R$ 39/mês</span>
-                        </div>
-            
-                        <!-- Professor Bar -->
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <div style="width: 60px; margin-bottom: 5px; display: flex; align-items: flex-end; justify-content: center;">
-                                <div style="height: 120px; width: 100%; background: #ccc; border-radius: 5px;"></div>
-                            </div>
-                             <span style="font-weight: 600; font-size: 16px; color: #1a1a1a; text-align: center; margin-bottom: -5px; line-height: 1;">Professor Particular</span>
-                            <span style="font-size: 14px; color: #999; white-space: nowrap; line-height: 1;">R$ 800/mês</span>
-                        </div>
-            
-                        <!-- Curso Bar -->
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <div style="width: 60px; margin-bottom: 5px; display: flex; align-items: flex-end; justify-content: center;">
-                                <div style="height: 80px; width: 100%; background: #ccc; border-radius: 5px;"></div>
-                            </div>
-                            <span style="font-weight: 600; font-size: 16px; color: #1a1a1a; text-align: center; margin-bottom: -5px; line-height: 1;">Curso de Inglês</span>
-                            <span style="font-size: 14px; color: #999; white-space: nowrap; line-height: 1;">R$ 400/mês</span>
-                        </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <!-- Graphs Container -->
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding: 0px;">
+
+                    <!-- Velocity Graph -->
+                    <div style="background: white; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); width: calc(50% - 5px); box-sizing: border-box;">
+                        <h2 style="font-size: 20px; font-weight: bold; color: #25d366; margin-top: 15px; text-align: center;">Velocidade de Aprendizado:</h2>
+                        <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/grafico%201.jpg" alt="Velocity Graph" style="width: 100%; display: block; border-radius: 12px;"/>
                     </div>
-                </div>
-            
-                <!-- Quality Graph -->
-                <div style="background: white; border-radius: 24px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
-                    <h2 style="font-size: 20px; font-weight: bold; color: #25d366; margin-bottom: 20px; text-align: center;">Velocidade de Aprendizado:</h2>
-                    <div style="display: flex; justify-content: space-around; align-items: flex-end; gap: 20px;">
-            
-                        <!-- MyFriend Bar -->
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <div style="width: 60px; margin-bottom: 5px; display: flex; align-items: flex-end; justify-content: center;">
-                                <div style="height: 150px; width: 100%; background: #25D366; border-radius: 5px;"></div>
-                            </div>
-                             <span style="font-weight: 600; font-size: 16px; color: #1a1a1a; text-align: center; margin-bottom: -5px; line-height: 1;">MyFriend</span>
-                            <span style="font-size: 14px; color: #999; white-space: nowrap; line-height: 1;">95%</span>
-                        </div>
-            
-                        <!-- Professor Bar -->
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <div style="width: 60px; margin-bottom: 5px; display: flex; align-items: flex-end; justify-content: center;">
-                                <div style="height: 30px; width: 100%; background: #ccc; border-radius: 5px;"></div>
-                            </div>
-                            <span style="font-weight: 600; font-size: 16px; color: #1a1a1a; text-align: center; margin-bottom: -5px; line-height: 1;">Professor Particular</span>
-                             <span style="font-size: 14px; color: #999; white-space: nowrap; line-height: 1;">85%</span>
-                        </div>
-            
-                        <!-- Curso Bar -->
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <div style="width: 60px; margin-bottom: 5px; display: flex; align-items: flex-end; justify-content: center;">
-                                <div style="height: 60px; width: 100%; background: #ccc; border-radius: 5px;"></div>
-                            </div>
-                            <span style="font-weight: 600; font-size: 16px; color: #1a1a1a; text-align: center; margin-bottom: -5px; line-height: 1;">Curso de Inglês</span>
-                             <span style="font-size: 14px; color: #999; white-space: nowrap; line-height: 1;">65%</span>
-                        </div>
+                    
+                    <!-- Price Graph -->
+                    <div style="background: white; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); width: calc(50% - 5px); box-sizing: border-box;">
+                        <h2 style="font-size: 20px; font-weight: bold; color: #25d366; margin-top: 15px; text-align: center;">Preço:</h2>
+                        <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/grafico%202.jpg" alt="Price Graph" style="width: 100%; display: block; border-radius: 12px;"/>
                     </div>
+
+                    
                 </div>
+            </div>
+            <div style="display: none;">
+                <style>
+                    @media (max-width: 600px) {
+                    [style*="padding: 24px"] {
+                        padding: 10px 0 !important;
+                    }
+                    [style*="width: calc(50% - 5px)"] {
+                        width: 100% !important;
+                    }
+                    [style*="padding: 15px"] {
+                    padding: 10px !important;
+                        }
+                    }
+                </style>
             </div>
 
             
             
             
             <!-- Features -->
-            <div style="max-width: 1000px; margin: 0 auto; padding: 10px 4px;">
+            <div style="max-width: 1000px; margin: 0 auto; margin-top: 40px; padding: 10px 4px;">
                 <!-- Main Title -->
                 <h2 style="font-size: 27px; font-weight: 700; color: #1a1a1a; text-align: center; margin-bottom: 48px;">
                     Um Professor Completo no Seu Bolso:
