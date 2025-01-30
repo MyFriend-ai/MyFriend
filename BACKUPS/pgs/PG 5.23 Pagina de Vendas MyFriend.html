@@ -68,14 +68,14 @@
         .navbar.visible {
             opacity: 1;
             transform: translateY(0);
-            background: rgba(211, 211, 211, 0.95);
+            background: rgba(15,15,15,0.95);
             backdrop-filter: blur(10px);
         }
 
         .hero-section {
             min-height: 100vh;
             padding: 2rem 0;
-            background: linear-gradient(180deg, #ebebeb 0%, #d1d1d1 100%);
+            background: linear-gradient(180deg, #0F0F0F 0%, #1A1A1A 100%);
             display: flex;
             align-items: center;
         }
@@ -243,188 +243,160 @@
 
 
     <!-- Navbar -->
-    <nav style="position: fixed; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.06); box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);">
-        <!-- Container -->
-        <div style="max-width: 1200px; width: 90%; margin: 0 auto; height: 64px; display: flex; justify-content: space-between; align-items: center;">
-            <!-- Logo -->
-            <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
-                    alt="MyFriend" 
-                    style="width: 32px; height: 32px; border-radius: 8px;">
-                <span style="font-size: 18px; font-weight: 700; color: #1a1a1a;">MyFriend</span>
-            </a>
-
-            <!-- Menu Desktop -->
-            <div style="display: flex; align-items: center; gap: 32px;">
-                <!-- Links Desktop -->
-                <div style="display: none; gap: 32px; @media (min-width: 768px) { display: flex; }">
-                    <a href="#como-funciona" style="font-size: 15px; color: #666; text-decoration: none;">Como Funciona</a>
-                    <a href="#precos" style="font-size: 15px; color: #666; text-decoration: none;">Preços</a>
-                    <a href="#faq" style="font-size: 15px; color: #666; text-decoration: none;">FAQ</a>
-                    <a href="#contato" style="font-size: 15px; color: #666; text-decoration: none;">Contato</a>
-                </div>
-
-               <!-- CTA Button -->
-                <a href="https://api.whatsapp.com/send?phone=554891399156&text=Fala%20MyFriend!%20Achei%20voc%C3%AA%20no%20Google%20e%20quero%20aprender%20ingl%C3%AAs%20contigo.%20Meu%20c%C3%B3digo%20de%20TESTE%20GRÁTIS%20é:%20*FREEBROTHER*" 
-                id="cta-button-link" 
-                target="_blank" 
-                rel="noopener"
-                style="background: #25D366; color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 4px 12px rgba(37,211,102,0.15); white-space: nowrap;">
-                Teste Grátis -->
-                </a>
-
-                <!-- Menu Mobile Button -->
-                <button onclick="document.getElementById('mobile-menu').style.transform='translateX(0)'" 
-                    style="all: unset; width: 24px; height: 24px; cursor: pointer; margin-left: 16px; display: none; @media (max-width: 767px) { display: block; }">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
+    <nav id="navbar" class="navbar">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
+                 alt="MyFriend Logo" 
+                 style="height: 32px;">
+            <a href="#pricing" id="cta-button-link">
+                <button id="see_offer_button" class="cta-button" style="margin: 0; padding: 0.5em 1em; font-size: 0.875rem;">
+                    QUERO MEU AMIGO GRINGO
                 </button>
-            </div>
+            </a>
         </div>
     </nav>
-
-    <!-- Menu Mobile Overlay -->
-    <div id="mobile-menu" style="position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 300px; background: white; z-index: 1001; transform: translateX(100%); transition: transform 0.3s ease; box-shadow: -4px 0 16px rgba(0,0,0,0.1); display: flex; flex-direction: column;">
-        <!-- Menu Header -->
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid rgba(0,0,0,0.06);">
-            <span style="font-size: 18px; font-weight: 600;">Menu</span>
-            <button onclick="document.getElementById('mobile-menu').style.transform='translateX(100%)'" style="all: unset; cursor: pointer; padding: 8px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-        
-        <!-- Menu Links -->
-        <div style="padding: 24px; display: flex; flex-direction: column; gap: 24px;">
-            <a href="#como-funciona" style="font-size: 16px; color: #1a1a1a; text-decoration: none; font-weight: 500;">Como Funciona</a>
-            <a href="#precos" style="font-size: 16px; color: #1a1a1a; text-decoration: none; font-weight: 500;">Preços</a>
-            <a href="#faq" style="font-size: 16px; color: #1a1a1a; text-decoration: none; font-weight: 500;">FAQ</a>
-            <a href="#contato" style="font-size: 16px; color: #1a1a1a; text-decoration: none; font-weight: 500;">Contato</a>
-        </div>
-
-        <!-- Menu CTA -->
-        <a href="#comecar" style="margin: auto 24px 24px; background: #25D366; color: white; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; text-align: center; box-shadow: 0 4px 12px rgba(37,211,102,0.15);">
-            Começar Grátis
-        </a>
-    </div>
     
-    <!-- Espaçador para compensar a navbar fixa -->
-    <div style="height: 65px;"></div>
-
     <!-- Hero Section -->
     <section class="hero-section">
-        <div style="width: min(90vw, 1200px); margin: 0 auto; padding: min(8vw, 80px) min(5vw, 24px); box-sizing: border-box; display: flex; flex-direction: row; gap: min(5vw, 60px); align-items: center; flex-wrap: wrap;">
-        
-            <!-- Coluna Esquerda -->
-            <div style="flex: 1 1 min(100%, 500px); order: 1;">
-                <!-- Tag Pequena -->
-                <div style="display: inline-block; background: rgba(37, 211, 102, 0.1); color: #25D366; padding: 8px 16px; border-radius: 100px; font-size: clamp(14px, 3vw, 16px); font-weight: 600; margin-bottom: clamp(16px, 4vw, 24px);">
-                    Método IAC de Aprendizado Natural
-                </div>
-    
-                <!-- Headline -->
-                <h1 style="font-size: clamp(32px, 5vw, 56px); line-height: 1.1; font-weight: 800; color: #1a1a1a; margin: 0 0 clamp(14px, 4vw, 20px) 0;">
-                    Seu Professor de Inglês no WhatsApp
-                </h1>
-    
-                <!-- Subtítulo -->
-                <p style="font-size: clamp(16px, 3vw, 20px); line-height: 1.5; color: #666; margin: 0 0 clamp(24px, 5vw, 32px) 0;">
-                    Aprenda inglês conversando sobre o que você ama, direto no WhatsApp, com o método baseado na ciência de aprendizado rápido usando IA.
-                </p>
-    
-                <!-- CTA Button -->
-                <a href="https://api.whatsapp.com/send?phone=554891399156&text=Fala%20MyFriend!%20Achei%20voc%C3%AA%20no%20Google%20e%20quero%20aprender%20ingl%C3%AAs%20contigo.%20Meu%20c%C3%B3digo%20de%20TESTE%20GRÁTIS%20é:%20*FREEBROTHER*" 
-                id="cta-button-link" 
-                target="_blank" 
-                rel="noopener" 
-                style="display: inline-block; background: #25D366; color: white; padding: clamp(14px, 3vw, 16px) clamp(24px, 5vw, 32px); border-radius: 12px; text-decoration: none; font-weight: 600; font-size: clamp(16px, 3vw, 18px); transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(37,211,102,0.25);">
-                Teste Grátis no WhatsApp ➜
-                </a>
+        <div class="container">
+            <!-- Logo + Brand -->
+            <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
+                 alt="MyFriend Logo"
+                 class="brand-logo">
+            <p style="font-family: 'Fredoka One', cursive; color: #FFD700; text-align: center; font-size: clamp(0.8rem, 2vw, 1rem);">
+                MyFriend®
+            </p>
+            
+            <!-- Main Content -->
+            <h1 class="main-title">
+                Inglês fluente <span class="highlight">com 5 min/dia</span> <br><em>(é só o que você precisa mesmo)</em>
+            </h1>
+            <p class="subtitle" style="color: #d5d5d5;">
+                Aprenda inglês Conversando Sobre o Que Você Ama <br><u>(Ou Devolvemos 2x seu Dinheiro)</u> 
+            </p>
 
-    
-                <!-- Social Proof -->
-                <div style="margin-top: clamp(16px, 4vw, 24px); font-size: clamp(13px, 2.5vw, 15px); color: #666;">
-                    1.847 pessoas conversando agora
+            <a href="https://api.whatsapp.com/send?phone=554891399156&text=Fala%20MyFriend!%20Achei%20voc%C3%AA%20no%20Google%20e%20quero%20aprender%20ingl%C3%AAs%20contigo.%20Meu%20c%C3%B3digo%20de%20TESTE%20GRÁTIS%20é:%20*FREEBROTHER*" id="cta-button-link" target="_blank" rel="noopener">
+                <button id="free_trial_button" class="cta-button">
+                    TESTE GRÁTIS NO WHATSAPP -->
+                </button>
+            </a>
+            
+
+
+            <!-- Trust Badges -->
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <h3 class="trust-number">1.287+</h3>
+                    <p class="trust-text">Profissionais transformados em cidadãos globais</p>
+                </div>
+                <div class="trust-card">
+                    <h3 class="trust-number">5.0 <br>★★★★</h3>
+                    <p class="trust-text">Avaliado no Google Reviews</p>
+                </div>
+                <div class="trust-card">
+                    <h3 class="trust-number">#1</h3>
+                    <p class="trust-text">Eleita melhor IA de Idiomas do Brasil em 2024 <br><br> <em>(Pelo especialista nº1 em IA no Brasil)</em></p>
                 </div>
             </div>
-    
-            <!-- Coluna Direita (Chat WhatsApp) -->
-            <div style="flex: 1 1 min(100%, 460px); order: 2;">
-                <!-- Card do Chat -->
-                <div style="width: 100%; background: white; border-radius: clamp(16px, 4vw, 24px); box-shadow: 0 24px 48px rgba(0,0,0,0.12); overflow: hidden;">
-                    
-                    <!-- Header do Chat -->
-                    <div style="padding: clamp(12px, 3vw, 16px); background: #075E54; display: flex; align-items: center; gap: 12px;">
-                        <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" 
-                             alt="MyFriend" 
-                             style="width: clamp(40px, 8vw, 48px); height: clamp(40px, 8vw, 48px); border-radius: 50%; object-fit: cover;">
-                        <div style="color: white;">
-                            <div style="font-size: clamp(16px, 3vw, 18px); font-weight: 600;">MyFriend</div>
-                            <div style="font-size: clamp(12px, 2.5vw, 13px); opacity: 0.8;">online</div>
-                        </div>
-                    </div>
-    
-                    <!-- Área de Mensagens -->
-                    <div style="padding: clamp(16px, 4vw, 20px); background: #ECE5DD; min-height: clamp(300px, 60vw, 360px); display: flex; flex-direction: column; gap: 12px;">
-                        <!-- Mensagem do Usuário -->
-                        <div style="display: flex; justify-content: flex-end;">
-                            <div style="background: #DCF8C6; padding: clamp(10px, 3vw, 12px) clamp(12px, 3vw, 16px); border-radius: 12px; max-width: 80%; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
-                                <div style="font-size: clamp(14px, 2.8vw, 15px); color: #111;">Fala MyFriend! Achei você no Google e quero aprender inglês contigo.</div>
-                                <div style="font-size: clamp(10px, 2vw, 11px); color: #667781; text-align: right; margin-top: 4px;">20:48</div>
-                            </div>
-                        </div>
-    
-                        <!-- Mensagem do MyFriend -->
-                        <div style="display: flex; justify-content: flex-start;">
-                            <div style="background: white; padding: clamp(10px, 3vw, 12px) clamp(10px, 3vw, 16px); border-radius: 12px; max-width: 85%; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
-                                <div style="font-size: clamp(14px, 2.8vw, 15px); color: #111;">Opa big boss, que bom que vc deu as caras. Chegou a hora de você parar de perder oportunidades por causa do inglês, né?</div>
-                                <div style="font-size: clamp(10px, 2vw, 11px); color: #667781; text-align: right; margin-top: 4px;">20:48</div>
-                            </div>
-                        </div>
-                        <div style="display: flex; justify-content: flex-start;">
-                            <div style="background: white; padding: clamp(10px, 3vw, 12px) clamp(10px, 3vw, 16px); border-radius: 12px; max-width: 85%; box-shadow: 0 1px 2px rgba(0,0,0,0.1);">
-                                <div style="font-size: clamp(14px, 2.8vw, 15px); color: #111;">Let's get started, me conta, o que você gosta de fazer e conversar?</div>
-                                <div style="font-size: clamp(10px, 2vw, 11px); color: #667781; text-align: right; margin-top: 4px;">20:48</div>
-                            </div>
-                        </div>
-                        
-                    </div>
-    
-                </div>
-            </div>
-    
         </div>
     </section>
 
 
-    <!-- Seção Seu Amigo Gringo -->
+    <!-- Cansou de apps de inglês chatos.. -->
     <section style="background-color: #fff; padding: 4rem 1rem; text-align: center; overflow: hidden; position: relative;">
-            <!-- Efeito Visual (Bolhas) -->
-            <div style="position: absolute; top: -20%; left: -20%; width: 40%; height: 40%; background: radial-gradient(circle, rgba(255,215,0,0.2) 10%, transparent 40%); filter: blur(30px); pointer-events: none; transform: translateZ(0);"></div>
-            <div style="position: absolute; bottom: -20%; right: -20%; width: 40%; height: 40%; background: radial-gradient(circle, rgba(255,215,0,0.2) 10%, transparent 40%); filter: blur(30px); pointer-events: none; transform: translateZ(0);"></div>
-            
-            <div style="max-width: 1140px; margin: 0 auto; padding: 0 1rem; position: relative; z-index: 1;">
-                <h2 class="main-title" style="font-size: clamp(2rem, 8vw, 3rem); font-weight: bold; color: #222; margin-bottom: 1.5rem;">
-                    Seu Amigo Gringo no WhatsApp Que Entende Seus Assuntos e Te Faz Dar Risada Enquanto Você Aprende Inglês.
-                </h2>
-                <p style="font-size: clamp(1rem, 3vw, 1.2rem); color: #666; margin-bottom: 2rem; ">
-                Hackeie o ensino ultrapassado e conquiste confiança em 3 meses com o nosso método de aprendizado que é divertido e fácil de entender. 
+    
+        <!-- Efeito Visual (Bolhas) -->
+        <div style="position: absolute; top: -20%; left: -20%; width: 40%; height: 40%; background: radial-gradient(circle, rgba(255,215,0,0.2) 10%, transparent 40%); filter: blur(30px); pointer-events: none; transform: translateZ(0);"></div>
+        <div style="position: absolute; bottom: -20%; right: -20%; width: 40%; height: 40%; background: radial-gradient(circle, rgba(255,215,0,0.2) 10%, transparent 40%); filter: blur(30px); pointer-events: none; transform: translateZ(0);"></div>
+        
+        <div style="max-width: 1140px; margin: 0 auto; padding: 0 1rem; position: relative; z-index: 1;">
+            <h2 class="main-title" style="font-size: clamp(2rem, 8vw, 3rem); font-weight: bold; color: #222; margin-bottom: 1.5rem;">
+                Cansou de perder tempo com <span class="highlight" style="color: #ffae00; background: none;">apps gratuitos?</span> <br><br> Aqueles que você baixa, 
+                 <span class="highlight" style="color: #ffae00; background: none;">usa por 3 dias</span> e abandona?
+            </h2>
+            <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/1.jpg" alt="Cansado de apps de inglês" style="width: 100%; max-width: 800px; margin: 0.1rem auto; display: block; border-radius: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease; transform: translateY(0); margin-top: 2rem;"
+                onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'">
+                <p style="font-style: italic; color: #777; margin-top: 0.1rem; font-size: 0.9rem; display: block; justify-content: center; text-align: center;">
+                    114 dias de ofensiva... e ainda sem falar inglês</u>
                 </p>
-                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Case%203.jpg" alt="Demonstração MyFriend" style="width: 100%; max-width: 400px; margin: 0.1rem auto; display: block; border-radius: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease; transform: translateY(0);"
-                    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'"
-                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'">
             </div>
+           <h2 class="main-title" style="font-size: clamp(1.8rem, 6vw, 2.5rem); color: #333; font-weight: bold; margin-top: 3rem; margin-bottom: 1rem;">
+            A gente sabe <span class="highlight" style="color: #ffae00; background: none;">exatamente</span>  como é.<br><br>
+            </h2>
+
+            <p style=" color: #000000; margin-top: 1rem; font-size: 1.4rem; display: block; justify-content: center; text-align: center;">
+                Já baixamos todos os apps gratuitos <b>possíveis.</b> <br><br> E depois de meses, <b>continuamos sem falar inglês.</b>
+            </p>
+             <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/2.jpg" alt="A gente te entende" style="width: 100%; max-width: 500px; margin: 2rem auto; display: block; transition: transform 0.3s ease; transform: translateY(0);"
+                >
+    
+            <h3 style="font-size: clamp(1.5rem, 5vw, 2rem); color: #444; font-weight: 600; margin-top: 3rem; margin-bottom: 1rem;">
+                E se aprender inglês fosse como fazer um <span class="highlight" style="color: #FFD700; background: none;">amigo gringo pra trocar ideia</span> no WhatsApp?
+            </h3>
+           <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/3.jpg" alt="E se aprender inglês fosse como fazer um amigo gringo" style="width: 100%; max-width: 500px; margin: 2rem auto; display: block; border-radius: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease; transform: translateY(0);"
+                onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)'"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'">
+    
+            <h2 class="main-title" style="font-size: clamp(1.8rem, 6vw, 2.5rem); color: #222; font-weight: bold; margin-top: 3rem; margin-bottom: 1.5rem;">
+                Apresentamos o <span class="highlight" style="color: #FFD700; background: none;">MyFriend</span>: Seu amigo gringo no WhatsApp que te ajuda a <span class="highlight" style="color: #FFD700; background: none;">destravar o inglês em 90 dias</span> 
+            </h2>
+            <p style="font-style: italic; color: #777; margin-top: 1rem; font-size: 1.2rem; display: flex; justify-content: center; text-align: center;">
+                (enquanto conversa e dá risada)
+            </p>
+    
+    
+            <div style="display: block; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; align-items: center;">
+                    <div style="display: flex; justify-content: center;">
+                        <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/4.jpg" alt="Seu amigo gringo 24/7 no whats" style="width: 100%; max-width: 400px; border-radius: 1rem; transition: transform 0.3s ease; transform: translateY(0);"
+                        >
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                       <img src="https://github.com/MyFriend-ai/MyFriend/blob/main/assets/images/landing-pages/5.jpg?raw=true" alt="MyFriend App" style="width: 100%; max-width: 400px; border-radius: 1rem; transition: transform 0.3s ease; transform: translateY(0);"
+                        >
+                    </div>
+            </div>
+    
+            <!-- Botão chamativo -->
+            <a href="https://api.whatsapp.com/send?phone=554891399156&text=Fala%20MyFriend!%20Achei%20voc%C3%AA%20no%20Google%20e%20quero%20aprender%20ingl%C3%AAs%20contigo.%20Meu%20c%C3%B3digo%20de%20TESTE%20GRÁTIS%20é:%20*FREEBROTHER*" id="cta-button-link" target="_blank" rel="noopener">
+                <button id="free_trial_button" class="cta-button">
+                    TESTE GRÁTIS NO WHATSAPP -->
+                </button>
+            </a>
+    
+            <p style="font-style: italic; color: #777; margin-top: 1rem; font-size: 0.9rem;">
+                Apenas R$ 1,30 por dia - cancele quando quiser
+            </p>
+    
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section style="background: linear-gradient(135deg, #111 0%, #222 100%); padding: 4rem 0.5rem; position: relative; overflow: hidden; text-align: center;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.1) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
+        <h2 style="color: #ffffff; font-size: 1.55rem; font-weight: 800; margin-bottom: 1rem;">APRENDIZADO <span class="highlight">DE VERDADE</span> 8X MAIS RÁPIDO*</h2>
+        <div style="max-width: 1024px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <!-- Card 1 -->
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 0.5rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/6.jpg" alt="Depoimento 1" style="width: 100%; border-radius: 1rem; margin-bottom: 1rem; max-width: 400px;">
+                
+            </div>
+            <!-- Card 2 -->
+            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 0.5rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/1.jpg" alt="Depoimento 2" style="width: 100%; border-radius: 1rem; margin-bottom: 1rem; max-width: 400px;">
+                
+            </div>
+            
+        </div>
+        <p style="font-style: italic; color: #777; margin-top: 1rem; font-size: 0.9rem; display: block; justify-content: center; text-align: center;">
+            *Fizemos uma pesquisa extensiva com nossos alunos e comprovamos: Aprender por imersão (conversando) gerou <u>alunos confiantes em menos de 90 dias.</u>
+        </p>
     </section>
 
 
 
-    <!-- ❌ Como funciona essa mágica? -->
-    <section style="display: none; "background-color: #fff; padding: 4rem 1rem; overflow: hidden; position: relative; @media (min-width: 768px) {padding-left: 15rem; padding-right: 15rem;}">
+    <!-- Como funciona essa mágica? -->
+    <section style="background-color: #fff; padding: 4rem 1rem; overflow: hidden; position: relative; @media (min-width: 768px) {padding-left: 15rem; padding-right: 15rem;}">
     
         <!-- Linha de separação -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, rgba(255,193,7,0.2) 0%, rgba(255,193,7,1) 50%, rgba(255,193,7,0.2) 100%);"></div>
@@ -549,7 +521,7 @@
                   <span style="display: inline; color: initial; text-shadow: none; filter: none;">🧑‍🔬</span>
                   A Ciência Comprova:<br><br>
                 </span> 
-                Aprender Conversando sobre <u style="text-decoration: underline; text-decoration-color: black;">o que Você Gosta</u> é a 
+                Aprender Conversando sobre <u style="text-decoration: underline; text-decoration-color: black;">Seus Interesses</u> é a 
                 <span class="highlight" style="color: #FFD700; background: none;">Forma Mais Fácil e Rápida</span> de Dominar um Idioma*
             </h2>
             
@@ -560,12 +532,14 @@
                 <!-- Pense Nisso -->
                 <div style="text-align: left;">
                     <h3 style="font-size: clamp(1.7rem, 5vw, 2.2rem); font-weight: bold; margin-bottom: 1.5rem;">Pense Nisso:</h3>
-                    
                     <p style="color: #ddd; line-height: 1.6; font-size: 1.1rem; margin-bottom: 1rem;">
-                        Por que a maioria dos cursos <b>insiste em anos de gramática e "Verb to Be"?</b>
+                    Quem já fez <b>intercâmbio</b> sabe: <b>imersão</b> é o <b>caminho mais rápido</b> para aprender um idioma.
                     </p>
                     <p style="color: #ddd; line-height: 1.6; font-size: 1.1rem; margin-bottom: 1rem;">
-                        Simples: <b> <span style="color:#ffcc00">é mais lucrativo manter você matriculado por 5 anos.</span></b>
+                        Então por que a maioria dos cursos <b>insiste em anos de gramática e "Verb to Be"?</b>
+                    </p>
+                    <p style="color: #ddd; line-height: 1.6; font-size: 1.1rem; margin-bottom: 1rem;">
+                        Simples: <b> <span style="color:#ffcc00">é lucrativo manter você matriculado por 5 anos.</span></b>
                     </p>
                     <p style="color: #ddd; line-height: 1.6; font-size: 1.1rem; margin-bottom: 1rem;">
                     <br>E os <b><span style="color:#ffcc00">apps gratuitos?</span></b> Seja sincero: <br><br>Você conhece alguém que ficou <b><span style="color:#ffcc00">fluente repetindo frases prontas?</span></b>
@@ -584,10 +558,10 @@
                     </div>
                     
                     <p style="color: #ddd; line-height: 1.6; font-size: 1.1rem; margin-bottom: 1rem;">
-                    Para criar seu primeiro "<b>Best Friend Gringo</b>" virtual.
+                    para criar seu primeiro "<b>Best Friend Gringo</b>" virtual.
                     </p>
                     <p style="color: #ddd; line-height: 1.6; font-size: 1.1rem; margin-bottom: 1rem;">
-                        <em>Você conversa sobre seus filmes, séries, trabalho e aprende 8x mais rápido!</em>
+                        <em>Você pratica e aprende <b>enquanto dá risada</b> e fala do que já conhece.</em>
                     </p>
                     <p style="color: #ffcc01; line-height: 1.6; font-size: 2.1rem; margin-bottom: 1.5rem;">
                         <b>Resultado?</b> 
@@ -616,31 +590,8 @@
         </section>
     </div>
 
-     <!-- ❌ TESTIMONIALS SECTION -->
-     <section style="display: none; background: linear-gradient(135deg, #111 0%, #222 100%); padding: 4rem 0.5rem; position: relative; overflow: hidden; text-align: center;">
-        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(250, 204, 21, 0.1) 0%, rgba(0,0,0,0) 70%); pointer-events: none;"></div>
-        <h2 style="color: #ffffff; font-size: 1.55rem; font-weight: 800; margin-bottom: 1rem;">APRENDIZADO <span class="highlight">DE VERDADE</span> 8X MAIS RÁPIDO*</h2>
-        <div style="max-width: 1024px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-            <!-- Card 1 -->
-            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 0.5rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/6.jpg" alt="Depoimento 1" style="width: 100%; border-radius: 1rem; margin-bottom: 1rem; max-width: 400px;">
-                
-            </div>
-            <!-- Card 2 -->
-            <div style="background: rgba(255, 255, 255, 0.05); border-radius: 1.5rem; padding: 0.5rem; border: 1px solid rgba(250, 204, 21, 0.2); transition: all 0.3s; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 20px rgba(250, 204, 21, 0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/reviews/1.jpg" alt="Depoimento 2" style="width: 100%; border-radius: 1rem; margin-bottom: 1rem; max-width: 400px;">
-                
-            </div>
-            
-        </div>
-        <p style="font-style: italic; color: #777; margin-top: 1rem; font-size: 0.9rem; display: block; justify-content: center; text-align: center;">
-            *Fizemos uma pesquisa extensiva com nossos alunos e comprovamos: Aprender por imersão (conversando) gerou <u>alunos confiantes em menos de 90 dias.</u>
-        </p>
-    </section>
-
-
-    <!-- ❌ Seção 3 testimonials -->
-    <section style="display: none; background-color: #fff; padding: 4rem 1rem; overflow: hidden; position: relative;">
+    <!-- Aprender inglês nunca foi tão divertido -->
+    <section style="background-color: #fff; padding: 4rem 1rem; overflow: hidden; position: relative;">
     
         <!-- Linha de separação -->
        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, rgba(255,193,7,0.2) 0%, rgba(255,193,7,1) 50%, rgba(255,193,7,0.2) 100%);"></div>
@@ -682,8 +633,8 @@
    </section>
 
 
-    <!-- ❌ E o resultado? -->
-    <section style="display: none; background: linear-gradient(135deg, #111 0%, #222 100%); padding: 4rem 1rem; color: white; position: relative; overflow: hidden;">
+    <!-- E o resultado? -->
+    <section style="background: linear-gradient(135deg, #111 0%, #222 100%); padding: 4rem 1rem; color: white; position: relative; overflow: hidden;">
     
         <!-- Linha de separação -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, rgba(255,193,7,0.2) 0%, rgba(255,193,7,1) 50%, rgba(255,193,7,0.2) 100%);"></div>
@@ -768,7 +719,7 @@
         <div style="max-width: 1140px; margin: 0 auto; padding: 0 10rem; position: relative; z-index: 1;">
             
             <h2 class="main-title" style="font-size: clamp(2rem, 7vw, 3rem); font-weight: bold; color: #222; text-align: center; margin-bottom: 3rem;">
-               Por que o método MyFriend <span class="highlight" style="color: #FFD700; background: none;">é diferente?</span>
+               Mas esse método MyFriend <span class="highlight" style="color: #FFD700; background: none;">Vale a Pena</span> MESMO?
             </h2>
     
            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
@@ -1534,8 +1485,7 @@
     </script>
 
     
-
-    <!-- Script CSS mobile DA PRICING SECTION -->
+    <!-- Script CSS DA PRICING SECTION -->
     <script>
         // Get the div element
         const div = document.querySelector('div[style*="background: rgba(250, 204, 21, 0.1)"]');
@@ -1553,8 +1503,6 @@
         window.addEventListener('load', adjustPadding);
         window.addEventListener('resize', adjustPadding);
     </script>
-
-    
 
     <!-- Script Para Preservar UTMs ao clicar nos botoes -->
     <script>
