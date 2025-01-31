@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Personalizado - Fluência em Inglês</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Roboto', sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);">
+    
+  <div style="display: flex; justify-content: flex-start; align-items: center; width: 90%; max-width: 600px; margin-top: 20px; margin-bottom: 20px;">
+        <img src="https://raw.githubusercontent.com/MyFriend-ai/MyFriend/refs/heads/main/assets/images/landing-pages/Logo%20MyFriend%20-%20LOW.png" alt="Logo MyFriend" style="height: 30px;">
+    </div>
+  
+  
+    <div id="quiz-container" style="width: 90%; max-width: 600px; background-color: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); overflow: hidden; transition: all 0.3s ease;">
+         <h1 id="main-title" style="font-size: 28px; margin-bottom: 20px; text-align: center; color: #333;">Plano Personalizado - Fluência em Inglês</h1>
+        <p style="text-align: center; color: #777; margin-bottom: 30px;">O questionário leva um minuto. ⏱️</p>
+        
+        <!-- Etapa 1: Gênero -->
+        <div class="step" id="step-1" style="display: block; margin-bottom: 30px; opacity: 1; transform: translateY(0); transition: all 0.5s ease;">
+            <h2 style="font-size: 20px; margin-bottom: 20px; color: #333; text-align:center;">Opções de Gênero</h2>
+             <div style="display: flex; justify-content: center; gap: 20px;">
+                <button onclick="nextStep(2)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center; transition: background-color 0.3s ease;  box-shadow: 0 2px 4px rgba(0,0,0,0.1);  font-size:16px; font-weight:bold; color: #444;">
+                    <img src="https://images.tcdn.com.br/img/img_prod/647611/oculos_de_sol_masculino_rustico_quadrado_mackage_5063_variacao_4809_4_1f40571d1351c93aaf13b3325a622989.jpg" alt="Homem" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px;  transition: transform 0.3s ease;">
+                    <span style="font-weight: bold;">Homem</span>
+                 
+                  </button>
+                <button onclick="nextStep(2)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: center; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size:16px; font-weight:bold; color: #444;">
+                   <img src="https://acdn.mitiendanube.com/stores/925/127/products/fcf28d88-aa97-4f1b-b1bb-448b1e049ee31-80f40e05e89f292f0c16781515966005-640-0.jpeg" alt="Mulher" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; transition: transform 0.3s ease;">
+                    <span style="font-weight: bold;">Mulher</span>
+                     
+                </button>
+            </div>
+            <p style="font-size: 12px; color: #999; text-align: center; margin-top: 15px;">
+                Ao clicar, você concorda com os 
+                <a href="https://myfriend.app.br/pgs/legal/privacy-policy" style="color: #3498db; text-decoration: none;">termos</a>.
+              </p>
+        </div>
+
+        <!-- Etapa 2: Nível de Inglês -->
+        <div class="step" id="step-2" style="display: none; margin-bottom: 30px; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
+             <h2 style="font-size: 20px; margin-bottom: 20px; color: #333;">Como está seu inglês atualmente? 🤔</h2>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                 <button onclick="nextStep(3)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);  text-align: left; font-size:16px; color: #444;">Começando do zero <span style="float: right; font-size:20px;">></span></button>
+                <button onclick="nextStep(3)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);  text-align: left; font-size:16px; color: #444;">Básico <span style="float: right; font-size:20px;">></span></button>
+                <button onclick="nextStep(3)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);  text-align: left; font-size:16px; color: #444;">Intermediário <span style="float: right; font-size:20px;">></span></button>
+                <button onclick="nextStep(3)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);  text-align: left; font-size:16px; color: #444;">Entendo bem, mas travo ao falar <span style="float: right; font-size:20px;">></span></button>
+            </div>
+        </div>
+        
+         <!-- Etapa 3: Morar no exterior -->
+        <div class="step" id="step-3" style="display: none; margin-bottom: 30px; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
+             <h2 style="font-size: 20px; margin-bottom: 20px; color: #333;">Concorda com a seguinte afirmação? 🌍</h2>
+            <p style="margin-bottom:20px; font-size:16px; color:#444;">"Para se tornar fluente de verdade, só morando no exterior"</p>
+             <div style="display: flex; flex-direction: column; gap: 15px;">
+                <button onclick="nextStep(4)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Discordo totalmente <span style="float: right; font-size:20px;">></span></button>
+                <button onclick="nextStep(4)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Discordo um pouco <span style="float: right; font-size:20px;">></span></button>
+                <button onclick="nextStep(4)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Concordo um pouco <span style="float: right; font-size:20px;">></span></button>
+                 <button onclick="nextStep(4)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Concordo plenamente <span style="float: right; font-size:20px;">></span></button>
+            </div>
+        </div>
+
+         <!-- Etapa 4: Por que quer aprender -->
+        <div class="step" id="step-4" style="display: none; margin-bottom: 30px; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
+             <h2 style="font-size: 20px; margin-bottom: 20px; color: #333;">Por que você quer aprender inglês? 🚀</h2>
+              <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <button onclick="nextStep(5)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Viagem ✈️ <span style="float: right; font-size:20px;">></span></button>
+                 <button onclick="nextStep(5)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Trabalho 💼 <span style="float: right; font-size:20px;">></span></button>
+                 <button onclick="nextStep(5)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Estudos 📚 <span style="float: right; font-size:20px;">></span></button>
+                 <button onclick="nextStep(5)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Sonho ✨ <span style="float: right; font-size:20px;">></span></button>
+            </div>
+        </div>
+        
+        <!-- Etapa 5: Dificuldade -->
+        <div class="step" id="step-5" style="display: none; margin-bottom: 30px; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
+           <h2 style="font-size: 20px; margin-bottom: 20px; color: #333;">Qual a maior dificuldade que você tem com o aprendizado de inglês? 🤔</h2>
+              <div style="display: flex; flex-direction: column; gap: 15px;">
+                 <button onclick="nextStep(6)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Falta de tempo ⏰ <span style="float: right; font-size:20px;">></span></button>
+                 <button onclick="nextStep(6)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Dificuldade em gramática ✍️ <span style="float: right; font-size:20px;">></span></button>
+                 <button onclick="nextStep(6)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Fala travada 🗣️ <span style="float: right; font-size:20px;">></span></button>
+                  <button onclick="nextStep(6)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Entender a fala nativa 🎧 <span style="float: right; font-size:20px;">></span></button>
+             </div>
+        </div>
+         
+         <!-- Etapa 6: Tempo de estudo -->
+        <div class="step" id="step-6" style="display: none; margin-bottom: 30px; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
+            <h2 style="font-size: 20px; margin-bottom: 20px; color: #333;">Quanto tempo você consegue dedicar por dia para estudar inglês? ⏳</h2>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <button onclick="nextStep(7)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Menos de 15 minutos <span style="float: right; font-size:20px;">></span></button>
+                <button onclick="nextStep(7)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">De 30 minutos a uma hora <span style="float: right; font-size:20px;">></span></button>
+                <button onclick="nextStep(7)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Mais de uma hora <span style="float: right; font-size:20px;">></span></button>
+           </div>
+        </div>
+        
+         <!-- Etapa 7: Já estudou antes? -->
+         <div class="step" id="step-7" style="display: none; margin-bottom: 30px; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
+             <h2 style="font-size: 20px; margin-bottom: 20px; color: #333;">Já estudou em métodos tradicionais antes? 🤓</h2>
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <button onclick="nextStep(8)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Nunca <span style="float: right; font-size:20px;">></span></button>
+                <button onclick="nextStep(8)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Sim, mas não terminei <span style="float: right; font-size:20px;">></span></button>
+               <button onclick="nextStep(8)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Sim, e já me formei <span style="float: right; font-size:20px;">></span></button>
+                 <button onclick="nextStep(8)" style="background-color: #f0f0f0; border: none; padding: 15px 25px; border-radius: 10px; cursor: pointer; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: left; font-size:16px; color: #444;">Sim, mas em cursos online ou de professores de Instagram <span style="float: right; font-size:20px;">></span></button>
+            </div>
+        </div>
+        
+         <!-- Etapa 8: Botão final -->
+        <div class="step" id="step-8" style="display: none; text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
+             <button onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')" style="background-color: #2ecc71; color: white; border: none; padding: 18px 35px; border-radius: 12px; cursor: pointer; font-size: 20px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.2s ease, box-shadow 0.2s ease;  display: inline-block; animation: pulse 1.5s infinite;">
+                🎬 VÍDEO PERSONALIZADO
+            </button>
+        </div>
+         <div style="font-size: 12px; color: #999; text-align: center; margin-top: 20px; padding-bottom: 20px;">
+            MyFriend® - 2024. All rights reserved.
+          </div>
+    </div>
+    <script>
+        let currentStep = 1;
+
+        function nextStep(step) {
+            const currentElement = document.getElementById('step-' + currentStep);
+             currentElement.style.opacity = 0;
+              currentElement.style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                 currentElement.style.display = 'none';
+                 const nextElement =  document.getElementById('step-' + step);
+                 nextElement.style.display = 'block';
+                 setTimeout(() => {
+                  nextElement.style.opacity = 1;
+                   nextElement.style.transform = 'translateY(0)';
+                 }, 10)
+
+                   currentStep = step;
+                   document.getElementById('main-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            },300)
+
+
+        }
+    </script>
+      <style>
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        50% {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        100% {
+            transform: scale(1);
+             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    }
+
+    .step button:hover {
+      background-color: #e0e0e0;
+      transform: scale(1.02);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .step button img:hover {
+       transform: scale(1.05);
+    }
+
+</style>
+
+</body>
+</html>
